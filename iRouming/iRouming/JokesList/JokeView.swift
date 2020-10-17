@@ -14,19 +14,8 @@ struct JokeView: View {
 
 	var body: some View {
 		VStack(alignment: .leading, spacing: 0) {
-			HStack(spacing: 4) {
-				DateView(date: joke.date)
-				NewItemView()
-				Spacer()
-				Text(joke.category)
-					.foregroundColor(.textGray)
-					.font(.system(size: 11))
-			}
-			Text(joke.name)
-				.foregroundColor(.textBlack)
-				.font(.system(size: 17, weight: .bold))
-				.lineLimit(nil)
-				.padding(.top, 4)
+
+			HeaderView(headerData: joke.headerData)
 
 			Text(joke.text)
 				.foregroundColor(.textBlack)

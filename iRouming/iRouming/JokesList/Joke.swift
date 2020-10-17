@@ -27,6 +27,10 @@ struct Joke: Decodable {
 	let id: Int
 	let rating: Int
 
+	var headerData: HeaderData {
+		return HeaderData(date: date, isNew: true, name: name, category: category)
+	}
+
 	init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 

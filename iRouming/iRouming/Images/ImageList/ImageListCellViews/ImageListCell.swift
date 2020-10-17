@@ -24,7 +24,7 @@ struct ImageListCell: View {
 	var body: some View {
 		VStack(spacing: 0) {
 
-			ImageListCellHeaderView(roumingImage: image)
+			HeaderView(headerData: image.headerData)
 
 			WebImage(url: URL(string: image.urlImage))
 				// Supports options and context, like `.delayPlaceholder` to show placeholder only when error

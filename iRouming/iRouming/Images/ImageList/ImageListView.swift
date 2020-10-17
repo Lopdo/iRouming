@@ -29,10 +29,8 @@ struct ImageListView: View {
 						ForEach(0..<interactor.images.count) { index in
 							ImageListCell(image: interactor.images[index])
 								.onTapGesture {
-									//TODO: fix index
 									selectedIndex = index
 									isShowingDetailView = true
-									print("tap2", selectedIndex)
 								}.padding(.bottom, 12)
 						}
 					}
@@ -51,6 +49,13 @@ struct ImageListView: View {
 		})
 	}
 
+}
+
+extension View {
+	func Print(_ vars: Any...) -> some View {
+		for v in vars { print(v) }
+		return EmptyView()
+	}
 }
 
 extension ImageListView {

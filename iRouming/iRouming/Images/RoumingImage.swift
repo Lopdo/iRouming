@@ -34,6 +34,10 @@ struct RoumingImage: Decodable {
 	let dislikes: Int
 	let date: Date
 
+	var headerData: HeaderData {
+		return HeaderData(date: date, isNew: true, name: name, category: nil)
+	}
+
 	init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 

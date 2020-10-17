@@ -11,7 +11,6 @@
 		F4206D3922C7621800F37DD3 /* ImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4206D3822C7621700F37DD3 /* ImageService.swift */; };
 		F4206D3B22C7654000F37DD3 /* ImageListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4206D3A22C7654000F37DD3 /* ImageListCell.swift */; };
 		F444E445253994BD00CB8571 /* DateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F444E444253994BD00CB8571 /* DateView.swift */; };
-		F46A51C122EAED7D00DA5821 /* ImageListCellHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46A51C022EAED7D00DA5821 /* ImageListCellHeaderView.swift */; };
 		F46A51C322EAF12100DA5821 /* NewItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46A51C222EAF12100DA5821 /* NewItemView.swift */; };
 		F46A51C522EB11B600DA5821 /* ImageListCellFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46A51C422EB11B600DA5821 /* ImageListCellFooterView.swift */; };
 		F46F57912513FAA700DC3B28 /* AppearanceUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46F57902513FAA700DC3B28 /* AppearanceUtil.swift */; };
@@ -25,6 +24,7 @@
 		F4913077253048F800ECED5E /* RefreshableScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4913076253048F800ECED5E /* RefreshableScrollView.swift */; };
 		F491307C2530695900ECED5E /* RefreshableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F491307B2530695900ECED5E /* RefreshableView.swift */; };
 		F4962F8B251F667100EADE2D /* ImageGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4962F8A251F667100EADE2D /* ImageGridView.swift */; };
+		F49D7041253AE5F300AA9FC6 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49D7040253AE5F300AA9FC6 /* HeaderView.swift */; };
 		F4A852BE22C77BD70006C269 /* ImageDetailScrollableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A852BD22C77BD70006C269 /* ImageDetailScrollableView.swift */; };
 		F4A852C022C78AC80006C269 /* ImageDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A852BF22C78AC80006C269 /* ImageDetailCell.swift */; };
 		F4B749EB2502727F0063CDA9 /* ImageListCellFooterRatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B749EA2502727F0063CDA9 /* ImageListCellFooterRatingView.swift */; };
@@ -60,7 +60,6 @@
 		F4206D3822C7621700F37DD3 /* ImageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageService.swift; sourceTree = "<group>"; };
 		F4206D3A22C7654000F37DD3 /* ImageListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageListCell.swift; sourceTree = "<group>"; };
 		F444E444253994BD00CB8571 /* DateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateView.swift; sourceTree = "<group>"; };
-		F46A51C022EAED7D00DA5821 /* ImageListCellHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageListCellHeaderView.swift; sourceTree = "<group>"; };
 		F46A51C222EAF12100DA5821 /* NewItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewItemView.swift; sourceTree = "<group>"; };
 		F46A51C422EB11B600DA5821 /* ImageListCellFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageListCellFooterView.swift; sourceTree = "<group>"; };
 		F46F57902513FAA700DC3B28 /* AppearanceUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppearanceUtil.swift; sourceTree = "<group>"; };
@@ -74,6 +73,7 @@
 		F4913076253048F800ECED5E /* RefreshableScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshableScrollView.swift; sourceTree = "<group>"; };
 		F491307B2530695900ECED5E /* RefreshableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshableView.swift; sourceTree = "<group>"; };
 		F4962F8A251F667100EADE2D /* ImageGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageGridView.swift; sourceTree = "<group>"; };
+		F49D7040253AE5F300AA9FC6 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		F4A852BD22C77BD70006C269 /* ImageDetailScrollableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDetailScrollableView.swift; sourceTree = "<group>"; };
 		F4A852BF22C78AC80006C269 /* ImageDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDetailCell.swift; sourceTree = "<group>"; };
 		F4B749EA2502727F0063CDA9 /* ImageListCellFooterRatingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageListCellFooterRatingView.swift; sourceTree = "<group>"; };
@@ -131,6 +131,7 @@
 			children = (
 				F46A51C222EAF12100DA5821 /* NewItemView.swift */,
 				F444E444253994BD00CB8571 /* DateView.swift */,
+				F49D7040253AE5F300AA9FC6 /* HeaderView.swift */,
 			);
 			path = SharedViews;
 			sourceTree = "<group>";
@@ -138,7 +139,6 @@
 		F46A51BF22EAED6400DA5821 /* ImageListCellViews */ = {
 			isa = PBXGroup;
 			children = (
-				F4B749EE250279B30063CDA9 /* Header */,
 				F4B749E92502724A0063CDA9 /* Footer */,
 				F4206D3A22C7654000F37DD3 /* ImageListCell.swift */,
 			);
@@ -212,14 +212,6 @@
 				F46A51C422EB11B600DA5821 /* ImageListCellFooterView.swift */,
 			);
 			path = Footer;
-			sourceTree = "<group>";
-		};
-		F4B749EE250279B30063CDA9 /* Header */ = {
-			isa = PBXGroup;
-			children = (
-				F46A51C022EAED7D00DA5821 /* ImageListCellHeaderView.swift */,
-			);
-			path = Header;
 			sourceTree = "<group>";
 		};
 		F4C94DDF22D8A97D0068F40E /* JokesList */ = {
@@ -405,6 +397,7 @@
 				F444E445253994BD00CB8571 /* DateView.swift in Sources */,
 				F4206D3922C7621800F37DD3 /* ImageService.swift in Sources */,
 				F4A852C022C78AC80006C269 /* ImageDetailCell.swift in Sources */,
+				F49D7041253AE5F300AA9FC6 /* HeaderView.swift in Sources */,
 				F4B749ED250272DC0063CDA9 /* ImageListCellFooterRatingLoggedInView.swift in Sources */,
 				F46F57952514AB1D00DC3B28 /* Color+AssetCatalog.swift in Sources */,
 				F4C94E0C22D9D3440068F40E /* ForumDataManager.swift in Sources */,
@@ -417,7 +410,6 @@
 				F4C94E1222D9E08C0068F40E /* ForumThread.swift in Sources */,
 				F4912DE32527215600ECED5E /* ImageGridCell.swift in Sources */,
 				F4B749EB2502727F0063CDA9 /* ImageListCellFooterRatingView.swift in Sources */,
-				F46A51C122EAED7D00DA5821 /* ImageListCellHeaderView.swift in Sources */,
 				F4FDABFC22BCD1ED002879CA /* AppDelegate.swift in Sources */,
 				F4C94E1622D9EA8D0068F40E /* ForumPostView.swift in Sources */,
 				F46A51C322EAF12100DA5821 /* NewItemView.swift in Sources */,
