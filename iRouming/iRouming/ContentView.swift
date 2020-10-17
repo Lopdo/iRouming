@@ -40,6 +40,17 @@ struct ContentView : View {
 			.tag(1)
 
 			NavigationView {
+				VideoListView()
+			}
+			.tabItem {
+				VStack {
+					Image("icn_tab_videos")
+					Text("Videjník")
+				}
+			}
+			.tag(2)
+
+			NavigationView {
 				ForumView()
 			}
 			.tabItem {

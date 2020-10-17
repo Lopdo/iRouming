@@ -24,7 +24,7 @@ struct JokeView: View {
 				.padding(.top, 8)
 			HStack {
 				Spacer()
-				Image("icn_rating_\(joke.rating)")
+				RatingView(rating: joke.rating)
 				Button(action: {
 					//TODO
 					print("tap copy")

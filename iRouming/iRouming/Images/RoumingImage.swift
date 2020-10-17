@@ -10,6 +10,7 @@ import SwiftUI
 
 enum ParseError: Error {
 	case typeMismatch
+	case invalidYouTubeURL
 }
 
 struct RoumingImage: Decodable {
