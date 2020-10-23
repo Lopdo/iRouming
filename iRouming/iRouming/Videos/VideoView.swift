@@ -13,21 +13,27 @@ struct VideoView: View {
 
 	let video: Video
 
+	@State var isPlaying: Bool = false
+
 	var body: some View {
 		VStack(spacing: 0) {
 
 			HeaderView(headerData: video.headerData)
 
-			WebImage(url: video.thumbnailURL)
-				.resizable()
-				.placeholder {
-					Rectangle()
-						.foregroundColor(.gray)
-						.opacity(0.1)
-				}
-				//.indicator(.activity) // Activity Indicator
-				.transition(.fade(duration: 0.5)) // Fade Transition with duration
-				.scaledToFit()
+			/*WebImage(url: video.thumbnailURL)
+			.resizable()
+			.placeholder {
+			Rectangle()
+			.foregroundColor(.gray)
+			.opacity(0.1)
+			}
+			//.indicator(.activity) // Activity Indicator
+			.transition(.fade(duration: 0.5)) // Fade Transition with duration
+			.scaledToFit()*/
+
+			YouTubeVideoView(videoId: video.youtubeId)
+				.aspectRatio(480.0 / 360.0, contentMode: .fill)
+
 
 			VideoFooterView(video: video)
 

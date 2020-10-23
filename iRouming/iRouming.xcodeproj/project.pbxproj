@@ -13,6 +13,9 @@
 		F444E445253994BD00CB8571 /* DateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F444E444253994BD00CB8571 /* DateView.swift */; };
 		F46A51C322EAF12100DA5821 /* NewItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46A51C222EAF12100DA5821 /* NewItemView.swift */; };
 		F46A51C522EB11B600DA5821 /* ImageListCellFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46A51C422EB11B600DA5821 /* ImageListCellFooterView.swift */; };
+		F46BED8D2542E9F3000C977C /* YTPlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = F46BED892542E9F3000C977C /* YTPlayerView.m */; };
+		F46BED8E2542E9F3000C977C /* Assets.bundle in Resources */ = {isa = PBXBuildFile; fileRef = F46BED8B2542E9F3000C977C /* Assets.bundle */; };
+		F46BED942542EECD000C977C /* YouTubeVideoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46BED932542EECD000C977C /* YouTubeVideoView.swift */; };
 		F46F57912513FAA700DC3B28 /* AppearanceUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46F57902513FAA700DC3B28 /* AppearanceUtil.swift */; };
 		F46F57952514AB1D00DC3B28 /* Color+AssetCatalog.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46F57942514AB1D00DC3B28 /* Color+AssetCatalog.swift */; };
 		F46F579C2514AEDF00DC3B28 /* ImageTabWrapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46F579B2514AEDF00DC3B28 /* ImageTabWrapView.swift */; };
@@ -71,6 +74,11 @@
 		F444E444253994BD00CB8571 /* DateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateView.swift; sourceTree = "<group>"; };
 		F46A51C222EAF12100DA5821 /* NewItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewItemView.swift; sourceTree = "<group>"; };
 		F46A51C422EB11B600DA5821 /* ImageListCellFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageListCellFooterView.swift; sourceTree = "<group>"; };
+		F46BED882542E9F2000C977C /* iRouming-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "iRouming-Bridging-Header.h"; sourceTree = "<group>"; };
+		F46BED892542E9F3000C977C /* YTPlayerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YTPlayerView.m; sourceTree = "<group>"; };
+		F46BED8A2542E9F3000C977C /* YTPlayerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YTPlayerView.h; sourceTree = "<group>"; };
+		F46BED8B2542E9F3000C977C /* Assets.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Assets.bundle; sourceTree = "<group>"; };
+		F46BED932542EECD000C977C /* YouTubeVideoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YouTubeVideoView.swift; sourceTree = "<group>"; };
 		F46F57902513FAA700DC3B28 /* AppearanceUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppearanceUtil.swift; sourceTree = "<group>"; };
 		F46F57942514AB1D00DC3B28 /* Color+AssetCatalog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+AssetCatalog.swift"; sourceTree = "<group>"; };
 		F46F579B2514AEDF00DC3B28 /* ImageTabWrapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageTabWrapView.swift; sourceTree = "<group>"; };
@@ -166,6 +174,17 @@
 			path = ImageListCellViews;
 			sourceTree = "<group>";
 		};
+		F46BED872542E9DB000C977C /* YouTube */ = {
+			isa = PBXGroup;
+			children = (
+				F46BED8B2542E9F3000C977C /* Assets.bundle */,
+				F46BED8A2542E9F3000C977C /* YTPlayerView.h */,
+				F46BED892542E9F3000C977C /* YTPlayerView.m */,
+				F46BED882542E9F2000C977C /* iRouming-Bridging-Header.h */,
+			);
+			path = YouTube;
+			sourceTree = "<group>";
+		};
 		F46F578F2513FA7800DC3B28 /* Appearance */ = {
 			isa = PBXGroup;
 			children = (
@@ -224,6 +243,7 @@
 				F49D704B253B0E1F00AA9FC6 /* VideoListView.swift */,
 				F49D7053253B111F00AA9FC6 /* VideoView.swift */,
 				F49D7056253B186500AA9FC6 /* VideoFooterView.swift */,
+				F46BED932542EECD000C977C /* YouTubeVideoView.swift */,
 			);
 			path = Videos;
 			sourceTree = "<group>";
@@ -282,11 +302,19 @@
 			path = Utils;
 			sourceTree = "<group>";
 		};
+		F4FAF855254313520045DDF2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		F4FDABEF22BCD1ED002879CA = {
 			isa = PBXGroup;
 			children = (
 				F4FDABFA22BCD1ED002879CA /* iRouming */,
 				F4FDABF922BCD1ED002879CA /* Products */,
+				F4FAF855254313520045DDF2 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -301,6 +329,7 @@
 		F4FDABFA22BCD1ED002879CA /* iRouming */ = {
 			isa = PBXGroup;
 			children = (
+				F46BED872542E9DB000C977C /* YouTube */,
 				F444E4432539947C00CB8571 /* SharedViews */,
 				F46F578F2513FA7800DC3B28 /* Appearance */,
 				F4EDCFAA2502379F004A51FB /* Utils */,
@@ -376,6 +405,7 @@
 				TargetAttributes = {
 					F4FDABF722BCD1ED002879CA = {
 						CreatedOnToolsVersion = 11.0;
+						LastSwiftMigration = 1210;
 					};
 				};
 			};
@@ -406,6 +436,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F46BED8E2542E9F3000C977C /* Assets.bundle in Resources */,
 				F4FDAC0822BCD1EF002879CA /* LaunchScreen.storyboard in Resources */,
 				F4FDAC0522BCD1EF002879CA /* Preview Assets.xcassets in Resources */,
 				F4FDAC0222BCD1EF002879CA /* Assets.xcassets in Resources */,
@@ -439,6 +470,8 @@
 				F49D7041253AE5F300AA9FC6 /* HeaderView.swift in Sources */,
 				F4B749ED250272DC0063CDA9 /* ImageListCellFooterRatingLoggedInView.swift in Sources */,
 				F46F57952514AB1D00DC3B28 /* Color+AssetCatalog.swift in Sources */,
+				F46BED942542EECD000C977C /* YouTubeVideoView.swift in Sources */,
+				F46BED8D2542E9F3000C977C /* YTPlayerView.m in Sources */,
 				F4C94E0C22D9D3440068F40E /* ForumDataManager.swift in Sources */,
 				F4A852BE22C77BD70006C269 /* ImageDetailScrollableView.swift in Sources */,
 				F4962F8B251F667100EADE2D /* ImageGridView.swift in Sources */,
@@ -606,10 +639,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "iRouming/Preview\\ Content";
 				DEVELOPMENT_TEAM = 54F29SU2PQ;
 				ENABLE_PREVIEWS = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/iRouming/YouTube/**",
+					"$(PROJECT_DIR)/iRouming/YouTube",
+				);
 				INFOPLIST_FILE = iRouming/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -617,6 +656,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.lost-bytes.iRouming";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "iRouming/YouTube/iRouming-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -626,10 +667,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "iRouming/Preview\\ Content";
 				DEVELOPMENT_TEAM = 54F29SU2PQ;
 				ENABLE_PREVIEWS = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/iRouming/YouTube/**",
+					"$(PROJECT_DIR)/iRouming/YouTube",
+				);
 				INFOPLIST_FILE = iRouming/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -637,6 +684,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.lost-bytes.iRouming";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "iRouming/YouTube/iRouming-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
