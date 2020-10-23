@@ -11,7 +11,6 @@ import Combine
 
 class JokesInteractor: ObservableObject {
 
-	//var didChange = PassthroughSubject<Void, Never>()
 	@Published var jokes: [Joke] = []
 
 	@Published var isLoading = false
@@ -28,7 +27,6 @@ class JokesInteractor: ObservableObject {
 		dataManager.loadJokes(page: currentPage) { jokes in
 			self.isLoading = false
 			self.jokes = jokes
-			print("jokes loaded")
 		}
 	}
 
@@ -43,7 +41,6 @@ class JokesInteractor: ObservableObject {
 		dataManager.loadJokes(page: currentPage) { newJokes in
 			self.isLoading = false
 			self.jokes = self.jokes + newJokes
-			print("jokes loaded 2")
 		}
 	}
 }

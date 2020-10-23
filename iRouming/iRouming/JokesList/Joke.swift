@@ -16,12 +16,12 @@ struct Joke: Decodable {
 		case name
 		case id
 		case rating = "rank"
+		case date = "timestamp"
 	}
 
 	let text: String
 	let category: String
-	//TODO: load from API once it is added
-	let date: Date = Date()
+	let date: Date
 	
 	let name: String
 	let id: Int
@@ -44,6 +44,9 @@ struct Joke: Decodable {
 			throw ParseError.typeMismatch
 		}
 
+		let dateTimestamp = Double(try container.decode(String.self, forKey: .date)) ?? 0
+		date = Date(timeIntervalSince1970: dateTimestamp)
+
 		text = try container.decode(String.self, forKey: .text)
 		category = try container.decode(String.self, forKey: .category)
 	}
@@ -58,6 +61,7 @@ extension Joke {
 		self.rating = rating
 		self.text = text
 		self.category = category
+		self.date = Date()
 
 		id = Int.random(in: 0..<Int.max)
 	}
