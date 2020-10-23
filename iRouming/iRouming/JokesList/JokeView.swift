@@ -22,6 +22,8 @@ struct JokeView: View {
 				.font(.system(size: 13))
 				.lineLimit(nil)
 				.padding(.top, 8)
+				.padding([.leading, .trailing], 16)
+
 			HStack {
 				Spacer()
 				RatingView(rating: joke.rating)
@@ -34,10 +36,11 @@ struct JokeView: View {
 						.foregroundColor(.textGray)
 				})
 				.frame(width: 44, height: 44, alignment: .center)
-			}.padding([.top, .bottom], 6)
+			}
+			.padding([.top, .bottom], 6)
+			.padding([.leading, .trailing], 16)
 
 		}
-		.padding([.top, .leading, .trailing], 16)
 		.background(Color.white)
 
 	}
