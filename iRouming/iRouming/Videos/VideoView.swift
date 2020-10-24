@@ -35,8 +35,7 @@ struct VideoView: View {
 				.aspectRatio(480.0 / 360.0, contentMode: .fill)
 
 
-			VideoFooterView(video: video)
-
+			VideoFooterView(rating: video.rating, commentsCount: video.commentsCount)
 		}
 	}
 

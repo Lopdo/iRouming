@@ -10,16 +10,17 @@ import SwiftUI
 
 struct VideoFooterView : View {
 
-	let video: Video
-
+	let rating: Int
+	let commentsCount: Int
+	
 	var body: some View {
 
 			HStack {
-				RatingView(rating: video.rating)
+				RatingView(rating: rating)
 
 				Spacer()
 
-				CommentsButton(commentsCount: video.commentsCount) {
+				CommentsButton(commentsCount: commentsCount) {
 					print("tapped comments")
 				}
 				.padding(.trailing, 20)
@@ -36,7 +37,7 @@ struct VideoFooterView : View {
 
 struct VideoFooterView_Previews: PreviewProvider {
 	static var previews: some View {
-		VideoFooterView(video: Video(name: "Sveteľná šabľa", rating: 1, commentsCount: 14,  url: "https://www.youtube.com/watch?v=xC6J4T_hUKg", date: Date()))
+		VideoFooterView(rating: 1, commentsCount: 10)
 			.previewLayout(.sizeThatFits)
 
 	}

@@ -51,6 +51,17 @@ struct ContentView : View {
 			.tag(2)
 
 			NavigationView {
+				GifListView()
+			}
+			.tabItem {
+				VStack {
+					Image("icn_tab_gifs")
+					Text("Gifník")
+				}
+			}
+			.tag(3)
+
+			NavigationView {
 				ForumView()
 			}
 			.tabItem {
@@ -59,7 +70,7 @@ struct ContentView : View {
 					Text("Forum")
 				}
 			}
-			.tag(3)
+			.tag(4)
 		}
 	}
 }
