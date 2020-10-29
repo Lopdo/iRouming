@@ -1,5 +1,5 @@
 //
-//  ImageListDataManager.swift
+//  ImagesDataManager.swift
 //  iRouming
 //
 //  Created by Lope on 21/06/2019.
@@ -8,7 +8,7 @@
 
 import Alamofire
 
-struct ImageListDataManager {
+struct ImagesDataManager {
 
 	func loadImages(success: @escaping ([RoumingImage]) -> ()) {
 

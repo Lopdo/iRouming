@@ -11,7 +11,7 @@ import Combine
 
 class ImageList: ObservableObject {
 
-	private var dataManager = ImageListDataManager()
+	private var dataManager = ImagesDataManager()
 
 	@Published var images: [RoumingImage] = []
 
