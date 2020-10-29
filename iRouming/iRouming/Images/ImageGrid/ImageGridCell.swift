@@ -40,8 +40,10 @@ struct ImageGridCell: View {
 					.transition(.fade(duration: 0.5)) // Fade Transition with duration
 					.aspectRatio(contentMode: .fill)
 
-				NewItemView()
-					.padding(4)
+				if image.isNew {
+					NewItemView()
+						.padding(4)
+				}
 
 			}
 

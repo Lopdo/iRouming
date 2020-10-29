@@ -44,7 +44,10 @@ struct ImageListCell: View {
 
 
 			ImageListCellFooterView(roumingImage: image, isLoggedIn: false)
-			
+
+			if image.isLastSeen {
+				LastSeenView()
+			}
 		}
 		.onAppear {
 			self.imageLoader.loadImage()

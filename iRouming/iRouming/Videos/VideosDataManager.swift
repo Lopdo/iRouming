@@ -15,7 +15,17 @@ struct VideosDataManager {
 		AF.request("http://kecy.roumen.cz/roumingXMLNew.php?action=videos&json=1").responseDecodable { (response: DataResponse<[Video], AFError>)  in
 			switch response.result {
 			case .success(let videos):
-				success(videos)
+				var varItems = videos
+				if let index = varItems.lastIndex(where: { $0.isNew }) {
+					varItems[index].isLastSeen = true
+				}
+
+				success(varItems)
+
+				if let anyItem = varItems.first {
+					UserDefaults.standard.setValue(Date(), forKey: "lastSeen\(anyItem.prefKey)")
+				}
+
 			case .failure(let error):
 				print(error)
 			}

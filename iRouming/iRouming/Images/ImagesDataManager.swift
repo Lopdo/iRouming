@@ -19,7 +19,18 @@ struct ImagesDataManager {
 
 			switch response.result {
 			case .success(let images):
-				success(images)
+
+				var varItems = images
+				if let index = varItems.lastIndex(where: { $0.isNew }) {
+					varItems[index].isLastSeen = true
+				}
+
+				success(varItems)
+
+				if let anyItem = varItems.first {
+					UserDefaults.standard.setValue(Date(), forKey: "lastSeen\(anyItem.prefKey)")
+				}
+				
 			case .failure(let error):
 				print(error)
 			}

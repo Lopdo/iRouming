@@ -15,7 +15,18 @@ struct JokesDataManager {
 		AF.request("http://kecy.roumen.cz/roumingXMLNew.php?action=jokes&json=1&page=\(page)").responseDecodable { (response: DataResponse<[Joke], AFError>)  in
 			switch response.result {
 			case .success(let jokes):
-				success(jokes)
+				var varItems = jokes
+				if let index = varItems.lastIndex(where: { $0.isNew }) {
+					varItems[index].isLastSeen = true
+				}
+
+				success(varItems)
+
+				if let anyItem = varItems.first {
+					UserDefaults.standard.setValue(Date(), forKey: "lastSeen\(anyItem.prefKey)")
+				}
+
+
 			case .failure(let error):
 				print(error)
 			}

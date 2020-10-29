@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Video: Decodable {
+struct Video: Decodable, NewItemDisplayable {
 
 	private enum CodingKeys: String, CodingKey {
 		case date = "timestamp"
@@ -28,8 +28,12 @@ struct Video: Decodable {
 	let youtubeId: String
 	let thumbnailURL: URL
 
+	var isNew: Bool = false
+	var isLastSeen: Bool = false
+	var prefKey: String = "video"
+
 	var headerData: HeaderData {
-		return HeaderData(date: date, isNew: true, name: name, category: nil)
+		return HeaderData(date: date, isNew: isNew, name: name, category: nil)
 	}
 
 	init(from decoder: Decoder) throws {
@@ -62,6 +66,8 @@ struct Video: Decodable {
 		} else {
 			throw ParseError.invalidYouTubeURL
 		}
+
+		initiateIsNew()
 	}
 }
 

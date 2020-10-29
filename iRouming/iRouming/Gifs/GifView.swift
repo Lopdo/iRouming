@@ -43,6 +43,10 @@ struct GifView: View {
 
 
 			VideoFooterView(rating: gif.rating, commentsCount: gif.commentsCount)
+
+			if gif.isLastSeen {
+				LastSeenView()
+			}
 		}
 	}
 

@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Gif: Decodable {
+struct Gif: Decodable, NewItemDisplayable {
 
 	private enum CodingKeys: String, CodingKey {
 		case name
@@ -26,8 +26,12 @@ struct Gif: Decodable {
 	let rating: Int
 	let date: Date
 
+	var isNew: Bool = false
+	var isLastSeen: Bool = false
+	var prefKey: String = "gif"
+	
 	var headerData: HeaderData {
-		return HeaderData(date: date, isNew: true, name: name, category: nil)
+		return HeaderData(date: date, isNew: isNew, name: name, category: nil)
 	}
 
 	init(from decoder: Decoder) throws {
@@ -53,6 +57,8 @@ struct Gif: Decodable {
 		} else {
 			throw ParseError.typeMismatch
 		}
+
+		initiateIsNew()
 	}
 }
 

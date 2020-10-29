@@ -36,6 +36,10 @@ struct VideoView: View {
 
 
 			VideoFooterView(rating: video.rating, commentsCount: video.commentsCount)
+
+			if video.isLastSeen {
+				LastSeenView()
+			}
 		}
 	}
 

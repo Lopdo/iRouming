@@ -13,7 +13,7 @@ enum ParseError: Error {
 	case invalidYouTubeURL
 }
 
-struct RoumingImage: Decodable {
+struct RoumingImage: Decodable, NewItemDisplayable {
 
 	private enum CodingKeys: String, CodingKey {
 		case name = "nameReadable"
@@ -35,8 +35,12 @@ struct RoumingImage: Decodable {
 	let dislikes: Int
 	let date: Date
 
+	var isNew: Bool = false
+	var isLastSeen: Bool = false
+	var prefKey: String = "image"
+
 	var headerData: HeaderData {
-		return HeaderData(date: date, isNew: true, name: name, category: nil)
+		return HeaderData(date: date, isNew: isNew, name: name, category: nil)
 	}
 
 	init(from decoder: Decoder) throws {
@@ -61,6 +65,8 @@ struct RoumingImage: Decodable {
 
 		let dateTimestamp = Double(try container.decode(String.self, forKey: .date)) ?? 0
 		date = Date(timeIntervalSince1970: dateTimestamp)
+
+		initiateIsNew()
 	}
 }
 

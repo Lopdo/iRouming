@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-struct Joke: Decodable {
+struct Joke: Decodable, NewItemDisplayable {
 
 	private enum CodingKeys: String, CodingKey {
 		case text
@@ -27,8 +27,12 @@ struct Joke: Decodable {
 	let id: Int
 	let rating: Int
 
+	var isNew: Bool = false
+	var isLastSeen: Bool = false
+	var prefKey: String = "joke"
+
 	var headerData: HeaderData {
-		return HeaderData(date: date, isNew: true, name: name, category: category)
+		return HeaderData(date: date, isNew: isNew, name: name, category: category)
 	}
 
 	init(from decoder: Decoder) throws {
@@ -49,6 +53,8 @@ struct Joke: Decodable {
 
 		text = try container.decode(String.self, forKey: .text)
 		category = try container.decode(String.self, forKey: .category)
+
+		initiateIsNew()
 	}
 }
 

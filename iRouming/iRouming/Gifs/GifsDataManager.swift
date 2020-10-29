@@ -15,7 +15,17 @@ struct GifsDataManager {
 		AF.request("http://kecy.roumen.cz/roumingXMLNew.php?action=gif&json=1").responseDecodable { (response: DataResponse<[Gif], AFError>)  in
 			switch response.result {
 			case .success(let gifs):
-				success(gifs)
+				var varItems = gifs
+				if let index = varItems.lastIndex(where: { $0.isNew }) {
+					varItems[index].isLastSeen = true
+				}
+
+				success(varItems)
+
+				if let anyItem = varItems.first {
+					UserDefaults.standard.setValue(Date(), forKey: "lastSeen\(anyItem.prefKey)")
+				}
+
 			case .failure(let error):
 				print(error)
 			}
