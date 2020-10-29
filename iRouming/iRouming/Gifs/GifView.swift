@@ -20,23 +20,37 @@ struct GifView: View {
 
 			HeaderView(headerData: gif.headerData)
 
-			WebImage(url: gif.url, context: [.animatedImageClass: SDAnimatedImage.self], isAnimating: $isAnimating)
-				.onFailure { error in
-					print(error)
+			ZStack {
+				WebImage(url: gif.url, context: [.animatedImageClass: SDAnimatedImage.self], isAnimating: $isAnimating)
+					.onFailure { error in
+						print(error)
+					}
+					.resizable()
+					.placeholder {
+						Rectangle()
+							.foregroundColor(.gray)
+							.opacity(0.1)
+					}
+					.scaledToFit()
+					.onTapGesture {
+						isAnimating = !isAnimating
+					}
+
+				if !isAnimating {
+					GifOverlayView()
 				}
-				.resizable()
-				.placeholder {
-					Rectangle()
-						.foregroundColor(.gray)
-						.opacity(0.1)
-				}
-				.scaledToFit()
-				.onTapGesture {
-					isAnimating = !isAnimating
-				}
+			}
+
 
 			VideoFooterView(rating: gif.rating, commentsCount: gif.commentsCount)
 		}
 	}
 
+}
+
+struct GifView_Previews: PreviewProvider {
+	static var previews: some View {
+		GifView(gif: Gif(name: "test", commentsCount: 10, rating: 10))
+			.previewLayout(.sizeThatFits)
+	}
 }
