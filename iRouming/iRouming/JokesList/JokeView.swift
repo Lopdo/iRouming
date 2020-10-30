@@ -28,8 +28,7 @@ struct JokeView: View {
 				Spacer()
 				RatingView(rating: joke.rating)
 				Button(action: {
-					//TODO
-					print("tap copy")
+					UIPasteboard.general.string = joke.text
 				}, label: {
 					Image("icn_copy")
 						.frame(width: 24, height: 24, alignment: .center)

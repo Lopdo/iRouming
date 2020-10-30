@@ -14,7 +14,8 @@ struct ImageListCell: View {
 	@ObservedObject var imageLoader: ImageLoader
 	@State var isImageLoaded = false
 
-	let image: RoumingImage
+	var image: RoumingImage
+	@State var imageData: UIImage?
 
 	init(image: RoumingImage) {
 		self.image = image
@@ -26,24 +27,22 @@ struct ImageListCell: View {
 
 			HeaderView(headerData: image.headerData)
 
-			WebImage(url: URL(string: image.urlImage))
-				// Supports options and context, like `.delayPlaceholder` to show placeholder only when error
+			WebImage(url: URL(string: image.urlImage), options: [.queryMemoryData])
 				.onSuccess { image, data, cacheType in
-					// Success
-					// Note: Data exist only when queried from disk cache or network. Use `.queryMemoryData` if you really need data
+					imageData = image
 				}
-				.resizable() // Resizable like SwiftUI.Image, you must use this modifier or the view will use the image bitmap size
+
+				.resizable()
 				.placeholder {
 					Rectangle()
 						.foregroundColor(.gray)
 						.opacity(0.1)
 				}
-				//.indicator(.activity) // Activity Indicator
-				.transition(.fade(duration: 0.5)) // Fade Transition with duration
+				.transition(.fade(duration: 0.5))
 				.scaledToFit()
 
 
-			ImageListCellFooterView(roumingImage: image, isLoggedIn: false)
+			ImageListCellFooterView(roumingImage: image, isLoggedIn: false, imageData: imageData)
 
 			if image.isLastSeen {
 				LastSeenView()

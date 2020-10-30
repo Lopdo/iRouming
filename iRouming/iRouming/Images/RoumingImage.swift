@@ -35,6 +35,8 @@ struct RoumingImage: Decodable, NewItemDisplayable {
 	let dislikes: Int
 	let date: Date
 
+	var data: Data? = nil
+
 	var isNew: Bool = false
 	var isLastSeen: Bool = false
 	var prefKey: String = "image"

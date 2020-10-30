@@ -10,10 +10,13 @@ import SwiftUI
 
 struct ShareButton: View {
 
-	let action: () -> ()
+	let data: Any
 
 	var body: some View {
-		Button(action: action, label: {
+		Button(action: {
+			let av = UIActivityViewController(activityItems: [data], applicationActivities: nil)
+			UIApplication.shared.windows.first?.rootViewController?.present(av, animated: true)
+		}, label: {
 			Image("icn_share")
 				.frame(width: 24, height: 24, alignment: .center)
 				.foregroundColor(.textGray)

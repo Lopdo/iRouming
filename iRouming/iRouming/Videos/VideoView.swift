@@ -20,22 +20,13 @@ struct VideoView: View {
 
 			HeaderView(headerData: video.headerData)
 
-			/*WebImage(url: video.thumbnailURL)
-			.resizable()
-			.placeholder {
-			Rectangle()
-			.foregroundColor(.gray)
-			.opacity(0.1)
-			}
-			//.indicator(.activity) // Activity Indicator
-			.transition(.fade(duration: 0.5)) // Fade Transition with duration
-			.scaledToFit()*/
-
 			YouTubeVideoView(videoId: video.youtubeId)
 				.aspectRatio(480.0 / 360.0, contentMode: .fill)
 
 
-			VideoFooterView(rating: video.rating, commentsCount: video.commentsCount)
+			VideoFooterView(rating: video.rating,
+							commentsCount: video.commentsCount,
+							shareURL: URL(string: "https://www.youtube.com/watch?v=\(video.youtubeId)")!)
 
 			if video.isLastSeen {
 				LastSeenView()
