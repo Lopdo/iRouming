@@ -12,11 +12,7 @@ struct ImageGridView: View {
 
 	@ObservedObject var imageList = ImageList()
 
-	// We are using this property to prevent NavigationLink from applying visual tap
-	// effect on the whole image cell
-	@State private var isShowingDetailView = false
-	@State private var selectedIndex: Int = 0
-	//private var selectedIndex: Int?
+	@State private var selectedImage: RoumingImage? = nil
 
 	@State private var isDone = false
 
@@ -42,13 +38,10 @@ struct ImageGridView: View {
 
 						let columns = [GridItem(spacing: 3), GridItem(spacing: 3), GridItem(spacing: 3)]
 						LazyVGrid(columns: columns, spacing: 3) {
-							ForEach(0..<imageList.images.count) { index in
-								ImageGridCell(image: imageList.images[index])
+							ForEach(imageList.images) { image in
+								ImageGridCell(image: image)
 									.onTapGesture {
-										//TODO: fix index
-										selectedIndex = index
-										isShowingDetailView = true
-										print("tap2", selectedIndex)
+										selectedImage = image
 									}
 							}
 						}.padding(.top, 8)
@@ -69,8 +62,8 @@ struct ImageGridView: View {
 			}
 		}
 		.navigationBarTitle(Text("Rouming"), displayMode: .inline)
-		.fullScreenCover(isPresented: $isShowingDetailView, content: {
-			ImageDetailView(image: imageList.images[selectedIndex])
+		.fullScreenCover(item: $selectedImage, content: {
+			ImageDetailView(image: $0)
 		})
 	}
 

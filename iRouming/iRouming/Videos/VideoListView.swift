@@ -52,11 +52,3 @@ extension VideoListView {
 	}
 
 }
-
-/*struct VideoListView_Previews: PreviewProvider {
-	static var previews: some View {
-		ImageListView(images: [RoumingImage(name: "Tajemstvi uspechu podle Burese", commentsCount: 245, likes: 1000, dislikes: 140),
-							   RoumingImage(name: "Tajemstvi uspechu podle Burese", commentsCount: 245, likes: 1000, dislikes: 140),
-							   RoumingImage(name: "Tajemstvi uspechu podle Burese", commentsCount: 245, likes: 1000, dislikes: 140)])
-	}
-}*/

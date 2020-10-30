@@ -12,11 +12,7 @@ struct ImageListView: View {
 
 	@ObservedObject var interactor = ImageList()
 
-	// We are using this property to prevent NavigationLink from applying visual tap
-	// effect on the whole image cell
-	@State private var isShowingDetailView = false
-	@State private var selectedIndex: Int = 0
-	//private var selectedIndex: Int?
+	@State private var selectedImage: RoumingImage? = nil
 
 	var body: some View {
 		Group {
@@ -26,11 +22,10 @@ struct ImageListView: View {
 			} else {
 				ScrollView {
 					LazyVStack {
-						ForEach(0..<interactor.images.count) { index in
-							ImageListCell(image: interactor.images[index])
+						ForEach(interactor.images) { image in
+							ImageListCell(image: image)
 								.onTapGesture {
-									selectedIndex = index
-									isShowingDetailView = true
+									selectedImage = image
 								}.padding(.bottom, 12)
 						}
 					}
@@ -44,8 +39,8 @@ struct ImageListView: View {
 			}
 		}
 		.navigationBarTitle(Text("Rouming"), displayMode: .inline)
-		.fullScreenCover(isPresented: $isShowingDetailView, content: {
-			ImageDetailView(image: interactor.images[selectedIndex])
+		.fullScreenCover(item: $selectedImage, content: {
+			ImageDetailView(image: $0)
 		})
 	}
 
