@@ -41,6 +41,7 @@
 		F49D705A253B18FD00AA9FC6 /* RatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49D7059253B18FD00AA9FC6 /* RatingView.swift */; };
 		F49D705D253B1F7800AA9FC6 /* CommentsButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49D705C253B1F7800AA9FC6 /* CommentsButton.swift */; };
 		F49D7060253B209C00AA9FC6 /* ShareButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49D705F253B209C00AA9FC6 /* ShareButton.swift */; };
+		F49F4B5F2567D41800B22909 /* URLSession+Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49F4B5E2567D41800B22909 /* URLSession+Result.swift */; };
 		F4A852BE22C77BD70006C269 /* ImageDetailScrollableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A852BD22C77BD70006C269 /* ImageDetailScrollableView.swift */; };
 		F4A852C022C78AC80006C269 /* ImageDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A852BF22C78AC80006C269 /* ImageDetailCell.swift */; };
 		F4B749EB2502727F0063CDA9 /* ImageListCellFooterRatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B749EA2502727F0063CDA9 /* ImageListCellFooterRatingView.swift */; };
@@ -69,7 +70,6 @@
 		F4FDAC0222BCD1EF002879CA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F4FDAC0122BCD1EF002879CA /* Assets.xcassets */; };
 		F4FDAC0522BCD1EF002879CA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F4FDAC0422BCD1EF002879CA /* Preview Assets.xcassets */; };
 		F4FDAC0822BCD1EF002879CA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F4FDAC0622BCD1EF002879CA /* LaunchScreen.storyboard */; };
-		F4FDAC1122BCD29B002879CA /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = F4FDAC1022BCD29B002879CA /* Alamofire */; };
 		F4FDAC1622BCDCCF002879CA /* RoumingImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FDAC1522BCDCCF002879CA /* RoumingImage.swift */; };
 		F4FDAC1C22BCF983002879CA /* ImageList.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FDAC1B22BCF983002879CA /* ImageList.swift */; };
 		F4FDAC1E22BD06AF002879CA /* ImageListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FDAC1D22BD06AF002879CA /* ImageListView.swift */; };
@@ -111,6 +111,7 @@
 		F49D7059253B18FD00AA9FC6 /* RatingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingView.swift; sourceTree = "<group>"; };
 		F49D705C253B1F7800AA9FC6 /* CommentsButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsButton.swift; sourceTree = "<group>"; };
 		F49D705F253B209C00AA9FC6 /* ShareButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareButton.swift; sourceTree = "<group>"; };
+		F49F4B5E2567D41800B22909 /* URLSession+Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLSession+Result.swift"; sourceTree = "<group>"; };
 		F4A852BD22C77BD70006C269 /* ImageDetailScrollableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDetailScrollableView.swift; sourceTree = "<group>"; };
 		F4A852BF22C78AC80006C269 /* ImageDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDetailCell.swift; sourceTree = "<group>"; };
 		F4B749EA2502727F0063CDA9 /* ImageListCellFooterRatingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageListCellFooterRatingView.swift; sourceTree = "<group>"; };
@@ -152,7 +153,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				F4C7BE6825115D0500F75D4F /* SDWebImageSwiftUI in Frameworks */,
-				F4FDAC1122BCD29B002879CA /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -324,6 +324,7 @@
 			children = (
 				F4EDCFAB250237AF004A51FB /* UIColor+Hex.swift */,
 				F46F57942514AB1D00DC3B28 /* Color+AssetCatalog.swift */,
+				F49F4B5E2567D41800B22909 /* URLSession+Result.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -426,7 +427,6 @@
 			);
 			name = iRouming;
 			packageProductDependencies = (
-				F4FDAC1022BCD29B002879CA /* Alamofire */,
 				F4C7BE6725115D0500F75D4F /* SDWebImageSwiftUI */,
 			);
 			productName = iRouming;
@@ -459,7 +459,6 @@
 			);
 			mainGroup = F4FDABEF22BCD1ED002879CA;
 			packageReferences = (
-				F4FDAC0F22BCD29B002879CA /* XCRemoteSwiftPackageReference "Alamofire" */,
 				F4C7BE6625115D0500F75D4F /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
 			);
 			productRefGroup = F4FDABF922BCD1ED002879CA /* Products */;
@@ -516,6 +515,7 @@
 				F4FAF8642544215D0045DDF2 /* GifsInteractor.swift in Sources */,
 				F4C94E0C22D9D3440068F40E /* ForumDataManager.swift in Sources */,
 				F4A852BE22C77BD70006C269 /* ImageDetailScrollableView.swift in Sources */,
+				F49F4B5F2567D41800B22909 /* URLSession+Result.swift in Sources */,
 				F489569D254AB87A00196BE9 /* NewItemDisplayable.swift in Sources */,
 				F4FAF8672544232A0045DDF2 /* GifView.swift in Sources */,
 				F4962F8B251F667100EADE2D /* ImageGridView.swift in Sources */,
@@ -770,14 +770,6 @@
 				minimumVersion = 1.5.0;
 			};
 		};
-		F4FDAC0F22BCD29B002879CA /* XCRemoteSwiftPackageReference "Alamofire" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 5.2.0;
-			};
-		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -785,11 +777,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = F4C7BE6625115D0500F75D4F /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */;
 			productName = SDWebImageSwiftUI;
-		};
-		F4FDAC1022BCD29B002879CA /* Alamofire */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = F4FDAC0F22BCD29B002879CA /* XCRemoteSwiftPackageReference "Alamofire" */;
-			productName = Alamofire;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

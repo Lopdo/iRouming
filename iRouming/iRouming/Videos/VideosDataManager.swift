@@ -6,31 +6,26 @@
 //  Copyright © 2020 Lost Bytes. All rights reserved.
 //
 
-import Alamofire
+import Foundation
 
 struct VideosDataManager {
 
 	func loadVideos(_ success: @escaping ([Video]) -> ()) {
 
-		AF.request("http://kecy.roumen.cz/roumingXMLNew.php?action=videos&json=1").responseDecodable { (response: DataResponse<[Video], AFError>)  in
-			switch response.result {
+		let task = URLSession.shared.dataTask(with: "http://kecy.roumen.cz/roumingXMLNew.php?action=videos&json=1") { (result: Result<[Video], Error>) in
+			switch result {
 			case .success(let videos):
-				var varItems = videos
-				if let index = varItems.lastIndex(where: { $0.isNew }) {
-					varItems[index].isLastSeen = true
-				}
+				success(videos)
 
-				success(varItems)
-
-				if let anyItem = varItems.first {
+				if let anyItem = videos.first {
 					UserDefaults.standard.setValue(Date(), forKey: "lastSeen\(anyItem.prefKey)")
 				}
-
 			case .failure(let error):
 				print(error)
 			}
 		}
 
+		task.resume()
 	}
 
 }

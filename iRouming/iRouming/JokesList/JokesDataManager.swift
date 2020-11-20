@@ -6,31 +6,26 @@
 //  Copyright © 2019 Lost Bytes. All rights reserved.
 //
 
-import Alamofire
+import Foundation
 
 struct JokesDataManager {
 
 	func loadJokes(page: Int, success: @escaping ([Joke]) -> ()) {
 
-		AF.request("http://kecy.roumen.cz/roumingXMLNew.php?action=jokes&json=1&page=\(page)").responseDecodable { (response: DataResponse<[Joke], AFError>)  in
-			switch response.result {
+		let task = URLSession.shared.dataTask(with: "http://kecy.roumen.cz/roumingXMLNew.php?action=jokes&json=1&page=\(page)") { (result: Result<[Joke], Error>) in
+			switch result {
 			case .success(let jokes):
-				var varItems = jokes
-				if let index = varItems.lastIndex(where: { $0.isNew }) {
-					varItems[index].isLastSeen = true
-				}
+				success(jokes)
 
-				success(varItems)
-
-				if let anyItem = varItems.first {
+				if let anyItem = jokes.first {
 					UserDefaults.standard.setValue(Date(), forKey: "lastSeen\(anyItem.prefKey)")
 				}
-
-
 			case .failure(let error):
 				print(error)
 			}
 		}
+
+		task.resume()
 
 	}
 

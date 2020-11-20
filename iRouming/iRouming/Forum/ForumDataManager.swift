@@ -6,14 +6,14 @@
 //  Copyright © 2019 Lost Bytes. All rights reserved.
 //
 
-import Alamofire
+import Foundation
 
 struct ForumDataManager {
 
 	func loadPosts(page: Int, success: @escaping ([ForumPost]) -> ()) {
 
-		AF.request("http://www.rouming.cz/roumingXMLNew.php?action=forum&json=1&page=\(page)").responseDecodable { (response: DataResponse<[ForumPost], AFError>)  in
-			switch response.result {
+		let task = URLSession.shared.dataTask(with: "http://www.rouming.cz/roumingXMLNew.php?action=forum&json=1&page=\(page)") { (result: Result<[ForumPost], Error>) in
+			switch result {
 			case .success(let posts):
 				success(posts)
 			case .failure(let error):
@@ -21,12 +21,13 @@ struct ForumDataManager {
 			}
 		}
 
+		task.resume()
 	}
 
 	func loadThreads(page: Int, success: @escaping ([ForumThread]) -> ()) {
 
-		AF.request("http://www.rouming.cz/roumingXMLNew.php?json=1&action=forumThreads").responseDecodable { (response: DataResponse<[ForumThread], AFError>)  in
-			switch response.result {
+		let task = URLSession.shared.dataTask(with: "http://www.rouming.cz/roumingXMLNew.php?action=forum&json=1&page=\(page)") { (result: Result<[ForumThread], Error>) in
+			switch result {
 			case .success(let threads):
 				success(threads)
 			case .failure(let error):
@@ -34,12 +35,13 @@ struct ForumDataManager {
 			}
 		}
 
+		task.resume()
 	}
 
 	func loadPostsFor(thread: Int, page: Int, success: @escaping ([ForumPost]) -> ()) {
 
-		AF.request("http://www.rouming.cz/roumingXMLNew.php?json=1&action=forum&thread=\(thread)").responseDecodable { (response: DataResponse<[ForumPost], AFError>)  in
-			switch response.result {
+		let task = URLSession.shared.dataTask(with: "http://www.rouming.cz/roumingXMLNew.php?json=1&action=forum&thread=\(thread)") { (result: Result<[ForumPost], Error>) in
+			switch result {
 			case .success(let posts):
 				success(posts)
 			case .failure(let error):
@@ -47,5 +49,6 @@ struct ForumDataManager {
 			}
 		}
 
+		task.resume()
 	}
 }
