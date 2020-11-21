@@ -96,6 +96,7 @@
 		F489568F254AAC4100196BE9 /* GifOverlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GifOverlayView.swift; sourceTree = "<group>"; };
 		F489569C254AB87A00196BE9 /* NewItemDisplayable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewItemDisplayable.swift; sourceTree = "<group>"; };
 		F48956A0254AC25000196BE9 /* LastSeenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastSeenView.swift; sourceTree = "<group>"; };
+		F4895761255002AE00196BE9 /* iRouming.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = iRouming.entitlements; sourceTree = "<group>"; };
 		F4912DDF25271F0B00ECED5E /* ImageGridFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageGridFooterView.swift; sourceTree = "<group>"; };
 		F4912DE22527215600ECED5E /* ImageGridCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageGridCell.swift; sourceTree = "<group>"; };
 		F4913076253048F800ECED5E /* RefreshableScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshableScrollView.swift; sourceTree = "<group>"; };
@@ -369,6 +370,7 @@
 		F4FDABFA22BCD1ED002879CA /* iRouming */ = {
 			isa = PBXGroup;
 			children = (
+				F4895761255002AE00196BE9 /* iRouming.entitlements */,
 				F489569B254AB45D00196BE9 /* SharedModel */,
 				F46BED872542E9DB000C977C /* YouTube */,
 				F444E4432539947C00CB8571 /* SharedViews */,
@@ -688,6 +690,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = iRouming/iRouming.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "iRouming/Preview\\ Content";
 				DEVELOPMENT_TEAM = 54F29SU2PQ;
@@ -702,12 +706,13 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.lost-bytes.iRouming";
+				PRODUCT_BUNDLE_IDENTIFIER = lb.iphone.iRouming;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "iRouming/YouTube/iRouming-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -716,6 +721,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = iRouming/iRouming.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "iRouming/Preview\\ Content";
 				DEVELOPMENT_TEAM = 54F29SU2PQ;
@@ -730,11 +737,12 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.lost-bytes.iRouming";
+				PRODUCT_BUNDLE_IDENTIFIER = lb.iphone.iRouming;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "iRouming/YouTube/iRouming-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
