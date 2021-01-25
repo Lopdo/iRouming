@@ -21,6 +21,8 @@ struct ImageGridView: View {
 			if imageList.isLoading {
 				//TODO: missing design
 				Text("Loading")
+					.frame(maxWidth: .infinity, maxHeight: .infinity)
+					.background(Color.white)
 			} else {
 				ScrollView {
 					RefreshableList(data: RefreshData(isDone: $isDone)) {

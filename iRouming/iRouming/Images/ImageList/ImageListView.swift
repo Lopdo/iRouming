@@ -19,6 +19,8 @@ struct ImageListView: View {
 			if interactor.isLoading {
 				//TODO: missing design
 				Text("Loading")
+					.frame(maxWidth: .infinity, maxHeight: .infinity)
+					.background(Color.white)
 			} else {
 				ScrollView {
 					LazyVStack {
@@ -46,12 +48,14 @@ struct ImageListView: View {
 
 }
 
+#if DEBUG
 extension View {
 	func Print(_ vars: Any...) -> some View {
 		for v in vars { print(v) }
 		return EmptyView()
 	}
 }
+#endif
 
 extension ImageListView {
 
