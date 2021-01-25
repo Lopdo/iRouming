@@ -61,9 +61,7 @@ struct ContentView : View {
 			}
 			.tag(3)
 
-			NavigationView {
-				ForumView()
-			}
+			ForumView()
 			.tabItem {
 				VStack {
 					Image("icn_tab_forum")

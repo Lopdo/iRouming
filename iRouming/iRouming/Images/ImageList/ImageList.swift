@@ -28,8 +28,10 @@ class ImageList: ObservableObject {
 	func getImages() {
 		isLoading = true
 		dataManager.loadImages { images in
-			self.isLoading = false
-			self.images = images
+			DispatchQueue.main.async {
+				self.isLoading = false
+				self.images = images
+			}
 		}
 
 	}

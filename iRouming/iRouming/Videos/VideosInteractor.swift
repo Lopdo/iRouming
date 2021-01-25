@@ -10,7 +10,6 @@ import Foundation
 
 class VideosInteractor: ObservableObject {
 
-	//var didChange = PassthroughSubject<Void, Never>()
 	@Published var videos: [Video] = []
 
 	@Published var isLoading = false

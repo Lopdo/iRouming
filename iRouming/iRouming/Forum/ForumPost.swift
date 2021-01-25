@@ -22,7 +22,7 @@ struct ForumPost: Decodable {
 	let nick: String
 	let title: String
 	let message: String
-	let htmlMessage: NSAttributedString
+	let htmlMessage: String
 	let registered: Bool
 	let threadId: Int
 	let date: Date
@@ -41,35 +41,32 @@ struct ForumPost: Decodable {
 		threadId = Int(try container.decode(String.self, forKey: .threadId)) ?? -1
 		date = Date(timeIntervalSince1970: Double(try container.decode(String.self, forKey: .date)) ?? 0)
 
-		let tmpString = message.replacingOccurrences(of: "[i]", with: "<i>")
-								.replacingOccurrences(of: "[/i]", with: "</i>")
-								.replacingOccurrences(of: "[b]", with: "</b>")
-								.replacingOccurrences(of: "[/b]", with: "</b>")
-								.replacingOccurrences(of: "\n", with: "<br />")
+		htmlMessage = message.replacingOccurrences(of: "[i]", with: "<i>")
+							 .replacingOccurrences(of: "[/i]", with: "</i>")
+							 .replacingOccurrences(of: "[b]", with: "</b>")
+							 .replacingOccurrences(of: "[/b]", with: "</b>")
+							 .replacingOccurrences(of: "\n", with: "<br />")
 
-		let mutableMessage = try NSMutableAttributedString(data: tmpString.data(using: .unicode)!,
-															   options: [.documentType : NSAttributedString.DocumentType.html],
-															   documentAttributes: nil)
-
-		mutableMessage.beginEditing()
-		mutableMessage.enumerateAttribute(.font, in: NSMakeRange(0, mutableMessage.length), options: []) { (value, range, stop) in
-			if let font = value as? UIFont {
-				/*var newFont: UIFont
-
-				if oldFont.fontName.rangeOfString("italic", options: .CaseInsensitiveSearch, range: nil, locale: nil) != nil {
-					newFont = UIFont(name: "Titillium-ThinItalic", size:13)!
-				} else {
-					newFont = UIFont(name: "Titillium-Thin", size:13)!
-				}
-				res.addAttribute(NSFontAttributeName, value: newFont, range: range)*/
-			}
-		}
-
-		mutableMessage.endEditing()
-		mutableMessage.addAttribute(.foregroundColor, value: UIColor.white, range: NSMakeRange(0, mutableMessage.length))
-
-		htmlMessage = mutableMessage
+		/*htmlMessage = try NSAttributedString(data: tmpString.data(using: .unicode)!,
+											 options: [.documentType: NSAttributedString.DocumentType.html],
+											 documentAttributes: nil)*/
 	}
 }
 
 extension ForumPost: Identifiable { }
+
+#if DEBUG
+extension ForumPost {
+
+	init(title: String, nick: String, registered: Bool, date: Date, message: String) {
+		self.title = title
+		self.nick = nick
+		self.registered = registered
+		self.date = date
+		self.message = message
+
+		htmlMessage = message
+		threadId = -1
+	}
+}
+#endif

@@ -10,22 +10,47 @@ import SwiftUI
 
 struct ForumView: View {
 
+	@State var threadsVisible: Bool = false
 	@ObservedObject var interactor = ForumInteractor()
 
 	var body: some View {
-		Group {
-			if interactor.isLoading {
-				Text("Loading")
-			}
-			List(interactor.posts) { post in
-				ForumPostView(post: post)
+		GeometryReader { metrics in
+			ZStack {
+				ForumThreadsListView(threads: interactor.threads, currentThread: $interactor.currentThread, threadsVisible: $threadsVisible)
+
+				NavigationView {
+					Group {
+						if interactor.isLoadingPosts || interactor.isLoadingThreads {
+							Text("Loading")
+						} else {
+							ForumPostsView(posts: interactor.postsForCurrentThread(), currentThread: $interactor.currentThread)
+						}
+					}
+					.navigationBarTitle(Text("Forum"), displayMode: .inline)
+					.navigationBarItems(leading: Button(action: {
+						withAnimation(.easeOut(duration: 0.3)) {
+							threadsVisible.toggle()
+						}
+					}, label: {
+						Image("icn_hamburger_menu")
+					}).disabled(interactor.isLoadingPosts))
+
+				}.offset(x: threadsVisible ? metrics.size.width * 2 / 3 : 0, y: 0)
+
 			}
 		}.onAppear {
-			if self.interactor.posts.isEmpty && !self.interactor.isLoading {
+			if self.interactor.postsForCurrentThread().isEmpty && !self.interactor.isLoadingPosts {
 				self.interactor.getLatestPosts()
+				self.interactor.getThreads()
 			}
 		}.navigationBarTitle(Text("Forum"))
 	}
 
 }
 
+
+struct ForumView_Previews: PreviewProvider {
+	static var previews: some View {
+		ForumView()
+	}
+}
