@@ -11,7 +11,7 @@ import Combine
 
 class JokesInteractor: ObservableObject {
 
-	@Published var jokes: [Joke] = []
+	var jokes: [Joke] = []
 
 	@Published var isLoading = false
 
@@ -25,9 +25,10 @@ class JokesInteractor: ObservableObject {
 		currentPage = 0
 
 		dataManager.loadJokes(page: currentPage) { jokes in
-			// TODO: fix bg thread, remove Published from jokes?
-			self.isLoading = false
-			self.jokes = jokes
+			DispatchQueue.main.async {
+				self.jokes = jokes
+				self.isLoading = false
+			}
 		}
 	}
 

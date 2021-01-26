@@ -10,7 +10,7 @@ import Foundation
 
 class GifsInteractor: ObservableObject {
 
-	@Published var gifs: [Gif] = []
+	var gifs: [Gif] = []
 
 	@Published var isLoading = false
 
@@ -21,9 +21,10 @@ class GifsInteractor: ObservableObject {
 		isLoading = true
 
 		dataManager.loadGifs { gifs in
-			// TODO: fix bg thread, remove Published from gifs?
-			self.isLoading = false
-			self.gifs = gifs
+			DispatchQueue.main.async {
+				self.gifs = gifs
+				self.isLoading = false
+			}
 		}
 	}
 

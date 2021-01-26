@@ -10,7 +10,7 @@ import Foundation
 
 class VideosInteractor: ObservableObject {
 
-	@Published var videos: [Video] = []
+	var videos: [Video] = []
 
 	@Published var isLoading = false
 
@@ -21,9 +21,10 @@ class VideosInteractor: ObservableObject {
 		isLoading = true
 
 		dataManager.loadVideos { videos in
-			// TODO: fix bg thread, remove Published from videos?
-			self.isLoading = false
-			self.videos = videos
+			DispatchQueue.main.async {
+				self.videos = videos
+				self.isLoading = false
+			}
 		}
 	}
 
