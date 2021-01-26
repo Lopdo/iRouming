@@ -32,10 +32,11 @@ struct ForumView: View {
 							threadsVisible.toggle()
 						}
 					}, label: {
-						Image("icn_hamburger_menu")
+						Image(threadsVisible ? "icn_navbar_close" : "icn_hamburger_menu")
 					}).disabled(interactor.isLoadingPosts))
-
-				}.offset(x: threadsVisible ? metrics.size.width * 2 / 3 : 0, y: 0)
+				}
+				.background(Color.white.shadow(color: Color.black.opacity(0.7), radius: 25))
+				.offset(x: threadsVisible ? metrics.size.width * 2 / 3 : 0, y: 0)
 
 			}
 		}.onAppear {
