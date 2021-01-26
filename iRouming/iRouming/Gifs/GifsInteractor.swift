@@ -21,6 +21,7 @@ class GifsInteractor: ObservableObject {
 		isLoading = true
 
 		dataManager.loadGifs { gifs in
+			// TODO: fix bg thread, remove Published from gifs?
 			self.isLoading = false
 			self.gifs = gifs
 		}

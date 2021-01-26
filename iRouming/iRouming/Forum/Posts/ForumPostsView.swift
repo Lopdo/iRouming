@@ -50,6 +50,7 @@ struct ForumPostsView: View {
     }
 }
 
+#if DEBUG
 struct ForumPostsView_Previews: PreviewProvider {
     static var previews: some View {
 		let posts = [ForumPost(title: "ACAB", nick: "RoumingUser", registered: false, date: Date(), message: "Samozřejmě první problém nastal už v tom, že ho začali ve městě honit, a on tak zbytečně ohrožoval další lidi, to máš úplnou pravdu. Tam to ani nemělo dojít.\n\nAle na tvou ironickou otázku – ano, některým lidem není příjemné, že mohou dostat odraženou střelou do hlavy jen proto, že někdo cítí potřebu střílet ve městě plném lidí po autě."),
@@ -69,3 +70,4 @@ fileprivate struct ForumPostsViewPreviewsContainer : View {
 		ForumPostsView(posts: posts, currentThread: $currentThread)
 	}
 }
+#endif

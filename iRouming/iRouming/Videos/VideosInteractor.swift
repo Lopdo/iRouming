@@ -21,6 +21,7 @@ class VideosInteractor: ObservableObject {
 		isLoading = true
 
 		dataManager.loadVideos { videos in
+			// TODO: fix bg thread, remove Published from videos?
 			self.isLoading = false
 			self.videos = videos
 		}
