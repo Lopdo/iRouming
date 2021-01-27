@@ -13,7 +13,7 @@ class ImageList: ObservableObject {
 
 	private var dataManager = ImagesDataManager()
 
-	@Published var images: [RoumingImage] = []
+	var images: [RoumingImage] = []
 
 	@Published var isLoading = false
 
@@ -40,10 +40,12 @@ class ImageList: ObservableObject {
 		print("start refresh")
 		//isLoading = true
 		dataManager.loadImages { images in
-			print("end refresh")
-			//self.isLoading = false
-			self.refreshing = false
-			self.images = images
+			DispatchQueue.main.async {
+				print("end refresh")
+				//self.isLoading = false
+				self.images = images
+				self.refreshing = false
+			}
 		}
 	}
 }

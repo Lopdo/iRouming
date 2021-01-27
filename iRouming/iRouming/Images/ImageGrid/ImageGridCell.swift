@@ -11,17 +11,9 @@ import SDWebImageSwiftUI
 
 struct ImageGridCell: View {
 
-	@ObservedObject var imageLoader: ImageLoader
-	@State var isImageLoaded = false
-
-	var image: RoumingImage
+	let image: RoumingImage
 	@State private var selectedImage: RoumingImage?
 	@State private var commentsImage: RoumingImage?
-
-	init(image: RoumingImage) {
-		self.image = image
-		imageLoader = ImageLoader(url: image.urlThumbnail)
-	}
 
 	var body: some View {
 		VStack(spacing: 0) {
@@ -57,11 +49,6 @@ struct ImageGridCell: View {
 
 		}
 		.cornerRadius(6)
-
-		.onAppear {
-			self.imageLoader.loadImage()
-		}
-
 	}
 	
 }

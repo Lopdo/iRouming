@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		F4206D3722C761D000F37DD3 /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4206D3622C761D000F37DD3 /* ImageLoader.swift */; };
-		F4206D3922C7621800F37DD3 /* ImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4206D3822C7621700F37DD3 /* ImageService.swift */; };
 		F4206D3B22C7654000F37DD3 /* ImageListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4206D3A22C7654000F37DD3 /* ImageListCell.swift */; };
 		F43ED83B25B47AE4000BD044 /* PostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F43ED83A25B47AE4000BD044 /* PostView.swift */; };
 		F43ED83E25B47CBA000BD044 /* RegisteredUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F43ED83D25B47CBA000BD044 /* RegisteredUserView.swift */; };
@@ -89,8 +87,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		F4206D3622C761D000F37DD3 /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
-		F4206D3822C7621700F37DD3 /* ImageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageService.swift; sourceTree = "<group>"; };
 		F4206D3A22C7654000F37DD3 /* ImageListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageListCell.swift; sourceTree = "<group>"; };
 		F43ED83A25B47AE4000BD044 /* PostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostView.swift; sourceTree = "<group>"; };
 		F43ED83D25B47CBA000BD044 /* RegisteredUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisteredUserView.swift; sourceTree = "<group>"; };
@@ -186,15 +182,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		F4206D3522C761B800F37DD3 /* ImageLoader */ = {
-			isa = PBXGroup;
-			children = (
-				F4206D3622C761D000F37DD3 /* ImageLoader.swift */,
-				F4206D3822C7621700F37DD3 /* ImageService.swift */,
-			);
-			path = ImageLoader;
-			sourceTree = "<group>";
-		};
 		F43ED83925B47AD3000BD044 /* Posts */ = {
 			isa = PBXGroup;
 			children = (
@@ -254,7 +241,6 @@
 				F4FDAC1922BCE056002879CA /* ImagesDataManager.swift */,
 				F46F579A2514AEBE00DC3B28 /* ImageTab */,
 				F4A852BC22C77BAD0006C269 /* ImageDetail */,
-				F4206D3522C761B800F37DD3 /* ImageLoader */,
 				F4FDAC1422BCDCBB002879CA /* ImageList */,
 				F4962F89251F65C200EADE2D /* ImageGrid */,
 			);
@@ -580,7 +566,6 @@
 				F49D704F253B0E4700AA9FC6 /* VideosInteractor.swift in Sources */,
 				F444E445253994BD00CB8571 /* DateView.swift in Sources */,
 				F49D7046253B098500AA9FC6 /* VideosDataManager.swift in Sources */,
-				F4206D3922C7621800F37DD3 /* ImageService.swift in Sources */,
 				F49DC5BE25C155CD0081D950 /* CommentView.swift in Sources */,
 				F4A852C022C78AC80006C269 /* ImageDetailCell.swift in Sources */,
 				F49D7041253AE5F300AA9FC6 /* HeaderView.swift in Sources */,
@@ -619,7 +604,6 @@
 				F43ED83E25B47CBA000BD044 /* RegisteredUserView.swift in Sources */,
 				F4FDABFE22BCD1ED002879CA /* SceneDelegate.swift in Sources */,
 				F49D7057253B186500AA9FC6 /* VideoFooterView.swift in Sources */,
-				F4206D3722C761D000F37DD3 /* ImageLoader.swift in Sources */,
 				F48AC82C257790E700C14195 /* ForumThreadsListView.swift in Sources */,
 				F4FAF861254421020045DDF2 /* GifsDataManager.swift in Sources */,
 				F4C94DE322D8A9AE0068F40E /* Joke.swift in Sources */,

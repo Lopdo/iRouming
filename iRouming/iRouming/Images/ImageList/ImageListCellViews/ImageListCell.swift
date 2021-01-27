@@ -11,19 +11,11 @@ import SDWebImageSwiftUI
 
 struct ImageListCell: View {
 
-	@ObservedObject var imageLoader: ImageLoader
-	@State var isImageLoaded = false
-
 	@State private var selectedImage: RoumingImage?
 	@State private var commentsImage: RoumingImage?
 
-	var image: RoumingImage
+	let image: RoumingImage
 	@State var imageData: UIImage?
-
-	init(image: RoumingImage) {
-		self.image = image
-		imageLoader = ImageLoader(url: image.urlThumbnail)
-	}
 
 	var body: some View {
 		VStack(spacing: 0) {
@@ -58,9 +50,6 @@ struct ImageListCell: View {
 			if image.isLastSeen {
 				LastSeenView()
 			}
-		}
-		.onAppear {
-			self.imageLoader.loadImage()
 		}
 	}
 
