@@ -38,6 +38,11 @@ struct JokesListView: View {
 				interactor.getJokes()
 			}
 		}.navigationBarTitle(Text("Vtipnik"), displayMode: .inline)
+		.navigationBarItems(trailing:
+				NavigationLink(destination: AboutView()) {
+					Image("icn_navbar_info")
+				}
+		)
 	}
 
 }

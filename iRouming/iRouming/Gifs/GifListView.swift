@@ -35,6 +35,11 @@ struct GifListView: View {
 			}
 		}
 		.navigationBarTitle(Text("Gifník"), displayMode: .inline)
+		.navigationBarItems(trailing:
+				NavigationLink(destination: AboutView()) {
+					Image("icn_navbar_info")
+				}
+		)
 	}
 
 }

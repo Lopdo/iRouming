@@ -41,6 +41,11 @@ struct VideoListView: View {
 			}
 		}
 		.navigationBarTitle(Text("Videjník"), displayMode: .inline)
+		.navigationBarItems(trailing:
+				NavigationLink(destination: AboutView()) {
+					Image("icn_navbar_info")
+				}
+		)
 	}
 
 }

@@ -22,6 +22,11 @@ struct ImageTabWrapView: View {
 				ImageGridView()
 			}
 		}
+		.navigationBarItems(trailing:
+				NavigationLink(destination: AboutView()) {
+					Image("icn_navbar_info")
+				}
+		)
 	}
 
 }
