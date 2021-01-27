@@ -14,7 +14,9 @@ struct ImageGridCell: View {
 	@ObservedObject var imageLoader: ImageLoader
 	@State var isImageLoaded = false
 
-	let image: RoumingImage
+	var image: RoumingImage
+	@State private var selectedImage: RoumingImage?
+	@State private var commentsImage: RoumingImage?
 
 	init(image: RoumingImage) {
 		self.image = image
@@ -25,29 +27,33 @@ struct ImageGridCell: View {
 		VStack(spacing: 0) {
 			ZStack(alignment: Alignment(horizontal: .leading, vertical: .top)) {
 				WebImage(url: URL(string: image.urlThumbnail))
-					// Supports options and context, like `.delayPlaceholder` to show placeholder only when error
-					.onSuccess { image, data, cacheType in
-						// Success
-						// Note: Data exist only when queried from disk cache or network. Use `.queryMemoryData` if you really need data
-					}
 					.resizable() // Resizable like SwiftUI.Image, you must use this modifier or the view will use the image bitmap size
 					.placeholder {
 						Rectangle()
 							.foregroundColor(.gray)
 							.opacity(0.1)
 					}
-					//.indicator(.activity) // Activity Indicator
 					.transition(.fade(duration: 0.5)) // Fade Transition with duration
 					.aspectRatio(contentMode: .fill)
+
 
 				if image.isNew {
 					NewItemView()
 						.padding(4)
 				}
 
+			}.onTapGesture {
+				selectedImage = image
 			}
+			.fullScreenCover(item: $selectedImage, content: {
+				ImageDetailView(image: $0)
+			})
 
-			ImageGridFooterView(roumingImage: image)
+
+			ImageGridFooterView(roumingImage: image, commentsImage: $commentsImage)
+				.sheet(item: $commentsImage, content: {
+					CommentsView(parent: $0)
+				})
 
 		}
 		.cornerRadius(6)

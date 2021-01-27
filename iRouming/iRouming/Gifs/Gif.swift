@@ -23,6 +23,7 @@ struct Gif: Decodable, NewItemDisplayable {
 	let id: Int
 	let commentsCount: Int
 	let url: URL
+	let urlThumbnail: String
 	let rating: Int
 	let date: Date
 
@@ -58,6 +59,8 @@ struct Gif: Decodable, NewItemDisplayable {
 			throw ParseError.typeMismatch
 		}
 
+		urlThumbnail = try container.decode(String.self, forKey: .urlImage)
+
 		initiateIsNew()
 	}
 }
@@ -74,5 +77,6 @@ extension Gif {
 
 		id = Int.random(in: 0..<Int.max)
 		url = URL(string: "http://example.com")!
+		urlThumbnail = "http://example.com"
 	}
 }

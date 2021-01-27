@@ -13,7 +13,8 @@ struct GifView: View {
 
 	let gif: Gif
 
-	@State var isAnimating: Bool = false
+	@State private var isAnimating: Bool = false
+	@State private var showComments: Bool = false
 
 	var body: some View {
 		VStack(spacing: 0) {
@@ -44,12 +45,16 @@ struct GifView: View {
 
 			VideoFooterView(rating: gif.rating,
 							commentsCount: gif.commentsCount,
-							shareURL: gif.url)
+							shareURL: gif.url,
+							showComments: $showComments)
 
 			if gif.isLastSeen {
 				LastSeenView()
 			}
 		}
+		.sheet(isPresented: $showComments, content: {
+			CommentsView(parent: gif)
+		})
 	}
 
 }

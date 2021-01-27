@@ -14,6 +14,8 @@ struct ImageListCellFooterView : View {
 	let isLoggedIn: Bool
 	let imageData: UIImage?
 
+	@Binding var commentsImage: RoumingImage?
+	
     var body: some View {
 
 			HStack {
@@ -28,7 +30,7 @@ struct ImageListCellFooterView : View {
 				}
 
 				CommentsButton(commentsCount: roumingImage.commentsCount) {
-					print("tapped comments")
+					commentsImage = roumingImage
 				}
 
 				HStack {
@@ -56,7 +58,7 @@ struct ImageListCellFooterView : View {
 
     }
 }
-
+/*
 struct ImageListCellFooterView_Previews: PreviewProvider {
 	static var previews: some View {
 		ImageListCellFooterView(roumingImage: RoumingImage(name: "Tajemstvi uspechu podle Burese", commentsCount: 245, likes: 1000, dislikes: 140),
@@ -79,3 +81,4 @@ struct ImageListCellFooterView_Previews: PreviewProvider {
 			.previewLayout(.fixed(width: 414.0, height: 54))
 	}
 }
+*/

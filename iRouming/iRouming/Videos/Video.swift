@@ -26,7 +26,7 @@ struct Video: Decodable, NewItemDisplayable {
 	let rating: Int
 	let commentsCount: Int
 	let youtubeId: String
-	let thumbnailURL: URL
+	let urlThumbnail: String
 
 	var isNew: Bool = false
 	var isLastSeen: Bool = false
@@ -61,11 +61,12 @@ struct Video: Decodable, NewItemDisplayable {
 			throw ParseError.invalidYouTubeURL
 		}
 
-		if let url = URL(string: "https://img.youtube.com/vi/\(youtubeId)/0.jpg") {
+		urlThumbnail = "https://img.youtube.com/vi/\(youtubeId)/0.jpg"
+		/*if let url = URL(string: "https://img.youtube.com/vi/\(youtubeId)/0.jpg") {
 			thumbnailURL = url
 		} else {
 			throw ParseError.invalidYouTubeURL
-		}
+		}*/
 
 		initiateIsNew()
 	}
@@ -89,10 +90,6 @@ extension Video {
 			fatalError()
 		}
 
-		if let url = URL(string: "https://img.youtube.com/vi/\(youtubeId)/0.jpg") {
-			thumbnailURL = url
-		} else {
-			fatalError()
-		}
+		urlThumbnail = "https://img.youtube.com/vi/\(youtubeId)/0.jpg"
 	}
 }

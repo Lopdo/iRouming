@@ -14,6 +14,8 @@ struct VideoFooterView : View {
 	let commentsCount: Int
 	let shareURL: URL
 
+	@Binding var showComments: Bool
+
 	var body: some View {
 
 			HStack {
@@ -22,7 +24,7 @@ struct VideoFooterView : View {
 				Spacer()
 
 				CommentsButton(commentsCount: commentsCount) {
-					print("tapped comments")
+					showComments = true
 				}
 				.padding(.trailing, 20)
 
@@ -34,10 +36,10 @@ struct VideoFooterView : View {
 	}
 }
 
-struct VideoFooterView_Previews: PreviewProvider {
+/*struct VideoFooterView_Previews: PreviewProvider {
 	static var previews: some View {
 		VideoFooterView(rating: 1, commentsCount: 10, shareURL: URL(string: "example.com")!)
 			.previewLayout(.sizeThatFits)
 
 	}
-}
+}*/

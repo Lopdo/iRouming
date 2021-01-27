@@ -13,7 +13,8 @@ struct VideoView: View {
 
 	let video: Video
 
-	@State var isPlaying: Bool = false
+	@State private var isPlaying: Bool = false
+	@State private var showComments: Bool = false
 
 	var body: some View {
 		VStack(spacing: 0) {
@@ -26,12 +27,16 @@ struct VideoView: View {
 
 			VideoFooterView(rating: video.rating,
 							commentsCount: video.commentsCount,
-							shareURL: URL(string: "https://www.youtube.com/watch?v=\(video.youtubeId)")!)
+							shareURL: URL(string: "https://www.youtube.com/watch?v=\(video.youtubeId)")!,
+							showComments: $showComments)
 
 			if video.isLastSeen {
 				LastSeenView()
 			}
 		}
+		.sheet(isPresented: $showComments, content: { 
+			CommentsView(parent: video)
+		})
 	}
 
 }

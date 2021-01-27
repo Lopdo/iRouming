@@ -12,8 +12,6 @@ struct ImageGridView: View {
 
 	@ObservedObject var imageList = ImageList()
 
-	@State private var selectedImage: RoumingImage? = nil
-
 	@State private var isDone = false
 
 	var body: some View {
@@ -42,9 +40,6 @@ struct ImageGridView: View {
 						LazyVGrid(columns: columns, spacing: 3) {
 							ForEach(imageList.images) { image in
 								ImageGridCell(image: image)
-									.onTapGesture {
-										selectedImage = image
-									}
 							}
 						}.padding(.top, 8)
 						
@@ -64,9 +59,7 @@ struct ImageGridView: View {
 			}
 		}
 		.navigationBarTitle(Text("Rouming"), displayMode: .inline)
-		.fullScreenCover(item: $selectedImage, content: {
-			ImageDetailView(image: $0)
-		})
+
 	}
 
 }

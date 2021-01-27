@@ -1,31 +1,27 @@
 //
-//  ForumPost.swift
+//  Comment.swift
 //  iRouming
 //
-//  Created by Lope on 13/07/2019.
-//  Copyright © 2019 Lost Bytes. All rights reserved.
+//  Created by Lope on 26/01/2021.
+//  Copyright © 2021 Lost Bytes. All rights reserved.
 //
 
-import SwiftUI
+import Foundation
 
-struct ForumPost: Decodable {
+struct Comment: Decodable {
 
 	private enum CodingKeys: String, CodingKey {
 		case nick
 		case registered
-		case threadId = "thread"
 		case date = "timestamp"
-		case title = "description"
 		case message
 	}
 
 	let nick: String
-	let title: String
+	let registered: Bool
+	let date: Date
 	let message: String
 	let htmlMessage: String
-	let registered: Bool
-	let threadId: Int
-	let date: Date
 
 	var id: Double {
 		return date.timeIntervalSince1970
@@ -34,13 +30,11 @@ struct ForumPost: Decodable {
 	init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 
-		title = try container.decode(String.self, forKey: .title)
-		message = try container.decode(String.self, forKey: .message)
 		nick = try container.decode(String.self, forKey: .nick)
 		registered = try container.decode(String.self, forKey: .registered) == "1"
-		threadId = Int(try container.decode(String.self, forKey: .threadId)) ?? -1
 		date = Date(timeIntervalSince1970: Double(try container.decode(String.self, forKey: .date)) ?? 0)
 
+		message = try container.decode(String.self, forKey: .message)
 		htmlMessage = message.replacingOccurrences(of: "[i]", with: "<i>")
 							 .replacingOccurrences(of: "[/i]", with: "</i>")
 							 .replacingOccurrences(of: "[b]", with: "</b>")
@@ -49,20 +43,18 @@ struct ForumPost: Decodable {
 	}
 }
 
-extension ForumPost: Identifiable { }
+extension Comment: Identifiable { }
 
 #if DEBUG
-extension ForumPost {
+extension Comment {
 
-	init(title: String, nick: String, registered: Bool, date: Date, message: String) {
-		self.title = title
+	init(nick: String, registered: Bool, date: Date, message: String) {
 		self.nick = nick
 		self.registered = registered
 		self.date = date
 		self.message = message
 
 		htmlMessage = message
-		threadId = -1
 	}
 }
 #endif

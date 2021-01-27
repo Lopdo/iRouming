@@ -12,6 +12,8 @@ struct ImageGridFooterView: View {
 
 	let roumingImage: RoumingImage
 
+	@Binding var commentsImage: RoumingImage?
+
 	var body: some View {
 		VStack(alignment: .leading, spacing: 3) {
 			Text(roumingImage.name)
@@ -29,15 +31,19 @@ struct ImageGridFooterView: View {
 					.foregroundColor(.ratingRed)
 					.font(.system(size: 11, weight: .bold))
 				Spacer()
-				HStack(spacing: 2) {
-					Image("icn_comments")
-						.resizable()
-						.frame(width: 16, height: 16, alignment: .center)
-						.foregroundColor(.textGray)
-					Text(String(roumingImage.commentsCount))
-						.foregroundColor(.textGray)
-						.font(.system(size: 11, weight: .bold))
-				}
+				Button(action: {
+					commentsImage = roumingImage
+				}, label: {
+					HStack(spacing: 2) {
+						Image("icn_comments")
+							.resizable()
+							.frame(width: 16, height: 16, alignment: .center)
+							.foregroundColor(.textGray)
+						Text(String(roumingImage.commentsCount))
+							.foregroundColor(.textGray)
+							.font(.system(size: 11, weight: .bold))
+					}
+				})
 			}
 
 		}
@@ -47,10 +53,10 @@ struct ImageGridFooterView: View {
 	
 }
 
-struct ImageGridFooterView_Previews: PreviewProvider {
+/*struct ImageGridFooterView_Previews: PreviewProvider {
 	static var previews: some View {
 		ImageGridFooterView(roumingImage: RoumingImage(name: "Tajemstvi uspechu podle Burese", commentsCount: 2, likes: 10, dislikes: 140))
 			.previewLayout(.fixed(width: 120.0, height: 45))
 	}
-}
+}*/
 

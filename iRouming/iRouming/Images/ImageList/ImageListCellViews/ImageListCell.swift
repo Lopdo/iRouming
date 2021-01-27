@@ -14,6 +14,9 @@ struct ImageListCell: View {
 	@ObservedObject var imageLoader: ImageLoader
 	@State var isImageLoaded = false
 
+	@State private var selectedImage: RoumingImage?
+	@State private var commentsImage: RoumingImage?
+
 	var image: RoumingImage
 	@State var imageData: UIImage?
 
@@ -40,9 +43,17 @@ struct ImageListCell: View {
 				}
 				.transition(.fade(duration: 0.5))
 				.scaledToFit()
+				.onTapGesture {
+					selectedImage = image
+				}
+				.fullScreenCover(item: $selectedImage, content: {
+					ImageDetailView(image: $0)
+				})
 
-
-			ImageListCellFooterView(roumingImage: image, isLoggedIn: false, imageData: imageData)
+			ImageListCellFooterView(roumingImage: image, isLoggedIn: false, imageData: imageData, commentsImage: $commentsImage)
+				.sheet(item: $commentsImage, content: {
+					CommentsView(parent: $0)
+				})
 
 			if image.isLastSeen {
 				LastSeenView()

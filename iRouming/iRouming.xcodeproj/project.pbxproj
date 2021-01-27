@@ -48,6 +48,12 @@
 		F49D705A253B18FD00AA9FC6 /* RatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49D7059253B18FD00AA9FC6 /* RatingView.swift */; };
 		F49D705D253B1F7800AA9FC6 /* CommentsButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49D705C253B1F7800AA9FC6 /* CommentsButton.swift */; };
 		F49D7060253B209C00AA9FC6 /* ShareButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49D705F253B209C00AA9FC6 /* ShareButton.swift */; };
+		F49DC5B125C077390081D950 /* CommentsDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49DC5B025C077390081D950 /* CommentsDataManager.swift */; };
+		F49DC5B525C077410081D950 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49DC5B425C077410081D950 /* Comment.swift */; };
+		F49DC5B825C07A0C0081D950 /* CommentsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49DC5B725C07A0C0081D950 /* CommentsInteractor.swift */; };
+		F49DC5BB25C1556C0081D950 /* CommentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49DC5BA25C1556C0081D950 /* CommentsView.swift */; };
+		F49DC5BE25C155CD0081D950 /* CommentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49DC5BD25C155CD0081D950 /* CommentView.swift */; };
+		F49DC5C125C15A550081D950 /* Commentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49DC5C025C15A550081D950 /* Commentable.swift */; };
 		F49F4B5F2567D41800B22909 /* URLSession+Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49F4B5E2567D41800B22909 /* URLSession+Result.swift */; };
 		F4A852BE22C77BD70006C269 /* ImageDetailScrollableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A852BD22C77BD70006C269 /* ImageDetailScrollableView.swift */; };
 		F4A852C022C78AC80006C269 /* ImageDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A852BF22C78AC80006C269 /* ImageDetailCell.swift */; };
@@ -125,6 +131,12 @@
 		F49D7059253B18FD00AA9FC6 /* RatingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingView.swift; sourceTree = "<group>"; };
 		F49D705C253B1F7800AA9FC6 /* CommentsButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsButton.swift; sourceTree = "<group>"; };
 		F49D705F253B209C00AA9FC6 /* ShareButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareButton.swift; sourceTree = "<group>"; };
+		F49DC5B025C077390081D950 /* CommentsDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsDataManager.swift; sourceTree = "<group>"; };
+		F49DC5B425C077410081D950 /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
+		F49DC5B725C07A0C0081D950 /* CommentsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsInteractor.swift; sourceTree = "<group>"; };
+		F49DC5BA25C1556C0081D950 /* CommentsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsView.swift; sourceTree = "<group>"; };
+		F49DC5BD25C155CD0081D950 /* CommentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentView.swift; sourceTree = "<group>"; };
+		F49DC5C025C15A550081D950 /* Commentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Commentable.swift; sourceTree = "<group>"; };
 		F49F4B5E2567D41800B22909 /* URLSession+Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLSession+Result.swift"; sourceTree = "<group>"; };
 		F4A852BD22C77BD70006C269 /* ImageDetailScrollableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDetailScrollableView.swift; sourceTree = "<group>"; };
 		F4A852BF22C78AC80006C269 /* ImageDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDetailCell.swift; sourceTree = "<group>"; };
@@ -307,6 +319,19 @@
 			path = Videos;
 			sourceTree = "<group>";
 		};
+		F49DC5AF25C0771F0081D950 /* Comments */ = {
+			isa = PBXGroup;
+			children = (
+				F49DC5B025C077390081D950 /* CommentsDataManager.swift */,
+				F49DC5B425C077410081D950 /* Comment.swift */,
+				F49DC5B725C07A0C0081D950 /* CommentsInteractor.swift */,
+				F49DC5BA25C1556C0081D950 /* CommentsView.swift */,
+				F49DC5BD25C155CD0081D950 /* CommentView.swift */,
+				F49DC5C025C15A550081D950 /* Commentable.swift */,
+			);
+			path = Comments;
+			sourceTree = "<group>";
+		};
 		F4A852BC22C77BAD0006C269 /* ImageDetail */ = {
 			isa = PBXGroup;
 			children = (
@@ -410,6 +435,7 @@
 				F444E4432539947C00CB8571 /* SharedViews */,
 				F46F578F2513FA7800DC3B28 /* Appearance */,
 				F4EDCFAA2502379F004A51FB /* Utils */,
+				F49DC5AF25C0771F0081D950 /* Comments */,
 				F4C94E0A22D9D31C0068F40E /* Forum */,
 				F4FAF85B2544197F0045DDF2 /* Gifs */,
 				F49D7044253B096C00AA9FC6 /* Videos */,
@@ -526,7 +552,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				F4FDAC1E22BD06AF002879CA /* ImageListView.swift in Sources */,
+				F49DC5B525C077410081D950 /* Comment.swift in Sources */,
 				F4C94DE722D8B84F0068F40E /* JokesListView.swift in Sources */,
+				F49DC5C125C15A550081D950 /* Commentable.swift in Sources */,
 				F46F579C2514AEDF00DC3B28 /* ImageTabWrapView.swift in Sources */,
 				F46F57A42514D36300DC3B28 /* ImageDetailView.swift in Sources */,
 				F4FDAC1622BCDCCF002879CA /* RoumingImage.swift in Sources */,
@@ -542,6 +570,7 @@
 				F444E445253994BD00CB8571 /* DateView.swift in Sources */,
 				F49D7046253B098500AA9FC6 /* VideosDataManager.swift in Sources */,
 				F4206D3922C7621800F37DD3 /* ImageService.swift in Sources */,
+				F49DC5BE25C155CD0081D950 /* CommentView.swift in Sources */,
 				F4A852C022C78AC80006C269 /* ImageDetailCell.swift in Sources */,
 				F49D7041253AE5F300AA9FC6 /* HeaderView.swift in Sources */,
 				F4B749ED250272DC0063CDA9 /* ImageListCellFooterRatingLoggedInView.swift in Sources */,
@@ -564,13 +593,16 @@
 				F46F57A72514E0F800DC3B28 /* ImageDetailFooterView.swift in Sources */,
 				F49D705A253B18FD00AA9FC6 /* RatingView.swift in Sources */,
 				F49D7060253B209C00AA9FC6 /* ShareButton.swift in Sources */,
+				F49DC5B125C077390081D950 /* CommentsDataManager.swift in Sources */,
 				F4FAF85D25441E5A0045DDF2 /* Gif.swift in Sources */,
 				F4C94E1222D9E08C0068F40E /* ForumThread.swift in Sources */,
 				F4912DE32527215600ECED5E /* ImageGridCell.swift in Sources */,
+				F49DC5B825C07A0C0081D950 /* CommentsInteractor.swift in Sources */,
 				F4B749EB2502727F0063CDA9 /* ImageListCellFooterRatingView.swift in Sources */,
 				F4FDABFC22BCD1ED002879CA /* AppDelegate.swift in Sources */,
 				F46A51C322EAF12100DA5821 /* NewItemView.swift in Sources */,
 				F4895698254AB31200196BE9 /* ImagesDataManager.swift in Sources */,
+				F49DC5BB25C1556C0081D950 /* CommentsView.swift in Sources */,
 				F4C94E0E22D9D3790068F40E /* ForumPost.swift in Sources */,
 				F4C94E1022D9DEB30068F40E /* ForumInteractor.swift in Sources */,
 				F43ED83E25B47CBA000BD044 /* RegisteredUserView.swift in Sources */,

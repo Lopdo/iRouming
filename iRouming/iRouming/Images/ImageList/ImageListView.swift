@@ -12,8 +12,6 @@ struct ImageListView: View {
 
 	@ObservedObject var interactor = ImageList()
 
-	@State private var selectedImage: RoumingImage? = nil
-
 	var body: some View {
 		Group {
 			if interactor.isLoading {
@@ -26,9 +24,7 @@ struct ImageListView: View {
 					LazyVStack {
 						ForEach(interactor.images) { image in
 							ImageListCell(image: image)
-								.onTapGesture {
-									selectedImage = image
-								}.padding(.bottom, 12)
+								.padding(.bottom, 12)
 						}
 					}
 				}
@@ -41,9 +37,6 @@ struct ImageListView: View {
 			}
 		}
 		.navigationBarTitle(Text("Rouming"), displayMode: .inline)
-		.fullScreenCover(item: $selectedImage, content: {
-			ImageDetailView(image: $0)
-		})
 	}
 
 }
