@@ -198,7 +198,7 @@ struct RefreshView: View {
 				}
 				Text(data.showText).font(.caption)
 			}
-		}
+		}.frame(maxWidth: .infinity)
 	}
 }
 

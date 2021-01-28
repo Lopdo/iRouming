@@ -23,34 +23,20 @@ struct ImageGridView: View {
 					.background(Color.white)
 			} else {
 				ScrollView {
-					RefreshableList(data: RefreshData(isDone: $isDone)) {
+					/*RefreshableList(data: RefreshData(isDone: $isDone)) {
 						imageList.refreshing = true
 					} content: {
-
-					//}
-
-					/*RefreshableNavigationView(title: "dsada", action: {
-						imageList.refreshing = true
-					}, isDone: $imageList.refreshing) {*/
-
-					//}
-					//RefreshableScrollView(height: 70, refreshing: $imageList.refreshing) {
-
+*/
 						let columns = [GridItem(spacing: 3), GridItem(spacing: 3), GridItem(spacing: 3)]
 						LazyVGrid(columns: columns, spacing: 3) {
 							ForEach(imageList.images) { image in
 								ImageGridCell(image: image)
 							}
 						}.padding(.top, 8)
-						
 
-					}
+					//}
 				}
 				.background(Color(UIColor(hex: 0xEEEEEE)))
-
-				//.background(Color(UIColor(hex: 0xEEEEEE)))
-
-				/**/
 			}
 		}
 		.onAppear {
