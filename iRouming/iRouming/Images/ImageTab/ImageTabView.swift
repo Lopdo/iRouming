@@ -35,6 +35,7 @@ struct ImageTabView: View {
 					}
 					.frame(height: 2)
 				}
+				.contentShape(Rectangle())
 				.onTapGesture {
 					listSelected = true
 				}
@@ -54,6 +55,7 @@ struct ImageTabView: View {
 					}
 					.frame(height: 2)
 				}
+				.contentShape(Rectangle())
 				.onTapGesture {
 					listSelected = false
 				}
