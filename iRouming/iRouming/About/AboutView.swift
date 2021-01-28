@@ -14,9 +14,23 @@ struct AboutView: View {
 
 	var body: some View {
 		VStack {
-			Text("Vítejte na Roumingu")
-				.font(.system(size: 17, weight: .bold))
-				.foregroundColor(Color.textBlack)
+			ZStack {
+
+				Text("Vítejte na Roumingu")
+					.font(.system(size: 17, weight: .bold))
+					.foregroundColor(Color.textBlack)
+
+				HStack {
+					Spacer()
+
+					Button(action: {
+						presentationMode.wrappedValue.dismiss()
+					}, label: {
+						Image("icn_thread_close")
+							.padding(12)
+					})
+				}.padding(.trailing, -20)
+			}
 
 			Text("Serveru plném zábavných a zajímavých obrázků videí a vtipů. Najdete zde materiál pro hodiny a hodiny online zábavy a legrace.")
 				.multilineTextAlignment(.center)
@@ -87,9 +101,14 @@ struct AboutView: View {
 
 			Spacer()
 
+			Text("v \(Bundle.main.infoDictionary?["CFBundleVersion"] as? String ?? "")")
+				.font(.system(size: 11))
+				.foregroundColor(Color.textGray)
+
 		}
 		.frame(maxWidth: .infinity, maxHeight: .infinity)
 		.padding([.top, .leading, .trailing], 32)
+		.padding(.bottom, 24)
 		.background(Color.init(white: 238.0 / 255.0))
 		.navigationBarTitle(Text("O aplikaci"))
 		.navigationBarBackButtonHidden(true) // not needed, but just in case

@@ -11,7 +11,8 @@ import SwiftUI
 struct GifListView: View {
 
 	@ObservedObject var interactor = GifsInteractor()
-
+	@State var showingDetail = false
+	
 	var body: some View {
 		Group {
 			if interactor.isLoading {
@@ -36,9 +37,13 @@ struct GifListView: View {
 		}
 		.navigationBarTitle(Text("Gifník"), displayMode: .inline)
 		.navigationBarItems(trailing:
-				NavigationLink(destination: AboutView()) {
-					Image("icn_navbar_info")
-				}
+								Button(action: {
+									self.showingDetail.toggle()
+								}) {
+									Image("icn_navbar_info")
+								}.sheet(isPresented: $showingDetail) {
+									AboutView()
+								}
 		)
 	}
 

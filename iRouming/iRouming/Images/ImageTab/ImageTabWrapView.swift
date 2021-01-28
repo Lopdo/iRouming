@@ -10,6 +10,7 @@ import SwiftUI
 
 struct ImageTabWrapView: View {
 
+	@State var showingDetail = false
 	@State var listSelected: Bool = true
 
 	var body: some View {
@@ -23,9 +24,13 @@ struct ImageTabWrapView: View {
 			}
 		}
 		.navigationBarItems(trailing:
-				NavigationLink(destination: AboutView()) {
-					Image("icn_navbar_info")
-				}
+								Button(action: {
+									self.showingDetail.toggle()
+								}) {
+									Image("icn_navbar_info")
+								}.sheet(isPresented: $showingDetail) {
+									AboutView()
+								}
 		)
 	}
 

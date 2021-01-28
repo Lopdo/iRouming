@@ -11,6 +11,7 @@ import SwiftUI
 struct ForumView: View {
 
 	@State var threadsVisible: Bool = false
+	@State var showingDetail = false
 	@ObservedObject var interactor = ForumInteractor()
 
 	var body: some View {
@@ -35,8 +36,12 @@ struct ForumView: View {
 						Image(threadsVisible ? "icn_navbar_close" : "icn_hamburger_menu")
 					}).disabled(interactor.isLoadingPosts),
 						trailing:
-							NavigationLink(destination: AboutView()) {
+							Button(action: {
+								self.showingDetail.toggle()
+							}) {
 								Image("icn_navbar_info")
+							}.sheet(isPresented: $showingDetail) {
+								AboutView()
 							}
 					)
 				}

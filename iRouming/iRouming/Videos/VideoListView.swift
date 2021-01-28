@@ -12,7 +12,8 @@ import SwiftUI
 struct VideoListView: View {
 
 	@ObservedObject var interactor = VideosInteractor()
-
+	@State var showingDetail = false
+	
 	var body: some View {
 		Group {
 			if interactor.isLoading {
@@ -42,9 +43,13 @@ struct VideoListView: View {
 		}
 		.navigationBarTitle(Text("Videjník"), displayMode: .inline)
 		.navigationBarItems(trailing:
-				NavigationLink(destination: AboutView()) {
-					Image("icn_navbar_info")
-				}
+								Button(action: {
+									self.showingDetail.toggle()
+								}) {
+									Image("icn_navbar_info")
+								}.sheet(isPresented: $showingDetail) {
+									AboutView()
+								}
 		)
 	}
 

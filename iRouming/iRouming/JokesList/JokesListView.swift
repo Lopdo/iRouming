@@ -11,7 +11,8 @@ import SwiftUI
 struct JokesListView: View {
 
 	@ObservedObject var interactor = JokesInteractor()
-
+	@State var showingDetail = false
+	
 	var body: some View {
 		Group {
 			if interactor.isLoading && interactor.jokes.count == 0 {
@@ -39,9 +40,13 @@ struct JokesListView: View {
 			}
 		}.navigationBarTitle(Text("Vtipnik"), displayMode: .inline)
 		.navigationBarItems(trailing:
-				NavigationLink(destination: AboutView()) {
-					Image("icn_navbar_info")
-				}
+								Button(action: {
+									self.showingDetail.toggle()
+								}) {
+									Image("icn_navbar_info")
+								}.sheet(isPresented: $showingDetail) {
+									AboutView()
+								}
 		)
 	}
 
