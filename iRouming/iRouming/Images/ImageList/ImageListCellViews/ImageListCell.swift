@@ -41,6 +41,7 @@ struct ImageListCell: View {
 				.fullScreenCover(item: $selectedImage, content: {
 					ImageDetailView(image: $0)
 				})
+				.cornerRadius(9)
 
 			ImageListCellFooterView(roumingImage: image, isLoggedIn: false, imageData: imageData, commentsImage: $commentsImage)
 				.sheet(item: $commentsImage, content: {
@@ -57,7 +58,11 @@ struct ImageListCell: View {
 
 struct ImageListCell_Previews: PreviewProvider {
 	static var previews: some View {
+
 		ImageListCell(image: RoumingImage(name: "Tajemstvi uspechu podle Burese, Tajemstvi uspechu podle Burese", commentsCount: 2, likes: 10, dislikes: 140))
 			.previewLayout(.fixed(width: /*@START_MENU_TOKEN@*/375.0/*@END_MENU_TOKEN@*/, height: /*@START_MENU_TOKEN@*/498.0/*@END_MENU_TOKEN@*/))
+
+		ImageListCell(image: RoumingImage(name: "Tajemstvi uspechu podle Burese, Tajemstvi uspechu podle Burese", commentsCount: 2, likes: 10, dislikes: 140, isLastSeen: true))
+			.previewLayout(.fixed(width: /*@START_MENU_TOKEN@*/375.0/*@END_MENU_TOKEN@*/, height: 598))
 	}
 }

@@ -76,7 +76,7 @@ extension RoumingImage: Identifiable { }
 
 extension RoumingImage {
 
-	init(name: String, commentsCount: Int, likes: Int, dislikes: Int, date: Date = Date()) {
+	init(name: String, commentsCount: Int, likes: Int, dislikes: Int, date: Date = Date(), isLastSeen: Bool = false) {
 		self.name = name
 		self.commentsCount = commentsCount
 		self.likes = likes
@@ -87,5 +87,6 @@ extension RoumingImage {
 		urlImage = ""
 		urlThumbnail = ""
 
+		self.isLastSeen = isLastSeen
 	}
 }

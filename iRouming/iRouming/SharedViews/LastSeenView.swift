@@ -23,6 +23,7 @@ struct LastSeenView: View {
 				.foregroundColor(.textGray)
 		}
 		.frame(height: 174)
+		.frame(maxWidth: .infinity)
 		.background(Color(white: 238.0 / 255.0))
 	}
 
