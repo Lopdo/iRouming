@@ -7,6 +7,7 @@
 //
 
 import SwiftUI
+import Firebase
 
 struct AboutView: View {
 
@@ -119,6 +120,10 @@ struct AboutView: View {
 					.foregroundColor(Color.white)
 			})
 		)
+		.onAppear {
+			Analytics.logEvent(AnalyticsEventScreenView,
+							   parameters: [AnalyticsParameterScreenName: "About"])
+		}
 	}
 
 }

@@ -7,6 +7,7 @@
 //
 
 import SwiftUI
+import Firebase
 
 struct ShareButton: View {
 
@@ -16,6 +17,8 @@ struct ShareButton: View {
 		Button(action: {
 			let av = UIActivityViewController(activityItems: [data], applicationActivities: nil)
 			UIApplication.shared.windows.first?.rootViewController?.present(av, animated: true)
+
+			Analytics.logEvent(AnalyticsEventShare, parameters: nil)
 		}, label: {
 			Image("icn_share")
 				.frame(width: 24, height: 24, alignment: .center)

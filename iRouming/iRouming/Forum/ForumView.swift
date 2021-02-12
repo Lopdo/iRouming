@@ -7,6 +7,7 @@
 //
 
 import SwiftUI
+import Firebase
 
 struct ForumView: View {
 
@@ -31,6 +32,14 @@ struct ForumView: View {
 					.navigationBarItems(leading: Button(action: {
 						withAnimation(.easeOut(duration: 0.3)) {
 							threadsVisible.toggle()
+
+							if threadsVisible {
+								Analytics.logEvent(AnalyticsEventScreenView,
+												   parameters: [AnalyticsParameterScreenName: "ForumThreads"])
+							} else {
+								Analytics.logEvent(AnalyticsEventScreenView,
+												   parameters: [AnalyticsParameterScreenName: "ForumList"])
+							}
 						}
 					}, label: {
 						Image(threadsVisible ? "icn_navbar_close" : "icn_hamburger_menu")
@@ -54,6 +63,9 @@ struct ForumView: View {
 				self.interactor.getLatestPosts()
 				self.interactor.getThreads()
 			}
+
+			Analytics.logEvent(AnalyticsEventScreenView,
+							   parameters: [AnalyticsParameterScreenName: "Forum"])
 		}.navigationBarTitle(Text("Forum"))
 	}
 

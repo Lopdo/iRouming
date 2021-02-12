@@ -7,6 +7,7 @@
 //
 
 import SwiftUI
+import Firebase
 
 struct GifListView: View {
 
@@ -34,6 +35,8 @@ struct GifListView: View {
 			if interactor.gifs.isEmpty && !interactor.isLoading {
 				interactor.getGifs()
 			}
+			Analytics.logEvent(AnalyticsEventScreenView,
+							   parameters: [AnalyticsParameterScreenName: "GifList"])
 		}
 		.navigationBarTitle(Text("Gifník"), displayMode: .inline)
 		.navigationBarItems(trailing:

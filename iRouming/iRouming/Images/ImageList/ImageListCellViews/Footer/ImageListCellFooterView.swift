@@ -7,6 +7,7 @@
 //
 
 import SwiftUI
+import Firebase
 
 struct ImageListCellFooterView : View {
 
@@ -39,6 +40,8 @@ struct ImageListCellFooterView : View {
 					if let image = imageData {
 						Button(action: {
 							UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
+
+							Analytics.logEvent("download", parameters: nil)
 						}, label: {
 							Image("icn_download")
 								.frame(width: 24, height: 24, alignment: .center)

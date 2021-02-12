@@ -7,7 +7,7 @@
 //
 
 import SwiftUI
-
+import Firebase
 
 struct VideoListView: View {
 
@@ -40,6 +40,8 @@ struct VideoListView: View {
 			if interactor.videos.isEmpty && !interactor.isLoading {
 				interactor.getVideos()
 			}
+			Analytics.logEvent(AnalyticsEventScreenView,
+							   parameters: [AnalyticsParameterScreenName: "VideoList"])
 		}
 		.navigationBarTitle(Text("Videjník"), displayMode: .inline)
 		.navigationBarItems(trailing:

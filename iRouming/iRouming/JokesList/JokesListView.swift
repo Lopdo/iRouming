@@ -7,6 +7,7 @@
 //
 
 import SwiftUI
+import Firebase
 
 struct JokesListView: View {
 
@@ -38,6 +39,8 @@ struct JokesListView: View {
 			if interactor.jokes.isEmpty && !interactor.isLoading {
 				interactor.getJokes()
 			}
+			Analytics.logEvent(AnalyticsEventScreenView,
+							   parameters: [AnalyticsParameterScreenName: "JokesList"])
 		}.navigationBarTitle(Text("Vtipnik"), displayMode: .inline)
 		.navigationBarItems(trailing:
 								Button(action: {

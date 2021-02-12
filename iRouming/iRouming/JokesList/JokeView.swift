@@ -7,6 +7,7 @@
 //
 
 import SwiftUI
+import Firebase
 
 struct JokeView: View {
 
@@ -29,6 +30,8 @@ struct JokeView: View {
 				RatingView(rating: joke.rating)
 				Button(action: {
 					UIPasteboard.general.string = joke.text
+
+					Analytics.logEvent("copy_to_clipboard", parameters: nil)
 				}, label: {
 					Image("icn_copy")
 						.frame(width: 24, height: 24, alignment: .center)

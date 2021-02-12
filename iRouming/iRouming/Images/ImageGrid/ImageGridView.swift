@@ -7,6 +7,7 @@
 //
 
 import SwiftUI
+import Firebase
 
 struct ImageGridView: View {
 
@@ -43,6 +44,8 @@ struct ImageGridView: View {
 			if imageList.images.isEmpty && !imageList.isLoading {
 				imageList.getImages()
 			}
+			Analytics.logEvent(AnalyticsEventScreenView,
+							   parameters: [AnalyticsParameterScreenName: "ImageGrid"])
 		}
 		.navigationBarTitle(Text("Rouming"), displayMode: .inline)
 

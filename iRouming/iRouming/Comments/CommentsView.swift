@@ -8,6 +8,7 @@
 
 import SwiftUI
 import SDWebImageSwiftUI
+import Firebase
 
 struct CommentsView: View {
 
@@ -77,6 +78,9 @@ struct CommentsView: View {
 			if interactor.comments.isEmpty && !interactor.isLoading {
 				interactor.getComments(for: parent.objectId)
 			}
+
+			Analytics.logEvent(AnalyticsEventScreenView,
+							   parameters: [AnalyticsParameterScreenName: "Comments"])
 		}
 	}
 }

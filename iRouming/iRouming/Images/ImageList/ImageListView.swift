@@ -7,6 +7,7 @@
 //
 
 import SwiftUI
+import Firebase
 
 struct ImageListView: View {
 
@@ -35,6 +36,9 @@ struct ImageListView: View {
 			if interactor.images.isEmpty && !interactor.isLoading {
 				interactor.getImages()
 			}
+			Analytics.logEvent(AnalyticsEventScreenView,
+							   parameters: [AnalyticsParameterScreenName: "ImageList"])
+
 		}
 		.navigationBarTitle(Text("Rouming"), displayMode: .inline)
 	}

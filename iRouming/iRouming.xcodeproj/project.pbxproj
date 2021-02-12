@@ -31,6 +31,9 @@
 		F489569D254AB87A00196BE9 /* NewItemDisplayable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F489569C254AB87A00196BE9 /* NewItemDisplayable.swift */; };
 		F48956A1254AC25000196BE9 /* LastSeenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48956A0254AC25000196BE9 /* LastSeenView.swift */; };
 		F48AC82C257790E700C14195 /* ForumThreadsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48AC82B257790E700C14195 /* ForumThreadsListView.swift */; };
+		F48ED59525D67CE2001EE8E8 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = F48ED59425D67CE2001EE8E8 /* FirebaseAnalytics */; };
+		F48ED59725D67CE2001EE8E8 /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = F48ED59625D67CE2001EE8E8 /* FirebaseCrashlytics */; };
+		F48ED59A25D67D2A001EE8E8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F48ED59925D67D2A001EE8E8 /* GoogleService-Info.plist */; };
 		F4912DE025271F0B00ECED5E /* ImageGridFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4912DDF25271F0B00ECED5E /* ImageGridFooterView.swift */; };
 		F4912DE32527215600ECED5E /* ImageGridCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4912DE22527215600ECED5E /* ImageGridCell.swift */; };
 		F491307C2530695900ECED5E /* RefreshableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F491307B2530695900ECED5E /* RefreshableView.swift */; };
@@ -112,6 +115,7 @@
 		F48956A0254AC25000196BE9 /* LastSeenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastSeenView.swift; sourceTree = "<group>"; };
 		F4895761255002AE00196BE9 /* iRouming.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = iRouming.entitlements; sourceTree = "<group>"; };
 		F48AC82B257790E700C14195 /* ForumThreadsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForumThreadsListView.swift; sourceTree = "<group>"; };
+		F48ED59925D67D2A001EE8E8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F4912DDF25271F0B00ECED5E /* ImageGridFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageGridFooterView.swift; sourceTree = "<group>"; };
 		F4912DE22527215600ECED5E /* ImageGridCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageGridCell.swift; sourceTree = "<group>"; };
 		F491307B2530695900ECED5E /* RefreshableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshableView.swift; sourceTree = "<group>"; };
@@ -173,6 +177,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F48ED59725D67CE2001EE8E8 /* FirebaseCrashlytics in Frameworks */,
+				F48ED59525D67CE2001EE8E8 /* FirebaseAnalytics in Frameworks */,
 				F4C7BE6825115D0500F75D4F /* SDWebImageSwiftUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -444,6 +450,7 @@
 				F4FDAC0922BCD1EF002879CA /* Info.plist */,
 				F4FDAC0322BCD1EF002879CA /* Preview Content */,
 				F491307B2530695900ECED5E /* RefreshableView.swift */,
+				F48ED59925D67D2A001EE8E8 /* GoogleService-Info.plist */,
 			);
 			path = iRouming;
 			sourceTree = "<group>";
@@ -484,6 +491,8 @@
 			name = iRouming;
 			packageProductDependencies = (
 				F4C7BE6725115D0500F75D4F /* SDWebImageSwiftUI */,
+				F48ED59425D67CE2001EE8E8 /* FirebaseAnalytics */,
+				F48ED59625D67CE2001EE8E8 /* FirebaseCrashlytics */,
 			);
 			productName = iRouming;
 			productReference = F4FDABF822BCD1ED002879CA /* iRouming.app */;
@@ -516,6 +525,7 @@
 			mainGroup = F4FDABEF22BCD1ED002879CA;
 			packageReferences = (
 				F4C7BE6625115D0500F75D4F /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
+				F48ED59325D67CE2001EE8E8 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			productRefGroup = F4FDABF922BCD1ED002879CA /* Products */;
 			projectDirPath = "";
@@ -533,6 +543,7 @@
 			files = (
 				F46BED8E2542E9F3000C977C /* Assets.bundle in Resources */,
 				F4FDAC0822BCD1EF002879CA /* LaunchScreen.storyboard in Resources */,
+				F48ED59A25D67D2A001EE8E8 /* GoogleService-Info.plist in Resources */,
 				F4FDAC0522BCD1EF002879CA /* Preview Assets.xcassets in Resources */,
 				F4FDAC0222BCD1EF002879CA /* Assets.xcassets in Resources */,
 			);
@@ -834,6 +845,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		F48ED59325D67CE2001EE8E8 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.6.0;
+			};
+		};
 		F4C7BE6625115D0500F75D4F /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SDWebImage/SDWebImageSwiftUI.git";
@@ -845,6 +864,16 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		F48ED59425D67CE2001EE8E8 /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F48ED59325D67CE2001EE8E8 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
+		};
+		F48ED59625D67CE2001EE8E8 /* FirebaseCrashlytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F48ED59325D67CE2001EE8E8 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseCrashlytics;
+		};
 		F4C7BE6725115D0500F75D4F /* SDWebImageSwiftUI */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = F4C7BE6625115D0500F75D4F /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */;
