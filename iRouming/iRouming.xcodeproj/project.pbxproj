@@ -37,6 +37,9 @@
 		F48ED5A225D6DE7A001EE8E8 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = F48ED5A125D6DE7A001EE8E8 /* Lottie */; };
 		F48ED5A525D7C96B001EE8E8 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48ED5A425D7C96B001EE8E8 /* LoadingView.swift */; };
 		F48ED5AD25D7D074001EE8E8 /* loading.json in Resources */ = {isa = PBXBuildFile; fileRef = F48ED5AC25D7D074001EE8E8 /* loading.json */; };
+		F48ED5B325D7EAD2001EE8E8 /* ToastUI in Frameworks */ = {isa = PBXBuildFile; productRef = F48ED5B225D7EAD2001EE8E8 /* ToastUI */; };
+		F48ED5B625D7EDC5001EE8E8 /* check.json in Resources */ = {isa = PBXBuildFile; fileRef = F48ED5B525D7EDC5001EE8E8 /* check.json */; };
+		F48ED5B925D7F1EB001EE8E8 /* RoamingToastStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48ED5B825D7F1EB001EE8E8 /* RoamingToastStyle.swift */; };
 		F4912DE025271F0B00ECED5E /* ImageGridFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4912DDF25271F0B00ECED5E /* ImageGridFooterView.swift */; };
 		F4912DE32527215600ECED5E /* ImageGridCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4912DE22527215600ECED5E /* ImageGridCell.swift */; };
 		F4962F8B251F667100EADE2D /* ImageGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4962F8A251F667100EADE2D /* ImageGridView.swift */; };
@@ -120,6 +123,8 @@
 		F48ED59925D67D2A001EE8E8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F48ED5A425D7C96B001EE8E8 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		F48ED5AC25D7D074001EE8E8 /* loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = loading.json; path = ../../../../../../../../Downloads/loading.json; sourceTree = "<group>"; };
+		F48ED5B525D7EDC5001EE8E8 /* check.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = check.json; sourceTree = "<group>"; };
+		F48ED5B825D7F1EB001EE8E8 /* RoamingToastStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoamingToastStyle.swift; sourceTree = "<group>"; };
 		F4912DDF25271F0B00ECED5E /* ImageGridFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageGridFooterView.swift; sourceTree = "<group>"; };
 		F4912DE22527215600ECED5E /* ImageGridCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageGridCell.swift; sourceTree = "<group>"; };
 		F4962F8A251F667100EADE2D /* ImageGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageGridView.swift; sourceTree = "<group>"; };
@@ -183,6 +188,7 @@
 				F48ED59725D67CE2001EE8E8 /* FirebaseCrashlytics in Frameworks */,
 				F48ED59525D67CE2001EE8E8 /* FirebaseAnalytics in Frameworks */,
 				F4C7BE6825115D0500F75D4F /* SDWebImageSwiftUI in Frameworks */,
+				F48ED5B325D7EAD2001EE8E8 /* ToastUI in Frameworks */,
 				F48ED5A225D6DE7A001EE8E8 /* Lottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -211,6 +217,7 @@
 				F49D705F253B209C00AA9FC6 /* ShareButton.swift */,
 				F48956A0254AC25000196BE9 /* LastSeenView.swift */,
 				F48ED5A425D7C96B001EE8E8 /* LoadingView.swift */,
+				F48ED5B825D7F1EB001EE8E8 /* RoamingToastStyle.swift */,
 			);
 			path = SharedViews;
 			sourceTree = "<group>";
@@ -304,6 +311,7 @@
 			isa = PBXGroup;
 			children = (
 				F48ED5AC25D7D074001EE8E8 /* loading.json */,
+				F48ED5B525D7EDC5001EE8E8 /* check.json */,
 			);
 			path = Animations;
 			sourceTree = "<group>";
@@ -515,6 +523,7 @@
 				F48ED59425D67CE2001EE8E8 /* FirebaseAnalytics */,
 				F48ED59625D67CE2001EE8E8 /* FirebaseCrashlytics */,
 				F48ED5A125D6DE7A001EE8E8 /* Lottie */,
+				F48ED5B225D7EAD2001EE8E8 /* ToastUI */,
 			);
 			productName = iRouming;
 			productReference = F4FDABF822BCD1ED002879CA /* iRouming.app */;
@@ -549,6 +558,7 @@
 				F4C7BE6625115D0500F75D4F /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
 				F48ED59325D67CE2001EE8E8 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				F48ED5A025D6DE7A001EE8E8 /* XCRemoteSwiftPackageReference "lottie-ios" */,
+				F48ED5B125D7EAD2001EE8E8 /* XCRemoteSwiftPackageReference "ToastUI" */,
 			);
 			productRefGroup = F4FDABF922BCD1ED002879CA /* Products */;
 			projectDirPath = "";
@@ -567,6 +577,7 @@
 				F46BED8E2542E9F3000C977C /* Assets.bundle in Resources */,
 				F4FDAC0822BCD1EF002879CA /* LaunchScreen.storyboard in Resources */,
 				F48ED59A25D67D2A001EE8E8 /* GoogleService-Info.plist in Resources */,
+				F48ED5B625D7EDC5001EE8E8 /* check.json in Resources */,
 				F48ED5AD25D7D074001EE8E8 /* loading.json in Resources */,
 				F4FDAC0522BCD1EF002879CA /* Preview Assets.xcassets in Resources */,
 				F4FDAC0222BCD1EF002879CA /* Assets.xcassets in Resources */,
@@ -607,6 +618,7 @@
 				F46BED8D2542E9F3000C977C /* YTPlayerView.m in Sources */,
 				F444764F25B18D39005C7946 /* ForumThreadPostsCountView.swift in Sources */,
 				F4FAF8642544215D0045DDF2 /* GifsInteractor.swift in Sources */,
+				F48ED5B925D7F1EB001EE8E8 /* RoamingToastStyle.swift in Sources */,
 				F4C94E0C22D9D3440068F40E /* ForumDataManager.swift in Sources */,
 				F4A852BE22C77BD70006C269 /* ImageDetailScrollableView.swift in Sources */,
 				F49F4B5F2567D41800B22909 /* URLSession+Result.swift in Sources */,
@@ -885,6 +897,14 @@
 				minimumVersion = 3.2.1;
 			};
 		};
+		F48ED5B125D7EAD2001EE8E8 /* XCRemoteSwiftPackageReference "ToastUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/quanshousio/ToastUI";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
 		F4C7BE6625115D0500F75D4F /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SDWebImage/SDWebImageSwiftUI.git";
@@ -910,6 +930,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = F48ED5A025D6DE7A001EE8E8 /* XCRemoteSwiftPackageReference "lottie-ios" */;
 			productName = Lottie;
+		};
+		F48ED5B225D7EAD2001EE8E8 /* ToastUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F48ED5B125D7EAD2001EE8E8 /* XCRemoteSwiftPackageReference "ToastUI" */;
+			productName = ToastUI;
 		};
 		F4C7BE6725115D0500F75D4F /* SDWebImageSwiftUI */ = {
 			isa = XCSwiftPackageProductDependency;

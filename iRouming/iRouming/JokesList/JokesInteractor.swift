@@ -41,8 +41,10 @@ class JokesInteractor: ObservableObject {
 		currentPage += 1
 
 		dataManager.loadJokes(page: currentPage) { newJokes in
-			self.isLoading = false
-			self.jokes = self.jokes + newJokes
+			DispatchQueue.main.async {
+				self.jokes = self.jokes + newJokes
+				self.isLoading = false
+			}
 		}
 	}
 }

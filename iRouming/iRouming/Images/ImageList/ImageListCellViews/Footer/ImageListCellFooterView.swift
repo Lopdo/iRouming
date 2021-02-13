@@ -8,6 +8,7 @@
 
 import SwiftUI
 import Firebase
+import ToastUI
 
 struct ImageListCellFooterView : View {
 
@@ -15,6 +16,7 @@ struct ImageListCellFooterView : View {
 	let isLoggedIn: Bool
 	let imageData: UIImage?
 
+	@State var presentingToast: Bool = false
 	@Binding var commentsImage: RoumingImage?
 	
     var body: some View {
@@ -41,6 +43,8 @@ struct ImageListCellFooterView : View {
 						Button(action: {
 							UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
 
+							presentingToast = true
+							
 							Analytics.logEvent("download", parameters: nil)
 						}, label: {
 							Image("icn_download")
@@ -48,7 +52,16 @@ struct ImageListCellFooterView : View {
 								.foregroundColor(.textGray)
 						})
 						.frame(width: 44, height: 44, alignment: .center)
-
+						.toast(isPresented: $presentingToast, dismissAfter: 2.0) {
+							ToastView("Uloženo do alba fotoaparátu") {
+								LottieView(name: "check", loopMode: .playOnce)
+										.frame(width: 58, height: 58, alignment: .center)
+							} background: {
+								// empty BG
+							}
+							.toastViewStyle(RoamingToastViewStyle())
+						}
+						
 						Spacer()
 					}
 

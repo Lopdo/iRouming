@@ -8,8 +8,12 @@
 
 import SwiftUI
 import Firebase
+import ToastUI
+import Lottie
 
 struct JokeView: View {
+
+	@State var presentingToast: Bool = false
 
 	let joke: Joke
 
@@ -31,6 +35,8 @@ struct JokeView: View {
 				Button(action: {
 					UIPasteboard.general.string = joke.text
 
+					presentingToast = true
+
 					Analytics.logEvent("copy_to_clipboard", parameters: nil)
 				}, label: {
 					Image("icn_copy")
@@ -38,6 +44,15 @@ struct JokeView: View {
 						.foregroundColor(.textGray)
 				})
 				.frame(width: 44, height: 44, alignment: .center)
+				.toast(isPresented: $presentingToast, dismissAfter: 2.0) {
+					ToastView("Zkopírováno do schránky") {
+						LottieView(name: "check", loopMode: .playOnce)
+								.frame(width: 58, height: 58, alignment: .center)
+					} background: {
+						// empty BG
+					}
+					.toastViewStyle(RoamingToastViewStyle())
+				}
 			}
 			.padding([.top, .bottom], 6)
 			.padding([.leading, .trailing], 16)
