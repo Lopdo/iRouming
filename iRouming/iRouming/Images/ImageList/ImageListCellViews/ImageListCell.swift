@@ -49,7 +49,7 @@ struct ImageListCell: View {
 				})
 
 			if image.isLastSeen {
-				LastSeenView()
+				LastSeenView(lastSeenDate: image.lastSeenDate)
 			}
 		}
 	}

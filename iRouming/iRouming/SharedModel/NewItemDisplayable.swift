@@ -13,10 +13,15 @@ protocol NewItemDisplayable {
 	var isNew: Bool { get set }
 	var isLastSeen: Bool { get }
 
+	var lastSeenDate: Date { get }
 	var prefKey: String { get }
 }
 
 extension NewItemDisplayable {
+
+	var lastSeenDate: Date {
+		UserDefaults.standard.object(forKey: "lastSeen\(prefKey)") as? Date ?? Date()
+	}
 
 	mutating func initiateIsNew() {
 		if let lastDate = UserDefaults.standard.object(forKey: "lastSeen\(prefKey)") as? Date {

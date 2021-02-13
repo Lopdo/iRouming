@@ -49,7 +49,7 @@ struct GifView: View {
 							showComments: $showComments)
 
 			if gif.isLastSeen {
-				LastSeenView()
+				LastSeenView(lastSeenDate: gif.lastSeenDate)
 			}
 		}
 		.sheet(isPresented: $showComments, content: {

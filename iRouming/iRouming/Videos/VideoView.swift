@@ -31,7 +31,7 @@ struct VideoView: View {
 							showComments: $showComments)
 
 			if video.isLastSeen {
-				LastSeenView()
+				LastSeenView(lastSeenDate: video.lastSeenDate)
 			}
 		}
 		.sheet(isPresented: $showComments, content: { 
