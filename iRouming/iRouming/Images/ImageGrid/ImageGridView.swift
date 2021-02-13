@@ -18,10 +18,8 @@ struct ImageGridView: View {
 	var body: some View {
 		Group {
 			if imageList.isLoading {
-				//TODO: missing design
-				Text("Loading")
-					.frame(maxWidth: .infinity, maxHeight: .infinity)
-					.background(Color.white)
+				LoadingView()
+					.frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
 			} else {
 				ScrollView {
 					/*RefreshableList(data: RefreshData(isDone: $isDone)) {

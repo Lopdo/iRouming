@@ -17,15 +17,17 @@ struct JokesListView: View {
 	var body: some View {
 		Group {
 			if interactor.isLoading && interactor.jokes.count == 0 {
-				Text("Loading")
+				LoadingView()
+					.frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
 			} else {
 				ScrollView {
 					LazyVStack {
 						ForEach(interactor.jokes) { joke in
 							JokeView(joke: joke)
-								//.padding(.bottom, 12)
 						}
-						Text("Loading...")
+						LoadingView()
+							.frame(height: 80, alignment: .center)
+							.frame(maxWidth: .infinity)
 							.onAppear {
 								if !interactor.isLoading {
 									interactor.loadNextPage()

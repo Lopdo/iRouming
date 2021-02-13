@@ -23,7 +23,8 @@ struct ForumView: View {
 				NavigationView {
 					Group {
 						if interactor.isLoadingPosts || interactor.isLoadingThreads {
-							Text("Loading")
+							LoadingView()
+								.frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
 						} else {
 							ForumPostsView(posts: interactor.postsForCurrentThread(), currentThread: $interactor.currentThread)
 						}

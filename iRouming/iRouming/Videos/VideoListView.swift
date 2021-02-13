@@ -17,8 +17,8 @@ struct VideoListView: View {
 	var body: some View {
 		Group {
 			if interactor.isLoading {
-				//TODO: missing design
-				Text("Loading")
+				LoadingView()
+					.frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
 			} else {
 				ScrollView {
 					LazyVStack {

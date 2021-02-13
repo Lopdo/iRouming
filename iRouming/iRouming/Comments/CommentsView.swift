@@ -58,10 +58,8 @@ struct CommentsView: View {
 			.zIndex(1)
 
 			if interactor.isLoading {
-				//TODO: missing design
-				Text("Loading")
-					.frame(maxWidth: .infinity, maxHeight: .infinity)
-					.background(Color.white)
+				LoadingView()
+					.frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
 			} else {
 				ScrollView {
 					LazyVStack(spacing: 12) {

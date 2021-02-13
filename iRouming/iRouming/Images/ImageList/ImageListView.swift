@@ -16,10 +16,8 @@ struct ImageListView: View {
 	var body: some View {
 		Group {
 			if interactor.isLoading {
-				//TODO: missing design
-				Text("Loading")
-					.frame(maxWidth: .infinity, maxHeight: .infinity)
-					.background(Color.white)
+				LoadingView()
+					.frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
 			} else {
 				ScrollView {
 					LazyVStack {
@@ -67,5 +65,7 @@ struct ImageListView_Previews: PreviewProvider {
 		ImageListView(images: [RoumingImage(name: "Tajemstvi uspechu podle Burese", commentsCount: 245, likes: 1000, dislikes: 140),
 							   RoumingImage(name: "Tajemstvi uspechu podle Burese", commentsCount: 245, likes: 1000, dislikes: 140),
 							   RoumingImage(name: "Tajemstvi uspechu podle Burese", commentsCount: 245, likes: 1000, dislikes: 140)])
+
+		ImageListView()
 	}
 }
