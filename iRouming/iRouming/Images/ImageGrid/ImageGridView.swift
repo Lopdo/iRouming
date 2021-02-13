@@ -22,18 +22,12 @@ struct ImageGridView: View {
 					.frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
 			} else {
 				ScrollView {
-					/*RefreshableList(data: RefreshData(isDone: $isDone)) {
-						imageList.refreshing = true
-					} content: {
-*/
-						let columns = [GridItem(spacing: 3), GridItem(spacing: 3), GridItem(spacing: 3)]
-						LazyVGrid(columns: columns, spacing: 3) {
-							ForEach(imageList.images) { image in
-								ImageGridCell(image: image)
-							}
-						}.padding(.top, 8)
-
-					//}
+					let columns = [GridItem(spacing: 3), GridItem(spacing: 3), GridItem(spacing: 3)]
+					LazyVGrid(columns: columns, spacing: 3) {
+						ForEach(imageList.images) { image in
+							ImageGridCell(image: image)
+						}
+					}.padding(.top, 8)
 				}
 				.background(Color(UIColor(hex: 0xEEEEEE)))
 			}
