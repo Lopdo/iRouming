@@ -24,7 +24,9 @@ struct ImageListCell: View {
 
 			WebImage(url: URL(string: image.urlImage), options: [.queryMemoryData])
 				.onSuccess { image, data, cacheType in
-					imageData = image
+					DispatchQueue.main.async {
+						imageData = image
+					}
 				}
 
 				.resizable()

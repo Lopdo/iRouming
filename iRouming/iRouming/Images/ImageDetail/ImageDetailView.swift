@@ -31,6 +31,13 @@ struct ImageDetailView: View {
 	@State private var viewOriginalOffset = CGSize.zero
 	@State private var viewOffset = CGSize.zero
 
+	@State private var imageData: UIImage? {
+		didSet {
+			if let imageData = imageData {
+				image.size = imageData.size
+			}
+		}
+	}
 	//@State private var imageSize: CGSize = .zero
 
 	init(image: RoumingImage) {
@@ -49,7 +56,10 @@ struct ImageDetailView: View {
 								.opacity(0.1)
 						}
 						.onSuccess(perform: { image in
-							self.image.size = image.size
+							DispatchQueue.main.async {
+								imageData = image
+							}
+							//self.image.size = image.size
 							//var newScale = min(image.size.width / geometry.size.width, image.size.height / geometry.size.height)
 							//self.scale = newScale
 						})
@@ -110,7 +120,7 @@ struct ImageDetailView: View {
 						.cornerRadius(9)
 						.padding([.trailing, .top], 16)
 					Spacer()
-					ImageDetailFooterView(roumingImage: image.image, isLoggedIn: false)
+					ImageDetailFooterView(roumingImage: image.image, isLoggedIn: false, imageData: imageData)
 						.padding(.all, 16)
 				}
 

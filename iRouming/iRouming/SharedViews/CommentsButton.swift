@@ -11,6 +11,7 @@ import SwiftUI
 struct CommentsButton: View {
 
 	let commentsCount: Int
+	var color: Color = .textGray
 	let action: () -> ()
 
 	var body: some View {
@@ -18,9 +19,9 @@ struct CommentsButton: View {
 			HStack(spacing: 6) {
 				Image("icn_comments")
 					.frame(width: 24, height: 24, alignment: .center)
-					.foregroundColor(.textGray)
+					.foregroundColor(color)
 				Text(String(commentsCount))
-					.foregroundColor(.textGray)
+					.foregroundColor(color)
 					.font(.system(size: 15, weight: .bold))
 			}
 		})

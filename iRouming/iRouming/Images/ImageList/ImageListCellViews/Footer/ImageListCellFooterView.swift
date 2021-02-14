@@ -35,6 +35,9 @@ struct ImageListCellFooterView : View {
 				CommentsButton(commentsCount: roumingImage.commentsCount) {
 					commentsImage = roumingImage
 				}
+				.sheet(item: $commentsImage, content: {
+					CommentsView(parent: $0)
+				})
 
 				HStack {
 					Spacer()

@@ -37,11 +37,11 @@ class ImageList: ObservableObject {
 	}
 
 	func refresh() {
-		print("start refresh")
+		//print("start refresh")
 		//isLoading = true
 		dataManager.loadImages { images in
 			DispatchQueue.main.async {
-				print("end refresh")
+				//print("end refresh")
 				//self.isLoading = false
 				self.images = images
 				self.refreshing = false
