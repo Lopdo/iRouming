@@ -37,13 +37,13 @@ struct ImageListCell: View {
 				}
 				.transition(.fade(duration: 0.5))
 				.scaledToFit()
+				.cornerRadius(9)
 				.onTapGesture {
 					selectedImage = image
 				}
 				.fullScreenCover(item: $selectedImage, content: {
 					ImageDetailView(image: $0)
 				})
-				.cornerRadius(9)
 
 			ImageListCellFooterView(roumingImage: image, isLoggedIn: false, imageData: imageData, commentsImage: $commentsImage)
 				.sheet(item: $commentsImage, content: {

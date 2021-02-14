@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F40A2DAC25D9ADB600A4D1AA /* ZoomableScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F40A2DAB25D9ADB600A4D1AA /* ZoomableScrollView.swift */; };
 		F4206D3B22C7654000F37DD3 /* ImageListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4206D3A22C7654000F37DD3 /* ImageListCell.swift */; };
 		F43ED83B25B47AE4000BD044 /* PostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F43ED83A25B47AE4000BD044 /* PostView.swift */; };
 		F43ED83E25B47CBA000BD044 /* RegisteredUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F43ED83D25B47CBA000BD044 /* RegisteredUserView.swift */; };
@@ -61,8 +62,6 @@
 		F49DC5C125C15A550081D950 /* Commentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49DC5C025C15A550081D950 /* Commentable.swift */; };
 		F49DC5C525C1BE360081D950 /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49DC5C425C1BE360081D950 /* AboutView.swift */; };
 		F49F4B5F2567D41800B22909 /* URLSession+Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49F4B5E2567D41800B22909 /* URLSession+Result.swift */; };
-		F4A852BE22C77BD70006C269 /* ImageDetailScrollableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A852BD22C77BD70006C269 /* ImageDetailScrollableView.swift */; };
-		F4A852C022C78AC80006C269 /* ImageDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A852BF22C78AC80006C269 /* ImageDetailCell.swift */; };
 		F4B749EB2502727F0063CDA9 /* ImageListCellFooterRatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B749EA2502727F0063CDA9 /* ImageListCellFooterRatingView.swift */; };
 		F4B749ED250272DC0063CDA9 /* ImageListCellFooterRatingLoggedInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B749EC250272DC0063CDA9 /* ImageListCellFooterRatingLoggedInView.swift */; };
 		F4C7BE6825115D0500F75D4F /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = F4C7BE6725115D0500F75D4F /* SDWebImageSwiftUI */; };
@@ -94,6 +93,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F40A2DAB25D9ADB600A4D1AA /* ZoomableScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoomableScrollView.swift; sourceTree = "<group>"; };
 		F4206D3A22C7654000F37DD3 /* ImageListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageListCell.swift; sourceTree = "<group>"; };
 		F43ED83A25B47AE4000BD044 /* PostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostView.swift; sourceTree = "<group>"; };
 		F43ED83D25B47CBA000BD044 /* RegisteredUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisteredUserView.swift; sourceTree = "<group>"; };
@@ -146,8 +146,6 @@
 		F49DC5C025C15A550081D950 /* Commentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Commentable.swift; sourceTree = "<group>"; };
 		F49DC5C425C1BE360081D950 /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
 		F49F4B5E2567D41800B22909 /* URLSession+Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLSession+Result.swift"; sourceTree = "<group>"; };
-		F4A852BD22C77BD70006C269 /* ImageDetailScrollableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDetailScrollableView.swift; sourceTree = "<group>"; };
-		F4A852BF22C78AC80006C269 /* ImageDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDetailCell.swift; sourceTree = "<group>"; };
 		F4B749EA2502727F0063CDA9 /* ImageListCellFooterRatingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageListCellFooterRatingView.swift; sourceTree = "<group>"; };
 		F4B749EC250272DC0063CDA9 /* ImageListCellFooterRatingLoggedInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageListCellFooterRatingLoggedInView.swift; sourceTree = "<group>"; };
 		F4C94DE022D8A9950068F40E /* JokesDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JokesDataManager.swift; sourceTree = "<group>"; };
@@ -272,15 +270,6 @@
 			path = ImageTab;
 			sourceTree = "<group>";
 		};
-		F46F57A92514E48400DC3B28 /* Deprecated */ = {
-			isa = PBXGroup;
-			children = (
-				F4A852BD22C77BD70006C269 /* ImageDetailScrollableView.swift */,
-				F4A852BF22C78AC80006C269 /* ImageDetailCell.swift */,
-			);
-			path = Deprecated;
-			sourceTree = "<group>";
-		};
 		F489569B254AB45D00196BE9 /* SharedModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -364,9 +353,9 @@
 		F4A852BC22C77BAD0006C269 /* ImageDetail */ = {
 			isa = PBXGroup;
 			children = (
-				F46F57A92514E48400DC3B28 /* Deprecated */,
 				F46F57A62514E0F800DC3B28 /* ImageDetailFooterView.swift */,
 				F46F57A32514D36300DC3B28 /* ImageDetailView.swift */,
+				F40A2DAB25D9ADB600A4D1AA /* ZoomableScrollView.swift */,
 			);
 			path = ImageDetail;
 			sourceTree = "<group>";
@@ -602,6 +591,7 @@
 				F49D7054253B111F00AA9FC6 /* VideoView.swift in Sources */,
 				F4EDCFAC250237AF004A51FB /* UIColor+Hex.swift in Sources */,
 				F4206D3B22C7654000F37DD3 /* ImageListCell.swift in Sources */,
+				F40A2DAC25D9ADB600A4D1AA /* ZoomableScrollView.swift in Sources */,
 				F49D705D253B1F7800AA9FC6 /* CommentsButton.swift in Sources */,
 				F46F57A02514B24E00DC3B28 /* ImageTabView.swift in Sources */,
 				F444764C25B18BB8005C7946 /* ForumThreadView.swift in Sources */,
@@ -609,7 +599,6 @@
 				F444E445253994BD00CB8571 /* DateView.swift in Sources */,
 				F49D7046253B098500AA9FC6 /* VideosDataManager.swift in Sources */,
 				F49DC5BE25C155CD0081D950 /* CommentView.swift in Sources */,
-				F4A852C022C78AC80006C269 /* ImageDetailCell.swift in Sources */,
 				F49D7041253AE5F300AA9FC6 /* HeaderView.swift in Sources */,
 				F4B749ED250272DC0063CDA9 /* ImageListCellFooterRatingLoggedInView.swift in Sources */,
 				F48956A1254AC25000196BE9 /* LastSeenView.swift in Sources */,
@@ -620,7 +609,6 @@
 				F4FAF8642544215D0045DDF2 /* GifsInteractor.swift in Sources */,
 				F48ED5B925D7F1EB001EE8E8 /* RoamingToastStyle.swift in Sources */,
 				F4C94E0C22D9D3440068F40E /* ForumDataManager.swift in Sources */,
-				F4A852BE22C77BD70006C269 /* ImageDetailScrollableView.swift in Sources */,
 				F49F4B5F2567D41800B22909 /* URLSession+Result.swift in Sources */,
 				F489569D254AB87A00196BE9 /* NewItemDisplayable.swift in Sources */,
 				F4FAF8672544232A0045DDF2 /* GifView.swift in Sources */,
