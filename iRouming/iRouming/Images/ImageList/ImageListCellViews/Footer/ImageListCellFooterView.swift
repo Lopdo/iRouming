@@ -53,7 +53,7 @@ struct ImageListCellFooterView : View {
 						})
 						.frame(width: 44, height: 44, alignment: .center)
 						.toast(isPresented: $presentingToast, dismissAfter: 2.0) {
-							ToastView("Uloženo do alba fotoaparátu") {
+							ToastView("Uloženo v zařízení") {
 								LottieView(name: "check", loopMode: .playOnce)
 										.frame(width: 58, height: 58, alignment: .center)
 							} background: {

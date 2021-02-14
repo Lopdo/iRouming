@@ -29,7 +29,7 @@ struct ForumView: View {
 							ForumPostsView(posts: interactor.postsForCurrentThread(), currentThread: $interactor.currentThread)
 						}
 					}
-					.navigationBarTitle(Text("Forum"), displayMode: .inline)
+					.navigationBarTitle(Text("Fórum"), displayMode: .inline)
 					.navigationBarItems(leading: Button(action: {
 						withAnimation(.easeOut(duration: 0.3)) {
 							threadsVisible.toggle()
@@ -67,7 +67,7 @@ struct ForumView: View {
 
 			Analytics.logEvent(AnalyticsEventScreenView,
 							   parameters: [AnalyticsParameterScreenName: "Forum"])
-		}.navigationBarTitle(Text("Forum"))
+		}.navigationBarTitle(Text("Fórum"))
 	}
 
 }

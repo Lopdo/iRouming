@@ -43,7 +43,7 @@ struct JokesListView: View {
 			}
 			Analytics.logEvent(AnalyticsEventScreenView,
 							   parameters: [AnalyticsParameterScreenName: "JokesList"])
-		}.navigationBarTitle(Text("Vtipnik"), displayMode: .inline)
+		}.navigationBarTitle(Text("Vtipník"), displayMode: .inline)
 		.navigationBarItems(trailing:
 								Button(action: {
 									self.showingDetail.toggle()

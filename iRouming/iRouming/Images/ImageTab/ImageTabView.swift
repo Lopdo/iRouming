@@ -41,7 +41,7 @@ struct ImageTabView: View {
 				}
 
 				VStack(spacing: 0) {
-					Text("Grid")
+					Text("Mřížka")
 						.font(.system(size: 13, weight: .bold))
 						.foregroundColor(listSelected ? .white : .brandYellow)
 						.frame(maxWidth: .infinity, maxHeight: .infinity)

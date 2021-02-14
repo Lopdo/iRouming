@@ -34,7 +34,7 @@ struct ContentView : View {
 			.tabItem {
 				VStack {
 					Image("icn_tab_jokes")
-					Text("Vtipnik")
+					Text("Vtipník")
 				}
 			}
 			.tag(1)
@@ -56,7 +56,7 @@ struct ContentView : View {
 			.tabItem {
 				VStack {
 					Image("icn_tab_gifs")
-					Text("Gifník")
+					Text("GIFník")
 				}
 			}
 			.tag(3)
@@ -65,7 +65,7 @@ struct ContentView : View {
 			.tabItem {
 				VStack {
 					Image("icn_tab_forum")
-					Text("Forum")
+					Text("Fórum")
 				}
 			}
 			.tag(4)

@@ -62,11 +62,6 @@ struct Video: Decodable, NewItemDisplayable {
 		}
 
 		urlThumbnail = "https://img.youtube.com/vi/\(youtubeId)/0.jpg"
-		/*if let url = URL(string: "https://img.youtube.com/vi/\(youtubeId)/0.jpg") {
-			thumbnailURL = url
-		} else {
-			throw ParseError.invalidYouTubeURL
-		}*/
 
 		initiateIsNew()
 	}

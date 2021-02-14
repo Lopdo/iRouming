@@ -38,7 +38,7 @@ struct GifListView: View {
 			Analytics.logEvent(AnalyticsEventScreenView,
 							   parameters: [AnalyticsParameterScreenName: "GifList"])
 		}
-		.navigationBarTitle(Text("Gifník"), displayMode: .inline)
+		.navigationBarTitle(Text("GIFník"), displayMode: .inline)
 		.navigationBarItems(trailing:
 								Button(action: {
 									self.showingDetail.toggle()

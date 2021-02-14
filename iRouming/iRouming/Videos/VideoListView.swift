@@ -25,11 +25,6 @@ struct VideoListView: View {
 						ForEach(0..<interactor.videos.count) { index in
 							VideoView(video: interactor.videos[index])
 								.padding(.bottom, 12)
-							/*ImageListCell(image: interactor.images[index])
-								.onTapGesture {
-									selectedIndex = index
-									isShowingDetailView = true
-								}.padding(.bottom, 12)*/
 						}
 					}
 				}

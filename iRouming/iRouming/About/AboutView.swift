@@ -39,7 +39,7 @@ struct AboutView: View {
 				.foregroundColor(Color.textBlack)
 				.padding([.top, .bottom], 16)
 
-			Text("iRouming je open source projekt. Bug reporty a feature requesty su vitane.")
+			Text("iRouming je open source projekt. Bug reporty a feature requesty jsou vítané.")
 				.multilineTextAlignment(.center)
 				.font(.system(size: 13))
 				.foregroundColor(Color.textBlack)
@@ -79,7 +79,7 @@ struct AboutView: View {
 					.padding(12)
 
 				VStack(alignment: .leading, spacing: 2) {
-					Text("Nadizajnoval")
+					Text("Nadesignoval")
 						.font(.system(size: 13))
 						.foregroundColor(Color.textGray)
 						.padding(.bottom, 4)

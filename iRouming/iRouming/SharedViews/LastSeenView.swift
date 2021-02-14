@@ -15,7 +15,7 @@ struct LastSeenView: View {
 	var body: some View {
 		VStack(spacing: 0) {
 			Image("img_all_seen")
-			Text("Vsechno ste dohnali")
+			Text("Dobrá zpráva!")
 				.font(.system(size: 20, weight: .bold))
 				.foregroundColor(.textBlack)
 				.padding(.top, 8)
