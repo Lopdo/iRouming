@@ -41,7 +41,7 @@ struct ImageListCell: View {
 				.onTapGesture {
 					selectedImage = image
 				}
-				.fullScreenCover(item: $selectedImage, content: {
+				.sheet(item: $selectedImage, content: {
 					ImageDetailView(image: $0)
 				})
 
