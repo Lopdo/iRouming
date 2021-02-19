@@ -12,7 +12,7 @@ struct GifsDataManager {
 
 	func loadGifs(_ success: @escaping ([Gif]) -> ()) {
 
-		let task = URLSession.shared.dataTask(with: "http://kecy.roumen.cz/roumingXMLNew.php?action=gif&json=1") { (result: Result<[Gif], Error>) in
+		let task = URLSession.shared.dataTask(with: "https://www.rouming.cz/roumingXMLNew.php?action=gif&json=1") { (result: Result<[Gif], Error>) in
 			switch result {
 			case .success(let gifs):
 				success(gifs)
