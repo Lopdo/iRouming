@@ -12,7 +12,7 @@ struct ImagesDataManager {
 
 	func loadImages(success: @escaping ([RoumingImage]) -> ()) {
 
-		let task = URLSession.shared.dataTask(with: "http://kecy.roumen.cz/roumingXMLNew.php?json=1") { (result: Result<[RoumingImage], Error>) in
+		let task = URLSession.shared.dataTask(with: "https://www.rouming.cz/roumingXMLNew.php?json=1") { (result: Result<[RoumingImage], Error>) in
 			switch result {
 			case .success(let images):
 				success(images)
