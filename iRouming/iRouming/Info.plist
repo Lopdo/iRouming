@@ -20,11 +20,6 @@
 	<string>2.0.3</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
-	<key>NSAppTransportSecurity</key>
-	<dict>
-		<key>NSAllowsArbitraryLoads</key>
-		<true/>
-	</dict>
 	<key>NSPhotoLibraryAddUsageDescription</key>
 	<string>Ukladani obrazku do galerie</string>
 	<key>UIApplicationSceneManifest</key>

@@ -12,7 +12,7 @@ struct ForumDataManager {
 
 	func loadPosts(page: Int, success: @escaping ([ForumPost]) -> ()) {
 
-		let task = URLSession.shared.dataTask(with: "http://www.rouming.cz/roumingXMLNew.php?action=forum&json=1&page=\(page)") { (result: Result<[ForumPost], Error>) in
+		let task = URLSession.shared.dataTask(with: "https://www.rouming.cz/roumingXMLNew.php?action=forum&json=1&page=\(page)") { (result: Result<[ForumPost], Error>) in
 			switch result {
 			case .success(let posts):
 				success(posts)
@@ -26,7 +26,7 @@ struct ForumDataManager {
 
 	func loadThreads(page: Int, success: @escaping ([ForumThread]) -> ()) {
 
-		let task = URLSession.shared.dataTask(with: "http://www.rouming.cz/roumingXMLNew.php?action=forumThreads&json=1&page=\(page)") { (result: Result<[ForumThread], Error>) in
+		let task = URLSession.shared.dataTask(with: "https://www.rouming.cz/roumingXMLNew.php?action=forumThreads&json=1&page=\(page)") { (result: Result<[ForumThread], Error>) in
 			switch result {
 			case .success(let threads):
 				success(threads)
@@ -40,7 +40,7 @@ struct ForumDataManager {
 
 	func loadPosts(for threadId: Int, page: Int, success: @escaping ([ForumPost]) -> ()) {
 
-		let task = URLSession.shared.dataTask(with: "http://www.rouming.cz/roumingXMLNew.php?json=1&action=forum&thread=\(threadId)") { (result: Result<[ForumPost], Error>) in
+		let task = URLSession.shared.dataTask(with: "https://www.rouming.cz/roumingXMLNew.php?json=1&action=forum&thread=\(threadId)") { (result: Result<[ForumPost], Error>) in
 			switch result {
 			case .success(let posts):
 				success(posts)
