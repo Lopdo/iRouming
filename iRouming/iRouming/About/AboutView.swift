@@ -112,14 +112,6 @@ struct AboutView: View {
 		.padding(.bottom, 24)
 		.background(Color.init(white: 238.0 / 255.0))
 		.navigationBarTitle(Text("O aplikaci"))
-		.navigationBarBackButtonHidden(true) // not needed, but just in case
-		.navigationBarItems(leading: Button(action: {
-			presentationMode.wrappedValue.dismiss()
-			}, label: {
-				Image(systemName: "chevron.left")
-					.foregroundColor(Color.white)
-			})
-		)
 		.onAppear {
 			Analytics.logEvent(AnalyticsEventScreenView,
 							   parameters: [AnalyticsParameterScreenName: "About"])

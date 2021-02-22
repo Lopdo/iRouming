@@ -43,7 +43,6 @@ struct CommentsView: View {
 				Spacer()
 
 				Button(action: {
-					//TODO: close with animation in case of grid images
 					presentationMode.wrappedValue.dismiss()
 				}, label: {
 					Image("icn_thread_close")
