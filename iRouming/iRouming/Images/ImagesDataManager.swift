@@ -15,11 +15,21 @@ struct ImagesDataManager {
 		let task = URLSession.shared.dataTask(with: "https://www.rouming.cz/roumingXMLNew.php?json=1") { (result: Result<[RoumingImage], Error>) in
 			switch result {
 			case .success(let images):
-				success(images)
 
 				if let anyItem = images.first {
+					let lastSeenDate = UserDefaults.standard.value(forKey: "lastSeen\(anyItem.prefKey)") as? Date ?? Date()
+					var cImages = images
+					if let lastSeenItemIndex = cImages.lastIndex(where: { $0.date > lastSeenDate }) {
+						cImages[lastSeenItemIndex].isLastSeen = true
+					}
+
+					success(cImages)
+
 					UserDefaults.standard.setValue(Date(), forKey: "lastSeen\(anyItem.prefKey)")
+				} else {
+					success(images)
 				}
+
 			case .failure(let error):
 				print(error)
 			}
