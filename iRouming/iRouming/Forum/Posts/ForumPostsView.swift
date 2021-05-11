@@ -46,7 +46,7 @@ struct ForumPostsView: View {
 				}.padding(.top, 10)
 			}
 		}
-		.background(Color(UIColor(hex: 0xEEEEEE)))
+		.background(Color.background)
     }
 }
 

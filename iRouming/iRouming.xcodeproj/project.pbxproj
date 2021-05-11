@@ -75,7 +75,6 @@
 		F4C94E1022D9DEB30068F40E /* ForumInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C94E0F22D9DEB30068F40E /* ForumInteractor.swift */; };
 		F4C94E1222D9E08C0068F40E /* ForumThread.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C94E1122D9E08C0068F40E /* ForumThread.swift */; };
 		F4C94E1422D9EA4A0068F40E /* ForumView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C94E1322D9EA4A0068F40E /* ForumView.swift */; };
-		F4EDCFAC250237AF004A51FB /* UIColor+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4EDCFAB250237AF004A51FB /* UIColor+Hex.swift */; };
 		F4FAF85D25441E5A0045DDF2 /* Gif.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FAF85C25441E5A0045DDF2 /* Gif.swift */; };
 		F4FAF861254421020045DDF2 /* GifsDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FAF860254421020045DDF2 /* GifsDataManager.swift */; };
 		F4FAF8642544215D0045DDF2 /* GifsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FAF8632544215D0045DDF2 /* GifsInteractor.swift */; };
@@ -158,7 +157,6 @@
 		F4C94E0F22D9DEB30068F40E /* ForumInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForumInteractor.swift; sourceTree = "<group>"; };
 		F4C94E1122D9E08C0068F40E /* ForumThread.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForumThread.swift; sourceTree = "<group>"; };
 		F4C94E1322D9EA4A0068F40E /* ForumView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForumView.swift; sourceTree = "<group>"; };
-		F4EDCFAB250237AF004A51FB /* UIColor+Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Hex.swift"; sourceTree = "<group>"; };
 		F4FAF85C25441E5A0045DDF2 /* Gif.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gif.swift; sourceTree = "<group>"; };
 		F4FAF860254421020045DDF2 /* GifsDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GifsDataManager.swift; sourceTree = "<group>"; };
 		F4FAF8632544215D0045DDF2 /* GifsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GifsInteractor.swift; sourceTree = "<group>"; };
@@ -399,7 +397,6 @@
 		F4EDCFAA2502379F004A51FB /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				F4EDCFAB250237AF004A51FB /* UIColor+Hex.swift */,
 				F46F57942514AB1D00DC3B28 /* Color+AssetCatalog.swift */,
 				F49F4B5E2567D41800B22909 /* URLSession+Result.swift */,
 				F43ED84425B4877C000BD044 /* XMLAttributedText.swift */,
@@ -589,7 +586,6 @@
 				F4FDAC1622BCDCCF002879CA /* RoumingImage.swift in Sources */,
 				F4895690254AAC4100196BE9 /* GifOverlayView.swift in Sources */,
 				F49D7054253B111F00AA9FC6 /* VideoView.swift in Sources */,
-				F4EDCFAC250237AF004A51FB /* UIColor+Hex.swift in Sources */,
 				F4206D3B22C7654000F37DD3 /* ImageListCell.swift in Sources */,
 				F40A2DAC25D9ADB600A4D1AA /* ZoomableScrollView.swift in Sources */,
 				F49D705D253B1F7800AA9FC6 /* CommentsButton.swift in Sources */,

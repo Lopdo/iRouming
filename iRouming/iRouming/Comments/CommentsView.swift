@@ -70,7 +70,7 @@ struct CommentsView: View {
 			}
 
 		}
-		.background(Color(UIColor(hex: 0xEEEEEE)))
+		.background(Color.background)
 		.onAppear {
 			if interactor.comments.isEmpty && !interactor.isLoading {
 				interactor.getComments(for: parent.objectId)

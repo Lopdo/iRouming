@@ -35,7 +35,7 @@ struct JokesListView: View {
 							}
 					}
 				}
-				.background(Color(UIColor(hex: 0xEEEEEE)))
+				.background(Color.background)
 			}
 		}.onAppear {
 			if interactor.jokes.isEmpty && !interactor.isLoading {

@@ -29,7 +29,7 @@ struct ImageGridView: View {
 						}
 					}.padding(.top, 8)
 				}
-				.background(Color(UIColor(hex: 0xEEEEEE)))
+				.background(Color.background)
 			}
 		}
 		.onAppear {

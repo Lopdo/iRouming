@@ -7,19 +7,20 @@
 //
 
 import UIKit
+import SwiftUI
 
 struct AppearanceUtil {
 
 	static func setupBarsAppearance() {
 		let appearance = UITabBarAppearance()
 		appearance.configureWithOpaqueBackground()
-		appearance.backgroundColor = UIColor(hex: 0x004A7F)
+		appearance.backgroundColor = UIColor(Color.brandBlue)
 
 		let itemAppearance = UITabBarItemAppearance()
 		itemAppearance.normal.iconColor = .white
 		itemAppearance.normal.titleTextAttributes = [.foregroundColor: UIColor.white]
-		itemAppearance.selected.iconColor = UIColor(hex: 0xFEED00)
-		itemAppearance.selected.titleTextAttributes = [.foregroundColor: UIColor(hex: 0xFEED00)]
+		itemAppearance.selected.iconColor = UIColor(Color.brandYellow)
+		itemAppearance.selected.titleTextAttributes = [.foregroundColor: UIColor(Color.brandYellow)]
 
 		appearance.stackedLayoutAppearance = itemAppearance
 
@@ -27,7 +28,7 @@ struct AppearanceUtil {
 
 		let navAppearance = UINavigationBarAppearance()
 		navAppearance.configureWithOpaqueBackground()
-		navAppearance.backgroundColor = UIColor(hex: 0x004A7F)
+		navAppearance.backgroundColor = UIColor(Color.brandBlue)
 		navAppearance.titleTextAttributes = [.foregroundColor: UIColor.white,
 											 .font: UIFont.boldSystemFont(ofSize: 20)]
 		navAppearance.backgroundImage = AppearanceUtil.navbarImage()
@@ -38,8 +39,8 @@ struct AppearanceUtil {
 
 	static func navbarImage() -> UIImage {
 
-		let colors: [CGColor] = [UIColor(hex: 0x009EE0).cgColor,
-								 UIColor(hex: 0x004A9F).cgColor]
+		let colors: [CGColor] = [UIColor(Color.brandBlueLight).cgColor,
+								 UIColor(Color.brandBlue).cgColor]
 
 		let colorSpace = CGColorSpaceCreateDeviceRGB()
 
@@ -50,7 +51,7 @@ struct AppearanceUtil {
 		let radius: CGFloat = 150
 		let renderer = UIGraphicsImageRenderer(size: size)
 		return renderer.image { ctx in
-			ctx.cgContext.setFillColor(UIColor(hex: 0x004A9F).cgColor)
+			ctx.cgContext.setFillColor(UIColor(Color.brandBlue).cgColor)
 			ctx.cgContext.fill(CGRect(origin: .zero, size: size))
 			ctx.cgContext.drawRadialGradient(gradient!, startCenter: center, startRadius: 0.0, endCenter: center, endRadius: radius, options: CGGradientDrawingOptions(rawValue: 0))
 		}
@@ -59,8 +60,8 @@ struct AppearanceUtil {
 
 	static func tabbarImage() -> UIImage {
 
-		let colors: [CGColor] = [UIColor(hex: 0x009EE0).cgColor,
-								 UIColor(hex: 0x004A9F).cgColor]
+		let colors: [CGColor] = [UIColor(Color.brandBlueLight).cgColor,
+								 UIColor(Color.brandBlue).cgColor]
 
 		let colorSpace = CGColorSpaceCreateDeviceRGB()
 
@@ -71,7 +72,7 @@ struct AppearanceUtil {
 		let radius: CGFloat = 150
 		let renderer = UIGraphicsImageRenderer(size: size)
 		return renderer.image { ctx in
-			ctx.cgContext.setFillColor(UIColor(hex: 0x004A9F).cgColor)
+			ctx.cgContext.setFillColor(UIColor(Color.brandBlue).cgColor)
 			ctx.cgContext.fill(CGRect(origin: .zero, size: size))
 			ctx.cgContext.drawRadialGradient(gradient!, startCenter: center, startRadius: 0.0, endCenter: center, endRadius: radius, options: CGGradientDrawingOptions(rawValue: 0))
 		}
