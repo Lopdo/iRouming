@@ -73,7 +73,7 @@ struct ImageListCellFooterView : View {
 				}
 				
 			}.padding(EdgeInsets(top: 10, leading: 16, bottom: 10, trailing: 16))
-			.background(Color.white)
+			.background(Color.backgroundCard)
 
     }
 }

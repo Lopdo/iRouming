@@ -52,7 +52,7 @@ struct CommentsView: View {
 			}
 			.padding(10)
 			.background(Color
-							.white
+							.backgroundCard
 							.shadow(radius: 2))
 			.zIndex(1)
 
@@ -99,7 +99,11 @@ struct CommentsView_Previews: PreviewProvider {
 		let comments = [Comment(nick: "RoumingUser", registered: false, date: Date(), message: "Samozřejmě první problém nastal už v tom, že ho začali ve městě honit, a on tak zbytečně ohrožoval další lidi, to máš úplnou pravdu. Tam to ani nemělo dojít.\n\nAle na tvou ironickou otázku – ano, některým lidem není příjemné, že mohou dostat odraženou střelou do hlavy jen proto, že někdo cítí potřebu střílet ve městě plném lidí po autě."),
 						Comment(nick: "RoumingUser", registered: true, date: Date(), message: "<i>Samozřejmě</i> první problém nastal už v tom, že ho začali ve městě honit, a on tak zbytečně ohrožoval další lidi, to máš úplnou pravdu. Tam to ani nemělo dojít.\n\nAle na tvou ironickou otázku – ano, některým lidem není příjemné, že mohou dostat odraženou střelou do hlavy jen proto, že někdo cítí potřebu <b>střílet</b> ve městě plném lidí po autě.")]
 
-		CommentsView(comments: comments, parent: RoumingImage(name: "Tajemstvi uspechu podle Burese, Tajemstvi uspechu podle Burese", commentsCount: 2, likes: 10, dislikes: 140))
+		Group {
+			CommentsView(comments: comments, parent: RoumingImage(name: "Tajemstvi uspechu podle Burese, Tajemstvi uspechu podle Burese", commentsCount: 2, likes: 10, dislikes: 140))
+			CommentsView(comments: comments, parent: RoumingImage(name: "Tajemstvi uspechu podle Burese, Tajemstvi uspechu podle Burese", commentsCount: 2, likes: 10, dislikes: 140))
+				.preferredColorScheme(.dark)
+		}
 	}
 }
 #endif

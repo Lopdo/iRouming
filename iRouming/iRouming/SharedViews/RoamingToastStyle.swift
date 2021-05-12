@@ -41,7 +41,7 @@ public struct RoamingToastViewStyle: ToastViewStyle {
 					.font(.system(size: 15, weight: .bold))
 			}
 			.padding(paddingSize)
-			.background(Color.white.opacity(0.85))
+			.background(Color.backgroundToast.opacity(0.85))
 			.cornerRadius(cornerSize)
 			.frame(maxWidth: .infinity, maxHeight: .infinity)
 			.background(background.edgesIgnoringSafeArea(.all))

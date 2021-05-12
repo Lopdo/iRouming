@@ -48,7 +48,7 @@ struct ImageGridFooterView: View {
 
 		}
 		.padding(EdgeInsets(top: 6, leading: 6, bottom: 6, trailing: 6))
-		.background(Color.white)
+		.background(Color.backgroundCard)
 	}
 	
 }

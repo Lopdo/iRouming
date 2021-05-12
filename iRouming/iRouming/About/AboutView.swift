@@ -46,7 +46,7 @@ struct AboutView: View {
 			Link("https://github.com/Lopdo/iRouming", destination: URL(string: "https://github.com/Lopdo/iRouming")!)
 				.multilineTextAlignment(.center)
 				.font(.system(size: 13, weight: .semibold))
-				.foregroundColor(Color.brandBlue)
+				.foregroundColor(Color.hyperlink)
 				.padding(2)
 
 			Text("Tvůrci aplikace")
@@ -70,7 +70,7 @@ struct AboutView: View {
 
 				Spacer()
 			}
-			.background(Color.white)
+			.background(Color.backgroundCard)
 			.cornerRadius(6)
 			.padding([.top, .bottom], 24)
 
@@ -91,12 +91,12 @@ struct AboutView: View {
 					Link("www.justdesign.sk", destination: URL(string: "http://www.justdesign.sk")!)
 						.multilineTextAlignment(.center)
 						.font(.system(size: 11, weight: .semibold))
-						.foregroundColor(Color.brandBlue)
+						.foregroundColor(Color.hyperlink)
 				}
 
 				Spacer()
 			}
-			.background(Color.white)
+			.background(Color.backgroundCard)
 			.cornerRadius(6)
 
 
@@ -110,7 +110,7 @@ struct AboutView: View {
 		.frame(maxWidth: .infinity, maxHeight: .infinity)
 		.padding([.top, .leading, .trailing], 32)
 		.padding(.bottom, 24)
-		.background(Color.init(white: 238.0 / 255.0))
+		.background(Color.background)
 		.navigationBarTitle(Text("O aplikaci"))
 		.onAppear {
 			Analytics.logEvent(AnalyticsEventScreenView,

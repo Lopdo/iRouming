@@ -17,7 +17,7 @@ struct ForumThreadsListView: View {
 	var body: some View {
 		GeometryReader { metrics in
 			ZStack {
-				LinearGradient(gradient: Gradient(colors: [Color(red: 0, green: 158.0 / 255.0, blue: 224.0 / 255.0, opacity: 1), Color(red: 0, green: 74.0 / 255.0, blue: 127.0 / 255.0, opacity: 1)]), startPoint: .leading, endPoint: .trailing)
+				LinearGradient(gradient: Gradient(colors: [Color.brandBlueLight, Color.brandBlue]), startPoint: .leading, endPoint: .trailing)
 					.frame(maxWidth: .infinity, maxHeight: .infinity)
 					.edgesIgnoringSafeArea(.all)
 

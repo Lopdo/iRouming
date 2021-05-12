@@ -38,7 +38,7 @@ struct HeaderView : View {
 				.foregroundColor(.textBlack)
 		}
 		.padding(EdgeInsets(top: 14, leading: 16, bottom: 14, trailing: 16))
-		.background(Color.white)
+		.background(Color.backgroundCard)
 	}
 }
 

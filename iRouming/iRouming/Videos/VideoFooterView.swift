@@ -31,7 +31,7 @@ struct VideoFooterView : View {
 				ShareButton(data: shareURL)
 
 			}.padding(EdgeInsets(top: 10, leading: 16, bottom: 10, trailing: 6))
-			.background(Color.white)
+			.background(Color.backgroundCard)
 
 	}
 }

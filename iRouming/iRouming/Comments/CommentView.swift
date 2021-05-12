@@ -41,7 +41,7 @@ struct CommentView: View {
 				}
 			}
 		}.padding(16)
-		.background(Color.white)
+		.background(Color.backgroundCard)
 	}
 
 	private func getStringFromDate() -> String {

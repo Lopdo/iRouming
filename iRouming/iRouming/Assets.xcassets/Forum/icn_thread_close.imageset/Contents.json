@@ -3,6 +3,16 @@
     {
       "filename" : "ico24UiClose.pdf",
       "idiom" : "universal"
+    },
+    {
+      "appearances" : [
+        {
+          "appearance" : "luminosity",
+          "value" : "dark"
+        }
+      ],
+      "filename" : "ico24UiClose-1.pdf",
+      "idiom" : "universal"
     }
   ],
   "info" : {

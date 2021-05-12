@@ -55,7 +55,7 @@ struct ForumView: View {
 							}
 					)
 				}
-				.background(Color.white.shadow(color: Color.black.opacity(0.7), radius: 25))
+				.background(Color.backgroundCard.shadow(color: Color.black.opacity(0.7), radius: 25))
 				.offset(x: threadsVisible ? metrics.size.width * 2 / 3 : 0, y: 0)
 
 			}

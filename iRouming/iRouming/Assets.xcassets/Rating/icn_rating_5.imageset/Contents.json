@@ -3,6 +3,16 @@
     {
       "filename" : "5.pdf",
       "idiom" : "universal"
+    },
+    {
+      "appearances" : [
+        {
+          "appearance" : "luminosity",
+          "value" : "dark"
+        }
+      ],
+      "filename" : "ico24Smiley5.pdf",
+      "idiom" : "universal"
     }
   ],
   "info" : {

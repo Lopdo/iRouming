@@ -34,7 +34,7 @@ struct ForumPostsView: View {
 
 				}
 				.background(Color
-								.white
+								.backgroundCard
 								.shadow(radius: 2))
 				.zIndex(1)
 			}

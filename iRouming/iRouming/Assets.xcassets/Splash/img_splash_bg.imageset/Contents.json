@@ -3,6 +3,16 @@
     {
       "filename" : "rectangle.pdf",
       "idiom" : "universal"
+    },
+    {
+      "appearances" : [
+        {
+          "appearance" : "luminosity",
+          "value" : "dark"
+        }
+      ],
+      "filename" : "rectangle-1.pdf",
+      "idiom" : "universal"
     }
   ],
   "info" : {

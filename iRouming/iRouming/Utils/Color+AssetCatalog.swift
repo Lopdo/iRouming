@@ -12,12 +12,15 @@ extension Color {
 	static let brandBlue = Color("brandBlue")
 	static let brandBlueLight = Color("brandBlueLight")
 	static let brandYellow = Color("brandYellow")
-	
+
 	static let ratingGreen = Color("ratingGreen")
 	static let ratingRed = Color("ratingRed")
 
 	static let textBlack = Color("textBlack")
 	static let textGray = Color("textGray")
+	static let hyperlink = Color("hyperlink")
 
 	static let background = Color("background")
+	static let backgroundCard = Color("backgroundCard")
+	static let backgroundToast = Color("backgroundToast")
 }

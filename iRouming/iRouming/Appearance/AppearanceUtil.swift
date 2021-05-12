@@ -39,8 +39,8 @@ struct AppearanceUtil {
 
 	static func navbarImage() -> UIImage {
 
-		let colors: [CGColor] = [UIColor(Color.brandBlueLight).cgColor,
-								 UIColor(Color.brandBlue).cgColor]
+		let colors: [CGColor] = [UIColor(named: "brandBlueLight")!.cgColor,
+								 UIColor(named: "brandBlue")!.cgColor]
 
 		let colorSpace = CGColorSpaceCreateDeviceRGB()
 
@@ -48,10 +48,11 @@ struct AppearanceUtil {
 		let size = CGSize(width: 1000, height: 100)
 		let gradient = CGGradient(colorsSpace: colorSpace, colors: colors as CFArray, locations: nil)
 		let center = CGPoint(x: size.width / 2.0, y: size.height - 30)
-		let radius: CGFloat = 150
+		//UIScreen.main.bounds.width
+		let radius: CGFloat = 450 / 375 * UIScreen.main.bounds.width
 		let renderer = UIGraphicsImageRenderer(size: size)
 		return renderer.image { ctx in
-			ctx.cgContext.setFillColor(UIColor(Color.brandBlue).cgColor)
+			ctx.cgContext.setFillColor(UIColor(named: "brandBlue")!.cgColor)
 			ctx.cgContext.fill(CGRect(origin: .zero, size: size))
 			ctx.cgContext.drawRadialGradient(gradient!, startCenter: center, startRadius: 0.0, endCenter: center, endRadius: radius, options: CGGradientDrawingOptions(rawValue: 0))
 		}
@@ -69,7 +70,7 @@ struct AppearanceUtil {
 		let size = CGSize(width: 1000, height: 100)
 		let gradient = CGGradient(colorsSpace: colorSpace, colors: colors as CFArray, locations: nil)
 		let center = CGPoint(x: size.width / 2.0, y: -30)
-		let radius: CGFloat = 150
+		let radius: CGFloat = 450 / 375 * UIScreen.main.bounds.width
 		let renderer = UIGraphicsImageRenderer(size: size)
 		return renderer.image { ctx in
 			ctx.cgContext.setFillColor(UIColor(Color.brandBlue).cgColor)

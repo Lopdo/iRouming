@@ -58,7 +58,7 @@ struct JokeView: View {
 			.padding([.leading, .trailing], 16)
 
 		}
-		.background(Color.white)
+		.background(Color.backgroundCard)
 
 	}
 }

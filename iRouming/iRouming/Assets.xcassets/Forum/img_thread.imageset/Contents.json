@@ -3,6 +3,16 @@
     {
       "filename" : "path.pdf",
       "idiom" : "universal"
+    },
+    {
+      "appearances" : [
+        {
+          "appearance" : "luminosity",
+          "value" : "dark"
+        }
+      ],
+      "filename" : "path-1.pdf",
+      "idiom" : "universal"
     }
   ],
   "info" : {
