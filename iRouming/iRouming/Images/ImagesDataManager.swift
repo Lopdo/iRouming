@@ -19,7 +19,7 @@ struct ImagesDataManager {
 				if let anyItem = images.first {
 					let lastSeenDate = UserDefaults.standard.value(forKey: "lastSeen\(anyItem.prefKey)") as? Date ?? Date()
 					var cImages = images
-					if let lastSeenItemIndex = cImages.lastIndex(where: { $0.date > lastSeenDate }) {
+					if let lastSeenItemIndex = cImages.lastIndex(where: { $0.date > lastSeenDate }), lastSeenItemIndex != 0 {
 						cImages[lastSeenItemIndex].isLastSeen = true
 					}
 

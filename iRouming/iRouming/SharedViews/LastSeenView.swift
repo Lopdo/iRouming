@@ -26,7 +26,7 @@ struct LastSeenView: View {
 		}
 		.frame(height: 174)
 		.frame(maxWidth: .infinity)
-		.background(Color(white: 238.0 / 255.0))
+		.background(Color.background)
 	}
 
 	private func getStringFromDate() -> String {
@@ -46,6 +46,7 @@ struct LastSeenView_Previews: PreviewProvider {
 			.previewLayout(.sizeThatFits)
 
 		LastSeenView(lastSeenDate: Date().addingTimeInterval(-60*60*28*2))
+			.preferredColorScheme(.dark)
 			.previewLayout(.sizeThatFits)
 	}
 }
