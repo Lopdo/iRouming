@@ -17,7 +17,14 @@ struct ShareButton: View {
 	var body: some View {
 		Button(action: {
 			let av = UIActivityViewController(activityItems: [data], applicationActivities: nil)
-			UIApplication.shared.windows.first?.rootViewController?.present(av, animated: true)
+
+			let window = UIApplication.shared.connectedScenes
+				.filter { $0.activationState == .foregroundActive }
+				.compactMap { $0 as? UIWindowScene }
+				.first?.windows
+				.first(where: { $0.isKeyWindow })
+
+			window?.rootViewController?.present(av, animated: true)
 
 			Analytics.logEvent(AnalyticsEventShare, parameters: nil)
 		}, label: {

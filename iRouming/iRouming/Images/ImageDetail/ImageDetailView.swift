@@ -27,7 +27,7 @@ struct ImageDetailView: View {
 							.foregroundColor(.gray)
 							.opacity(0.1)
 					}
-					.onSuccess(perform: { image in
+					.onSuccess(perform: { (image, _, _)  in
 						DispatchQueue.main.async {
 							imageData = image
 						}
