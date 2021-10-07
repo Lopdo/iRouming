@@ -25,6 +25,7 @@ struct AppearanceUtil {
 		appearance.stackedLayoutAppearance = itemAppearance
 
 		UITabBar.appearance().standardAppearance = appearance
+		UITabBar.appearance().scrollEdgeAppearance = appearance
 
 		let navAppearance = UINavigationBarAppearance()
 		navAppearance.configureWithOpaqueBackground()
@@ -35,6 +36,7 @@ struct AppearanceUtil {
 		navAppearance.shadowColor = nil
 		navAppearance.backgroundImageContentMode = .bottom
 		UINavigationBar.appearance().standardAppearance = navAppearance
+		UINavigationBar.appearance().scrollEdgeAppearance = navAppearance
 	}
 
 	static func navbarImage() -> UIImage {
