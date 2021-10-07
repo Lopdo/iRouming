@@ -21,7 +21,17 @@ struct Comment: Decodable {
 	let registered: Bool
 	let date: Date
 	let message: String
-	let htmlMessage: String
+
+	var markdownMessage: AttributedString {
+		get {
+			do {
+				return try AttributedString(markdown: message)
+			} catch {
+				print("Error parsing Markdown for string \(self): \(error)")
+				return AttributedString(message)
+			}
+		}
+	}
 
 	var id: Double {
 		return date.timeIntervalSince1970
@@ -34,12 +44,12 @@ struct Comment: Decodable {
 		registered = try container.decode(String.self, forKey: .registered) == "1"
 		date = Date(timeIntervalSince1970: Double(try container.decode(String.self, forKey: .date)) ?? 0)
 
-		message = try container.decode(String.self, forKey: .message)
-		htmlMessage = message.replacingOccurrences(of: "[i]", with: "<i>")
-							 .replacingOccurrences(of: "[/i]", with: "</i>")
-							 .replacingOccurrences(of: "[b]", with: "</b>")
-							 .replacingOccurrences(of: "[/b]", with: "</b>")
-							 .replacingOccurrences(of: "\n", with: "<br />")
+		message = try container
+			.decode(String.self, forKey: .message)
+			.replacingOccurrences(of: "[i]", with: "*")
+			.replacingOccurrences(of: "[/i]", with: "*")
+			.replacingOccurrences(of: "[b]", with: "**")
+			.replacingOccurrences(of: "[/b]", with: "**")
 	}
 }
 
@@ -53,8 +63,6 @@ extension Comment {
 		self.registered = registered
 		self.date = date
 		self.message = message
-
-		htmlMessage = message
 	}
 }
 #endif

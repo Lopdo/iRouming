@@ -35,9 +35,11 @@ struct CommentView: View {
 					}
 					.padding(.top, 8)
 
-					XMLAttributedText(htmlText: comment.htmlMessage, fontSize: 13)
+					Text(comment.markdownMessage)
+						.font(.system(size: 13))
 						.foregroundColor(Color.textBlack)
 						.lineSpacing(5)
+
 				}
 			}
 		}.padding(16)

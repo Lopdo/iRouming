@@ -42,8 +42,8 @@ struct PostView: View {
 					}
 					.padding(.top, 8)
 
-					XMLAttributedText(htmlText: post.htmlMessage, fontSize: 13)
-						.foregroundColor(Color.textBlack)
+					Text(post.markdownMessage)
+						.font(.system(size: 13))
 						.lineSpacing(5)
 				}
 			}

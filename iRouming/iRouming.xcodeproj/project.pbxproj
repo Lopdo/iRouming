@@ -12,7 +12,6 @@
 		F43ED83B25B47AE4000BD044 /* PostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F43ED83A25B47AE4000BD044 /* PostView.swift */; };
 		F43ED83E25B47CBA000BD044 /* RegisteredUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F43ED83D25B47CBA000BD044 /* RegisteredUserView.swift */; };
 		F43ED84125B480C5000BD044 /* ForumPostsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F43ED84025B480C5000BD044 /* ForumPostsView.swift */; };
-		F43ED84525B4877C000BD044 /* XMLAttributedText.swift in Sources */ = {isa = PBXBuildFile; fileRef = F43ED84425B4877C000BD044 /* XMLAttributedText.swift */; };
 		F444764C25B18BB8005C7946 /* ForumThreadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F444764B25B18BB8005C7946 /* ForumThreadView.swift */; };
 		F444764F25B18D39005C7946 /* ForumThreadPostsCountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F444764E25B18D39005C7946 /* ForumThreadPostsCountView.swift */; };
 		F444E445253994BD00CB8571 /* DateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F444E444253994BD00CB8571 /* DateView.swift */; };
@@ -97,7 +96,6 @@
 		F43ED83A25B47AE4000BD044 /* PostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostView.swift; sourceTree = "<group>"; };
 		F43ED83D25B47CBA000BD044 /* RegisteredUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisteredUserView.swift; sourceTree = "<group>"; };
 		F43ED84025B480C5000BD044 /* ForumPostsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForumPostsView.swift; sourceTree = "<group>"; };
-		F43ED84425B4877C000BD044 /* XMLAttributedText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XMLAttributedText.swift; sourceTree = "<group>"; };
 		F444764B25B18BB8005C7946 /* ForumThreadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForumThreadView.swift; sourceTree = "<group>"; };
 		F444764E25B18D39005C7946 /* ForumThreadPostsCountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForumThreadPostsCountView.swift; sourceTree = "<group>"; };
 		F444E444253994BD00CB8571 /* DateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateView.swift; sourceTree = "<group>"; };
@@ -399,7 +397,6 @@
 			children = (
 				F46F57942514AB1D00DC3B28 /* Color+AssetCatalog.swift */,
 				F49F4B5E2567D41800B22909 /* URLSession+Result.swift */,
-				F43ED84425B4877C000BD044 /* XMLAttributedText.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -635,7 +632,6 @@
 				F48AC82C257790E700C14195 /* ForumThreadsListView.swift in Sources */,
 				F4FAF861254421020045DDF2 /* GifsDataManager.swift in Sources */,
 				F4C94DE322D8A9AE0068F40E /* Joke.swift in Sources */,
-				F43ED84525B4877C000BD044 /* XMLAttributedText.swift in Sources */,
 				F4FDAC1C22BCF983002879CA /* ImageList.swift in Sources */,
 				F49D7049253B0AA500AA9FC6 /* Video.swift in Sources */,
 				F49DC5C525C1BE360081D950 /* AboutView.swift in Sources */,
