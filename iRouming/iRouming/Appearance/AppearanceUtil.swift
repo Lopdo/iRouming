@@ -35,6 +35,7 @@ struct AppearanceUtil {
 		navAppearance.shadowColor = nil
 		navAppearance.backgroundImageContentMode = .bottom
 		UINavigationBar.appearance().standardAppearance = navAppearance
+		UINavigationBar.appearance().scrollEdgeAppearance = navAppearance
 	}
 
 	static func navbarImage() -> UIImage {
