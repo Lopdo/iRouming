@@ -43,15 +43,6 @@ struct ImageListView: View {
 
 }
 
-#if DEBUG
-extension View {
-	func Print(_ vars: Any...) -> some View {
-		for v in vars { print(v) }
-		return EmptyView()
-	}
-}
-#endif
-
 extension ImageListView {
 
 	fileprivate init(images: [RoumingImage]) {

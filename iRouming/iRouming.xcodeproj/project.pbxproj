@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F40271B227103D42000A2A0F /* View+Print.swift in Sources */ = {isa = PBXBuildFile; fileRef = F40271B127103D42000A2A0F /* View+Print.swift */; };
 		F40A2DAC25D9ADB600A4D1AA /* ZoomableScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F40A2DAB25D9ADB600A4D1AA /* ZoomableScrollView.swift */; };
 		F4206D3B22C7654000F37DD3 /* ImageListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4206D3A22C7654000F37DD3 /* ImageListCell.swift */; };
 		F43ED83B25B47AE4000BD044 /* PostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F43ED83A25B47AE4000BD044 /* PostView.swift */; };
@@ -91,6 +92,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F40271B127103D42000A2A0F /* View+Print.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Print.swift"; sourceTree = "<group>"; };
 		F40A2DAB25D9ADB600A4D1AA /* ZoomableScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoomableScrollView.swift; sourceTree = "<group>"; };
 		F4206D3A22C7654000F37DD3 /* ImageListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageListCell.swift; sourceTree = "<group>"; };
 		F43ED83A25B47AE4000BD044 /* PostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostView.swift; sourceTree = "<group>"; };
@@ -397,6 +399,7 @@
 			children = (
 				F46F57942514AB1D00DC3B28 /* Color+AssetCatalog.swift */,
 				F49F4B5E2567D41800B22909 /* URLSession+Result.swift */,
+				F40271B127103D42000A2A0F /* View+Print.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -598,6 +601,7 @@
 				F46F57952514AB1D00DC3B28 /* Color+AssetCatalog.swift in Sources */,
 				F46BED942542EECD000C977C /* YouTubeVideoView.swift in Sources */,
 				F46BED8D2542E9F3000C977C /* YTPlayerView.m in Sources */,
+				F40271B227103D42000A2A0F /* View+Print.swift in Sources */,
 				F444764F25B18D39005C7946 /* ForumThreadPostsCountView.swift in Sources */,
 				F4FAF8642544215D0045DDF2 /* GifsInteractor.swift in Sources */,
 				F48ED5B925D7F1EB001EE8E8 /* RoamingToastStyle.swift in Sources */,
