@@ -23,9 +23,7 @@ struct CommentView: View {
 							.font(.system(size: 13, weight: .semibold))
 							.foregroundColor(Color.textBlack)
 
-						if comment.registered {
-							RegisteredUserView()
-						}
+						RegistrationStatusView(status: comment.registered)
 
 						Spacer()
 
@@ -60,10 +58,10 @@ struct CommentView: View {
 #if DEBUG
 struct CommentView_Previews: PreviewProvider {
 	static var previews: some View {
-		CommentView(comment: Comment(nick: "RoumingUser", registered: false, date: Date(), message: "Samozřejmě první problém nastal už v tom, že ho začali ve městě honit, a on tak zbytečně ohrožoval další lidi, to máš úplnou pravdu. Tam to ani nemělo dojít.\n\nAle na tvou ironickou otázku – ano, některým lidem není příjemné, že mohou dostat odraženou střelou do hlavy jen proto, že někdo cítí potřebu střílet ve městě plném lidí po autě."))
+		CommentView(comment: Comment(nick: "RoumingUser", registered: .none, date: Date(), message: "Samozřejmě první problém nastal už v tom, že ho začali ve městě honit, a on tak zbytečně ohrožoval další lidi, to máš úplnou pravdu. Tam to ani nemělo dojít.\n\nAle na tvou ironickou otázku – ano, některým lidem není příjemné, že mohou dostat odraženou střelou do hlavy jen proto, že někdo cítí potřebu střílet ve městě plném lidí po autě."))
 			.previewLayout(.sizeThatFits)
 
-		CommentView(comment: Comment(nick: "RoumingUser", registered: false, date: Date().addingTimeInterval(-60*60*24*2), message: "Samozřejmě první problém nastal už v tom, že ho začali ve městě honit, a on tak zbytečně ohrožoval další lidi, to máš úplnou pravdu. Tam to ani nemělo dojít.\n\nAle na tvou ironickou otázku – ano, některým lidem není příjemné, že mohou dostat odraženou střelou do hlavy jen proto, že někdo cítí potřebu střílet ve městě plném lidí po autě."))
+		CommentView(comment: Comment(nick: "RoumingUser", registered: .none, date: Date().addingTimeInterval(-60*60*24*2), message: "Samozřejmě první problém nastal už v tom, že ho začali ve městě honit, a on tak zbytečně ohrožoval další lidi, to máš úplnou pravdu. Tam to ani nemělo dojít.\n\nAle na tvou ironickou otázku – ano, některým lidem není příjemné, že mohou dostat odraženou střelou do hlavy jen proto, že někdo cítí potřebu střílet ve městě plném lidí po autě."))
 			.previewLayout(.sizeThatFits)
 	}
 }

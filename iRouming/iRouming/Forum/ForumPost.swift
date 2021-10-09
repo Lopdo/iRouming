@@ -22,7 +22,7 @@ struct ForumPost: Decodable {
 	let nick: String
 	let title: String
 	let message: String
-	let registered: Bool
+	let registered: RegistrationStatus
 	let threadId: Int
 	let date: Date
 
@@ -46,7 +46,7 @@ struct ForumPost: Decodable {
 
 		title = try container.decode(String.self, forKey: .title)
 		nick = try container.decode(String.self, forKey: .nick)
-		registered = try container.decode(String.self, forKey: .registered) == "1"
+		registered = try container.decode(RegistrationStatus.self, forKey: .registered)
 		threadId = Int(try container.decode(String.self, forKey: .threadId)) ?? -1
 		date = Date(timeIntervalSince1970: Double(try container.decode(String.self, forKey: .date)) ?? 0)
 		message = try container
@@ -63,7 +63,7 @@ extension ForumPost: Identifiable { }
 #if DEBUG
 extension ForumPost {
 
-	init(title: String, nick: String, registered: Bool, date: Date, message: String) {
+	init(title: String, nick: String, registered: RegistrationStatus, date: Date, message: String) {
 		self.title = title
 		self.nick = nick
 		self.registered = registered

@@ -18,7 +18,7 @@ struct Comment: Decodable {
 	}
 
 	let nick: String
-	let registered: Bool
+	let registered: RegistrationStatus
 	let date: Date
 	let message: String
 
@@ -41,7 +41,7 @@ struct Comment: Decodable {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 
 		nick = try container.decode(String.self, forKey: .nick)
-		registered = try container.decode(String.self, forKey: .registered) == "1"
+		registered = try container.decode(RegistrationStatus.self, forKey: .registered)
 		date = Date(timeIntervalSince1970: Double(try container.decode(String.self, forKey: .date)) ?? 0)
 
 		message = try container
@@ -58,7 +58,7 @@ extension Comment: Identifiable { }
 #if DEBUG
 extension Comment {
 
-	init(nick: String, registered: Bool, date: Date, message: String) {
+	init(nick: String, registered: RegistrationStatus, date: Date, message: String) {
 		self.nick = nick
 		self.registered = registered
 		self.date = date
