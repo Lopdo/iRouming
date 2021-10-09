@@ -10,30 +10,30 @@ import Foundation
 
 struct GifsDataManager {
 
-	func loadGifs(_ success: @escaping ([Gif]) -> ()) {
+	func loadGifs() async -> [Gif] {
 
-		let task = URLSession.shared.dataTask(with: "https://www.rouming.cz/roumingXMLNew.php?action=gif&json=1") { (result: Result<[Gif], Error>) in
-			switch result {
-			case .success(let gifs):
-				if let anyItem = gifs.first {
-					let lastSeenDate = UserDefaults.standard.value(forKey: "lastSeen\(anyItem.prefKey)") as? Date ?? Date()
-					var cGIFs = gifs
-					if let lastSeenItemIndex = cGIFs.lastIndex(where: { $0.date > lastSeenDate }) {
-						cGIFs[lastSeenItemIndex].isLastSeen = true
-					}
+		do {
+			let (data, _) = try await URLSession.shared.data(from: URL(string: "https://www.rouming.cz/roumingXMLNew.php?action=gif&json=1")!)
+			let gifs = try JSONDecoder().decode([Gif].self, from: data)
 
-					success(cGIFs)
-
-					UserDefaults.standard.setValue(Date(), forKey: "lastSeen\(anyItem.prefKey)")
-				} else {
-					success(gifs)
+			if let anyItem = gifs.first {
+				let lastSeenDate = UserDefaults.standard.value(forKey: "lastSeen\(anyItem.prefKey)") as? Date ?? Date()
+				var cGIFs = gifs
+				if let lastSeenItemIndex = cGIFs.lastIndex(where: { $0.date > lastSeenDate }) {
+					cGIFs[lastSeenItemIndex].isLastSeen = true
 				}
-			case .failure(let error):
-				print(error)
+
+				UserDefaults.standard.setValue(Date(), forKey: "lastSeen\(anyItem.prefKey)")
+
+				return cGIFs
+			} else {
+				return gifs
 			}
+		} catch {
+			print(error)
+			return []
 		}
 
-		task.resume()
 	}
 
 }

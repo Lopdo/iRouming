@@ -11,7 +11,7 @@ import Firebase
 
 struct ImageListView: View {
 
-	@ObservedObject var interactor = ImageList()
+	@StateObject var interactor = ImageList()
 
 	var body: some View {
 		Group {
@@ -28,15 +28,19 @@ struct ImageListView: View {
 					}
 				}
 				.background(Color.background)
+				.refreshable {
+					await interactor.getImages()
+				}
+			}
+		}
+		.task {
+			if interactor.images.isEmpty && !interactor.isLoading {
+				await interactor.getImages()
 			}
 		}
 		.onAppear {
-			if interactor.images.isEmpty && !interactor.isLoading {
-				interactor.getImages()
-			}
 			Analytics.logEvent(AnalyticsEventScreenView,
 							   parameters: [AnalyticsParameterScreenName: "ImageList"])
-
 		}
 		.navigationBarTitle(Text("Rouming"), displayMode: .inline)
 	}

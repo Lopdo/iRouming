@@ -11,7 +11,7 @@ import Firebase
 
 struct VideoListView: View {
 
-	@ObservedObject var interactor = VideosInteractor()
+	@StateObject var interactor = VideosInteractor()
 	@State var showingDetail = false
 	
 	var body: some View {
@@ -32,9 +32,6 @@ struct VideoListView: View {
 			}
 		}
 		.onAppear {
-			if interactor.videos.isEmpty && !interactor.isLoading {
-				interactor.getVideos()
-			}
 			Analytics.logEvent(AnalyticsEventScreenView,
 							   parameters: [AnalyticsParameterScreenName: "VideoList"])
 		}
@@ -48,6 +45,11 @@ struct VideoListView: View {
 									AboutView()
 								}
 		)
+		.task {
+			if interactor.videos.isEmpty && !interactor.isLoading {
+				await interactor.getVideos()
+			}
+		}
 	}
 
 }

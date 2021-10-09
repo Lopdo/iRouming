@@ -11,7 +11,7 @@ import Firebase
 
 struct JokesListView: View {
 
-	@ObservedObject var interactor = JokesInteractor()
+	@StateObject var interactor = JokesInteractor()
 	@State var showingDetail = false
 	
 	var body: some View {
@@ -30,20 +30,17 @@ struct JokesListView: View {
 							.frame(maxWidth: .infinity)
 							.onAppear {
 								if !interactor.isLoading {
-									interactor.loadNextPage()
+									Task {
+										await interactor.loadNextPage()
+									}
 								}
 							}
 					}
 				}
 				.background(Color.background)
 			}
-		}.onAppear {
-			if interactor.jokes.isEmpty && !interactor.isLoading {
-				interactor.getJokes()
-			}
-			Analytics.logEvent(AnalyticsEventScreenView,
-							   parameters: [AnalyticsParameterScreenName: "JokesList"])
-		}.navigationBarTitle(Text("Vtipník"), displayMode: .inline)
+		}
+		.navigationBarTitle(Text("Vtipník"), displayMode: .inline)
 		.navigationBarItems(trailing:
 								Button(action: {
 									self.showingDetail.toggle()
@@ -53,6 +50,15 @@ struct JokesListView: View {
 									AboutView()
 								}
 		)
+		.task {
+			if interactor.jokes.isEmpty && !interactor.isLoading {
+				await interactor.getJokes()
+			}
+		}
+		.onAppear {
+			Analytics.logEvent(AnalyticsEventScreenView,
+							   parameters: [AnalyticsParameterScreenName: "JokesList"])
+		}
 	}
 
 }

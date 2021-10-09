@@ -17,35 +17,25 @@ class ImageList: ObservableObject {
 
 	@Published var isLoading = false
 
-	@Published var refreshing: Bool = false {
+	/*@Published var refreshing: Bool = false {
 		didSet {
 			if oldValue == false && refreshing == true {
 				refresh()
 			}
 		}
-	}
+	}*/
 
-	func getImages() {
+	@MainActor
+	func getImages() async {
 		isLoading = true
-		dataManager.loadImages { images in
-			DispatchQueue.main.async {
-				self.isLoading = false
-				self.images = images
-			}
-		}
-
+		images = await dataManager.loadImages()
+		isLoading = false
 	}
 
-	func refresh() {
+	/*func refresh() async {
 		//print("start refresh")
 		//isLoading = true
-		dataManager.loadImages { images in
-			DispatchQueue.main.async {
-				//print("end refresh")
-				//self.isLoading = false
-				self.images = images
-				self.refreshing = false
-			}
-		}
-	}
+		images = await dataManager.loadImages()
+		refreshing = false
+	}*/
 }

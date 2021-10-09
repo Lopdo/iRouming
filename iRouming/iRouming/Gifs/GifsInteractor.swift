@@ -17,15 +17,12 @@ class GifsInteractor: ObservableObject {
 
 	private var dataManager = GifsDataManager()
 
-	func getGifs() {
+	@MainActor
+	func getGifs() async {
 		isLoading = true
 
-		dataManager.loadGifs { gifs in
-			DispatchQueue.main.async {
-				self.gifs = gifs
-				self.isLoading = false
-			}
-		}
+		gifs = await dataManager.loadGifs()
+		isLoading = false
 	}
 
 }

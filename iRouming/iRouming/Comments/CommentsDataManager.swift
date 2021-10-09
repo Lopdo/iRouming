@@ -10,18 +10,16 @@ import Foundation
 
 struct CommentsDataManager {
 
-	func loadComments(objectId: Int, success: @escaping ([Comment]) -> ()) {
+	func loadComments(objectId: Int) async -> [Comment] {
 
-		let task = URLSession.shared.dataTask(with: "https://www.rouming.cz/roumingXMLNew.php?action=comments&json=1&object=\(objectId)") { (result: Result<[Comment], Error>) in
-			switch result {
-			case .success(let coments):
-				success(coments)
-			case .failure(let error):
-				print(error)
-			}
+		do {
+			let (data, _) = try await URLSession.shared.data(from: URL(string: "https://www.rouming.cz/roumingXMLNew.php?action=comments&json=1&object=\(objectId)")!)
+			return try JSONDecoder().decode([Comment].self, from: data)
+		} catch {
+			print(error)
+			return []
 		}
-
-		task.resume()
+		
 	}
 
 }

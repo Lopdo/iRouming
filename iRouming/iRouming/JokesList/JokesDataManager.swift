@@ -10,30 +10,29 @@ import Foundation
 
 struct JokesDataManager {
 
-	func loadJokes(page: Int, success: @escaping ([Joke]) -> ()) {
+	func loadJokes(page: Int) async -> [Joke] {
 
-		let task = URLSession.shared.dataTask(with: "https://www.rouming.cz/roumingXMLNew.php?action=jokes&json=1&page=\(page)") { (result: Result<[Joke], Error>) in
-			switch result {
-			case .success(let jokes):
-				if let anyItem = jokes.first {
-					let lastSeenDate = UserDefaults.standard.value(forKey: "lastSeen\(anyItem.prefKey)") as? Date ?? Date()
-					var cJokes = jokes
-					if let lastSeenItemIndex = cJokes.lastIndex(where: { $0.date > lastSeenDate }) {
-						cJokes[lastSeenItemIndex].isLastSeen = true
-					}
+		do {
+			let (data, _) = try await URLSession.shared.data(from: URL(string: "https://www.rouming.cz/roumingXMLNew.php?action=jokes&json=1&page=\(page)")!)
+			let jokes = try JSONDecoder().decode([Joke].self, from: data)
 
-					success(cJokes)
-
-					UserDefaults.standard.setValue(Date(), forKey: "lastSeen\(anyItem.prefKey)")
-				} else {
-					success(jokes)
+			if let anyItem = jokes.first {
+				let lastSeenDate = UserDefaults.standard.value(forKey: "lastSeen\(anyItem.prefKey)") as? Date ?? Date()
+				var cJokes = jokes
+				if let lastSeenItemIndex = cJokes.lastIndex(where: { $0.date > lastSeenDate }) {
+					cJokes[lastSeenItemIndex].isLastSeen = true
 				}
-			case .failure(let error):
-				print(error)
-			}
-		}
 
-		task.resume()
+				UserDefaults.standard.setValue(Date(), forKey: "lastSeen\(anyItem.prefKey)")
+
+				return cJokes
+			} else {
+				return jokes
+			}
+		} catch {
+			print(error)
+			return []
+		}
 
 	}
 

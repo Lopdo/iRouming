@@ -9,6 +9,7 @@
 import SwiftUI
 import Combine
 
+@MainActor
 class ForumInteractor: ObservableObject {
 
 	private var dataManager = ForumDataManager()
@@ -20,7 +21,9 @@ class ForumInteractor: ObservableObject {
 	@Published var currentThread: ForumThread? {
 		didSet {
 			if let currentThread = currentThread {
-				getPosts(for: currentThread.id)
+				Task {
+					await getPosts(for: currentThread.id)
+				}
 			}
 		}
 	}
@@ -46,56 +49,27 @@ class ForumInteractor: ObservableObject {
 		}
 	}
 
-	func getLatestPosts() {
+	func getLatestPosts() async {
 		isLoadingPosts = true
 		currentPage = 0
 
-		dataManager.loadPosts(page: currentPage) { posts in
-			DispatchQueue.main.async {
-				self.allPosts = posts
-				Set(posts.map { $0.threadId }).forEach { threadId in
-					self.postsByThread[threadId] = posts.filter { $0.threadId == threadId }
-				}
-				self.isLoadingPosts = false
-			}
+		allPosts = await dataManager.loadPosts(page: currentPage)
+		Set(allPosts.map { $0.threadId }).forEach { threadId in
+			postsByThread[threadId] = allPosts.filter { $0.threadId == threadId }
 		}
+		isLoadingPosts = false
 	}
 
-	func getPosts(for threadId: Int) {
+	func getPosts(for threadId: Int) async {
 		isLoadingPosts = true
-
-		dataManager.loadPosts(for: threadId, page: 0) { posts in
-			DispatchQueue.main.async {
-				self.postsByThread[threadId] = posts
-				self.isLoadingPosts = false
-			}
-		}
+		postsByThread[threadId] = await dataManager.loadPosts(for: threadId, page: 0)
+		isLoadingPosts = false
 	}
 
-	func getThreads() {
+	func getThreads() async {
 		isLoadingThreads = true
-
-		dataManager.loadThreads(page: 0) { threads in
-			DispatchQueue.main.async {
-				self.threads = threads
-				self.isLoadingThreads = false
-			}
-		}
+		threads = await dataManager.loadThreads(page: 0)
+		isLoadingThreads = false
 	}
-
-	/*func loadNextPage() {
-		if isLoadingPosts {
-			return
-		}
-
-		isLoadingPosts = true
-		currentPage += 1
-
-		dataManager.loadPosts(page: currentPage) { newPosts in
-			self.allPosts = self.allPosts + newPosts
-			self.isLoadingPosts = false
-		}
-	}*/
-
 	
 }

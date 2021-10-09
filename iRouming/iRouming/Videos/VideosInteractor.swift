@@ -17,28 +17,11 @@ class VideosInteractor: ObservableObject {
 
 	private var dataManager = VideosDataManager()
 
-	func getVideos() {
+	@MainActor
+	func getVideos() async {
 		isLoading = true
 
-		dataManager.loadVideos { videos in
-			DispatchQueue.main.async {
-				self.videos = videos
-				self.isLoading = false
-			}
-		}
+		videos = await dataManager.loadVideos()
+		isLoading = false
 	}
-
-	/*func loadNextPage() {
-		if isLoading {
-			return
-		}
-
-		isLoading = true
-		currentPage += 1
-
-		dataManager.loadVideos(page: currentPage) { newVideos in
-			self.isLoading = false
-			self.videos = self.videos + newVideos
-		}
-	}*/
 }

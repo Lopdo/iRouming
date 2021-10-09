@@ -59,15 +59,19 @@ struct ForumView: View {
 				.offset(x: threadsVisible ? metrics.size.width * 2 / 3 : 0, y: 0)
 
 			}
-		}.onAppear {
-			if self.interactor.postsForCurrentThread().isEmpty && !self.interactor.isLoadingPosts {
-				self.interactor.getLatestPosts()
-				self.interactor.getThreads()
+		}
+		.navigationBarTitle(Text("Fórum"))
+		.task {
+			if interactor.postsForCurrentThread().isEmpty && !interactor.isLoadingPosts {
+				async let posts: () = interactor.getLatestPosts()
+				async let threads: () = interactor.getThreads()
+				_ = await (posts, threads)
 			}
-
+		}
+		.onAppear {
 			Analytics.logEvent(AnalyticsEventScreenView,
 							   parameters: [AnalyticsParameterScreenName: "Forum"])
-		}.navigationBarTitle(Text("Fórum"))
+		}
 	}
 
 }

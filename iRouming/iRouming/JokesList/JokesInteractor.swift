@@ -15,24 +15,21 @@ class JokesInteractor: ObservableObject {
 
 	@Published var isLoading = false
 
-
 	private var dataManager = JokesDataManager()
 
 	private var currentPage = 0
 
-	func getJokes() {
+	@MainActor
+	func getJokes() async {
 		isLoading = true
 		currentPage = 0
 
-		dataManager.loadJokes(page: currentPage) { jokes in
-			DispatchQueue.main.async {
-				self.jokes = jokes
-				self.isLoading = false
-			}
-		}
+		jokes = await dataManager.loadJokes(page: currentPage)
+		isLoading = false
 	}
 
-	func loadNextPage() {
+	@MainActor
+	func loadNextPage() async {
 		if isLoading {
 			return
 		}
@@ -40,11 +37,8 @@ class JokesInteractor: ObservableObject {
 		isLoading = true
 		currentPage += 1
 
-		dataManager.loadJokes(page: currentPage) { newJokes in
-			DispatchQueue.main.async {
-				self.jokes = self.jokes + newJokes
-				self.isLoading = false
-			}
-		}
+		let newJokes = await dataManager.loadJokes(page: currentPage)
+		jokes.append(contentsOf: newJokes)
+		isLoading = false
 	}
 }

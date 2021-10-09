@@ -10,45 +10,39 @@ import Foundation
 
 struct ForumDataManager {
 
-	func loadPosts(page: Int, success: @escaping ([ForumPost]) -> ()) {
+	func loadPosts(page: Int) async -> [ForumPost] {
 
-		let task = URLSession.shared.dataTask(with: "https://www.rouming.cz/roumingXMLNew.php?action=forum&json=1&page=\(page)") { (result: Result<[ForumPost], Error>) in
-			switch result {
-			case .success(let posts):
-				success(posts)
-			case .failure(let error):
-				print(error)
-			}
+		do {
+			let (data, _) = try await URLSession.shared.data(from: URL(string: "https://www.rouming.cz/roumingXMLNew.php?action=forum&json=1&page=\(page)")!)
+			return try JSONDecoder().decode([ForumPost].self, from: data)
+		} catch {
+			print(error)
+			return []
 		}
 
-		task.resume()
 	}
 
-	func loadThreads(page: Int, success: @escaping ([ForumThread]) -> ()) {
+	func loadThreads(page: Int) async -> [ForumThread] {
 
-		let task = URLSession.shared.dataTask(with: "https://www.rouming.cz/roumingXMLNew.php?action=forumThreads&json=1&page=\(page)") { (result: Result<[ForumThread], Error>) in
-			switch result {
-			case .success(let threads):
-				success(threads)
-			case .failure(let error):
-				print(error)
-			}
+		do {
+			let (data, _) = try await URLSession.shared.data(from: URL(string: "https://www.rouming.cz/roumingXMLNew.php?action=forumThreads&json=1&page=\(page)")!)
+			return try JSONDecoder().decode([ForumThread].self, from: data)
+		} catch {
+			print(error)
+			return []
 		}
 
-		task.resume()
 	}
 
-	func loadPosts(for threadId: Int, page: Int, success: @escaping ([ForumPost]) -> ()) {
+	func loadPosts(for threadId: Int, page: Int) async -> [ForumPost] {
 
-		let task = URLSession.shared.dataTask(with: "https://www.rouming.cz/roumingXMLNew.php?json=1&action=forum&thread=\(threadId)") { (result: Result<[ForumPost], Error>) in
-			switch result {
-			case .success(let posts):
-				success(posts)
-			case .failure(let error):
-				print(error)
-			}
+		do {
+			let (data, _) = try await URLSession.shared.data(from: URL(string: "https://www.rouming.cz/roumingXMLNew.php?json=1&action=forum&thread=\(threadId)")!)
+			return try JSONDecoder().decode([ForumPost].self, from: data)
+		} catch {
+			print(error)
+			return []
 		}
 
-		task.resume()
 	}
 }

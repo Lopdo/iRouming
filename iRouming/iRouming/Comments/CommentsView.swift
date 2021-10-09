@@ -71,11 +71,12 @@ struct CommentsView: View {
 
 		}
 		.background(Color.background)
-		.onAppear {
+		.task {
 			if interactor.comments.isEmpty && !interactor.isLoading {
-				interactor.getComments(for: parent.objectId)
+				await interactor.getComments(for: parent.objectId)
 			}
-
+		}
+		.onAppear {
 			Analytics.logEvent(AnalyticsEventScreenView,
 							   parameters: [AnalyticsParameterScreenName: "Comments"])
 		}

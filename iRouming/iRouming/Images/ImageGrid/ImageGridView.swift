@@ -28,14 +28,19 @@ struct ImageGridView: View {
 							ImageGridCell(image: image)
 						}
 					}.padding(.top, 8)
+						.refreshable {
+							await imageList.getImages()
+						}
 				}
 				.background(Color.background)
 			}
 		}
-		.onAppear {
+		.task {
 			if imageList.images.isEmpty && !imageList.isLoading {
-				imageList.getImages()
+				await imageList.getImages()
 			}
+		}
+		.onAppear {
 			Analytics.logEvent(AnalyticsEventScreenView,
 							   parameters: [AnalyticsParameterScreenName: "ImageGrid"])
 		}

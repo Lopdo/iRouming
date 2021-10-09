@@ -11,7 +11,7 @@ import Firebase
 
 struct GifListView: View {
 
-	@ObservedObject var interactor = GifsInteractor()
+	@StateObject var interactor = GifsInteractor()
 	@State var showingDetail = false
 	
 	var body: some View {
@@ -31,13 +31,6 @@ struct GifListView: View {
 				.background(Color.background)
 			}
 		}
-		.onAppear {
-			if interactor.gifs.isEmpty && !interactor.isLoading {
-				interactor.getGifs()
-			}
-			Analytics.logEvent(AnalyticsEventScreenView,
-							   parameters: [AnalyticsParameterScreenName: "GifList"])
-		}
 		.navigationBarTitle(Text("GIFník"), displayMode: .inline)
 		.navigationBarItems(trailing:
 								Button(action: {
@@ -48,6 +41,15 @@ struct GifListView: View {
 									AboutView()
 								}
 		)
+		.task {
+			if interactor.gifs.isEmpty && !interactor.isLoading {
+				await interactor.getGifs()
+			}
+		}
+		.onAppear {
+			Analytics.logEvent(AnalyticsEventScreenView,
+							   parameters: [AnalyticsParameterScreenName: "GifList"])
+		}
 	}
 
 }

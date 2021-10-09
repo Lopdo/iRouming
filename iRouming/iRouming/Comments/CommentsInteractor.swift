@@ -17,15 +17,12 @@ class CommentsInteractor: ObservableObject {
 
 	@Published var isLoading = false
 
-	func getComments(for objectId: Int) {
+	@MainActor
+	func getComments(for objectId: Int) async {
 		isLoading = true
 
-		dataManager.loadComments(objectId: objectId) { comments in
-			DispatchQueue.main.async {
-				self.comments = comments
-				self.isLoading = false
-			}
-		}
+		comments = await dataManager.loadComments(objectId: objectId)
+		isLoading = false
 	}
 
 }

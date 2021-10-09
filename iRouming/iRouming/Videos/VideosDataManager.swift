@@ -10,30 +10,29 @@ import Foundation
 
 struct VideosDataManager {
 
-	func loadVideos(_ success: @escaping ([Video]) -> ()) {
+	func loadVideos() async -> [Video] {
 
-		let task = URLSession.shared.dataTask(with: "https://www.rouming.cz/roumingXMLNew.php?action=videos&json=1") { (result: Result<[Video], Error>) in
-			switch result {
-			case .success(let videos):
-				if let anyItem = videos.first {
-					let lastSeenDate = UserDefaults.standard.value(forKey: "lastSeen\(anyItem.prefKey)") as? Date ?? Date()
-					var cVideos = videos
-					if let lastSeenItemIndex = cVideos.lastIndex(where: { $0.date > lastSeenDate }) {
-						cVideos[lastSeenItemIndex].isLastSeen = true
-					}
+		do {
+			let (data, _) = try await URLSession.shared.data(from: URL(string: "https://www.rouming.cz/roumingXMLNew.php?action=videos&json=1")!)
+			let videos = try JSONDecoder().decode([Video].self, from: data)
 
-					success(cVideos)
-
-					UserDefaults.standard.setValue(Date(), forKey: "lastSeen\(anyItem.prefKey)")
-				} else {
-					success(videos)
+			if let anyItem = videos.first {
+				let lastSeenDate = UserDefaults.standard.value(forKey: "lastSeen\(anyItem.prefKey)") as? Date ?? Date()
+				var cVideos = videos
+				if let lastSeenItemIndex = cVideos.lastIndex(where: { $0.date > lastSeenDate }) {
+					cVideos[lastSeenItemIndex].isLastSeen = true
 				}
-			case .failure(let error):
-				print(error)
-			}
-		}
 
-		task.resume()
+				UserDefaults.standard.setValue(Date(), forKey: "lastSeen\(anyItem.prefKey)")
+
+				return cVideos
+			} else {
+				return videos
+			}
+		} catch {
+			print(error)
+			return []
+		}
 	}
 
 }
