@@ -22,6 +22,18 @@ struct JokesListView: View {
 			} else {
 				List(interactor.jokes) { joke in
 					JokeView(joke: joke)
+					if interactor.jokes.last?.id == joke.id {
+						LoadingView()
+							.frame(height: 80, alignment: .center)
+							.frame(maxWidth: .infinity)
+							.onAppear {
+								if !interactor.isLoading {
+									Task {
+										await interactor.loadNextPage()
+									}
+								}
+							}
+					}
 				}
 				.listStyle(.plain)
 				.background(Color.background)
