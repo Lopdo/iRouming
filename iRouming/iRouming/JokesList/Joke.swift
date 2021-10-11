@@ -62,7 +62,7 @@ extension Joke: Identifiable { }
 
 extension Joke {
 
-	init(name: String, rating: Int, text: String, category: String) {
+	init(name: String, rating: Int, text: String, category: String, isLastSeen: Bool = false) {
 		self.name = name
 		self.rating = rating
 		self.text = text
@@ -70,5 +70,7 @@ extension Joke {
 		self.date = Date()
 
 		id = Int.random(in: 0..<Int.max)
+
+		self.isLastSeen = isLastSeen
 	}
 }

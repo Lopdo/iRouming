@@ -19,6 +19,16 @@ class JokesInteractor: ObservableObject {
 
 	private var currentPage = 0
 
+	init() {
+		// Start loading jokes here, because if we use .task on the list, it will be called twice, cancelling first call and skipping second (since first is still loading at that point)
+		// we can remove this when they fix .task
+		Task {
+			isLoading = true
+			await getJokes()
+			isLoading = false
+		}
+	}
+
 	@MainActor
 	func getJokes() async {
 		isLoading = true

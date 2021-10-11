@@ -20,24 +20,14 @@ struct JokesListView: View {
 				LoadingView()
 					.frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
 			} else {
-				ScrollView {
-					LazyVStack {
-						ForEach(interactor.jokes) { joke in
-							JokeView(joke: joke)
-						}
-						LoadingView()
-							.frame(height: 80, alignment: .center)
-							.frame(maxWidth: .infinity)
-							.onAppear {
-								if !interactor.isLoading {
-									Task {
-										await interactor.loadNextPage()
-									}
-								}
-							}
-					}
+				List(interactor.jokes) { joke in
+					JokeView(joke: joke)
 				}
+				.listStyle(.plain)
 				.background(Color.background)
+				.refreshable {
+					await interactor.getJokes()
+				}
 			}
 		}
 		.navigationBarTitle(Text("Vtipník"), displayMode: .inline)
@@ -50,11 +40,6 @@ struct JokesListView: View {
 									AboutView()
 								}
 		)
-		.task {
-			if interactor.jokes.isEmpty && !interactor.isLoading {
-				await interactor.getJokes()
-			}
-		}
 		.onAppear {
 			Analytics.logEvent(AnalyticsEventScreenView,
 							   parameters: [AnalyticsParameterScreenName: "JokesList"])
@@ -67,6 +52,7 @@ extension JokesListView {
 
 	fileprivate init(jokes: [Joke]) {
 		interactor.jokes = jokes
+		interactor.isLoading = false
 	}
 
 }
