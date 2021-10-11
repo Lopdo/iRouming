@@ -15,7 +15,7 @@ struct ShareButton: View {
 	var color: Color = .textGray
 	
 	var body: some View {
-		Button(action: {
+		Button {
 			let av = UIActivityViewController(activityItems: [data], applicationActivities: nil)
 
 			let window = UIApplication.shared.connectedScenes
@@ -27,11 +27,11 @@ struct ShareButton: View {
 			window?.rootViewController?.present(av, animated: true)
 
 			Analytics.logEvent(AnalyticsEventShare, parameters: nil)
-		}, label: {
+		} label: {
 			Image("icn_share")
 				.frame(width: 24, height: 24, alignment: .center)
 				.foregroundColor(color)
-		})
+		}
 		.frame(width: 44, height: 44, alignment: .center)
 		.buttonStyle(.borderless)
 	}

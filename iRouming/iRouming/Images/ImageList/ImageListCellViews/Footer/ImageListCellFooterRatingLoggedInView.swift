@@ -16,9 +16,9 @@ struct ImageListCellFooterRatingLoggedInView : View {
 	var body: some View {
 
 		HStack(spacing: 8) {
-			Button(action: {
+			Button {
 				print("tap")
-			}, label: {
+			} label: {
 				HStack(spacing: 3) {
 					Image("icn_rating_plus")
 						.frame(width: 24, height: 24, alignment: .center)
@@ -29,11 +29,12 @@ struct ImageListCellFooterRatingLoggedInView : View {
 						.lineLimit(1)
 						.minimumScaleFactor(0.5)
 				}
-			}).frame(minWidth: 44, minHeight: 44)
+			}
+			.frame(minWidth: 44, minHeight: 44)
 
-			Button(action: {
+			Button {
 				print("tap tap")
-			}, label: {
+			} label: {
 				HStack(spacing: 3) {
 					Image("icn_rating_minus")
 						.frame(width: 24, height: 24, alignment: .center)
@@ -44,7 +45,8 @@ struct ImageListCellFooterRatingLoggedInView : View {
 						.lineLimit(1)
 						.minimumScaleFactor(0.5)
 				}
-			}).frame(minWidth: 44, minHeight: 44)
+			}
+			.frame(minWidth: 44, minHeight: 44)
 		}
 
 	}

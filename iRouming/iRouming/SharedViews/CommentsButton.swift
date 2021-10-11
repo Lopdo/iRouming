@@ -15,7 +15,9 @@ struct CommentsButton: View {
 	let action: () -> ()
 
 	var body: some View {
-		Button(action: action, label: {
+		Button{
+			action()
+		} label: {
 			HStack(spacing: 6) {
 				Image("icn_comments")
 					.frame(width: 24, height: 24, alignment: .center)
@@ -24,7 +26,7 @@ struct CommentsButton: View {
 					.foregroundColor(color)
 					.font(.system(size: 15, weight: .bold))
 			}
-		})
+		}
 		.frame(minWidth: 44, minHeight: 44)
 		.buttonStyle(.borderless)
 	}

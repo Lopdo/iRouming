@@ -25,12 +25,13 @@ struct ForumPostsView: View {
 
 					Spacer()
 
-					Button(action: {
+					Button {
 						currentThread = nil
-					}, label: {
+					} label: {
 						Image("icn_thread_close")
 							.padding(12)
-					}).padding(.trailing, 4)
+					}
+					.padding(.trailing, 4)
 
 				}
 				.background(Color

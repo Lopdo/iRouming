@@ -31,9 +31,9 @@ struct ImageGridFooterView: View {
 					.foregroundColor(.ratingRed)
 					.font(.system(size: 11, weight: .bold))
 				Spacer()
-				Button(action: {
+				Button {
 					commentsImage = roumingImage
-				}, label: {
+				} label: {
 					HStack(spacing: 2) {
 						Image("icn_comments")
 							.resizable()
@@ -43,7 +43,7 @@ struct ImageGridFooterView: View {
 							.foregroundColor(.textGray)
 							.font(.system(size: 11, weight: .bold))
 					}
-				})
+				}
 				.buttonStyle(.borderless)
 			}
 

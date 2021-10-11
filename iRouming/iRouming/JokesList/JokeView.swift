@@ -32,17 +32,17 @@ struct JokeView: View {
 			HStack {
 				Spacer()
 				RatingView(rating: joke.rating)
-				Button(action: {
+				Button {
 					UIPasteboard.general.string = joke.text
 
 					presentingToast = true
 
 					Analytics.logEvent("copy_to_clipboard", parameters: nil)
-				}, label: {
+				} label: {
 					Image("icn_copy")
 						.frame(width: 24, height: 24, alignment: .center)
 						.foregroundColor(.textGray)
-				})
+				}
 				.buttonStyle(.borderless)
 				.frame(width: 44, height: 44, alignment: .center)
 				.toast(isPresented: $presentingToast, dismissAfter: 2.0) {

@@ -40,17 +40,17 @@ struct ImageDetailFooterView : View {
 					Spacer()
 
 					if let image = imageData {
-						Button(action: {
+						Button {
 							UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
 
 							presentingToast = true
 
 							Analytics.logEvent("download", parameters: nil)
-						}, label: {
+						} label: {
 							Image("icn_download")
 								.frame(width: 24, height: 24, alignment: .center)
 								.foregroundColor(.white)
-						})
+						}
 						.frame(width: 44, height: 44, alignment: .center)
 						.toast(isPresented: $presentingToast, dismissAfter: 2.0) {
 							ToastView("Uloženo v zařízení") {

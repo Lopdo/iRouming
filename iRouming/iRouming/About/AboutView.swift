@@ -24,12 +24,12 @@ struct AboutView: View {
 				HStack {
 					Spacer()
 
-					Button(action: {
+					Button {
 						presentationMode.wrappedValue.dismiss()
-					}, label: {
+					} label: {
 						Image("icn_thread_close")
 							.padding(12)
-					})
+					}
 				}.padding(.trailing, -20)
 			}
 
