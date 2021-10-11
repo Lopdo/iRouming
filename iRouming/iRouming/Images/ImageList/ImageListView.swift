@@ -11,31 +11,22 @@ import Firebase
 
 struct ImageListView: View {
 
-	@StateObject var interactor = ImageList()
+	@StateObject var interactor: ImageInteractor
 
 	var body: some View {
 		Group {
-			if interactor.isLoading {
+			if interactor.isLoading && interactor.images.isEmpty {
 				LoadingView()
 					.frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
 			} else {
-				ScrollView {
-					LazyVStack {
-						ForEach(interactor.images) { image in
-							ImageListCell(image: image)
-								.padding(.bottom, 12)
-						}
-					}
+				List(interactor.images) { image in
+					ImageListCell(image: image)
 				}
+				.listStyle(.plain)
 				.background(Color.background)
 				.refreshable {
 					await interactor.getImages()
 				}
-			}
-		}
-		.task {
-			if interactor.images.isEmpty && !interactor.isLoading {
-				await interactor.getImages()
 			}
 		}
 		.onAppear {
@@ -47,9 +38,10 @@ struct ImageListView: View {
 
 }
 
-extension ImageListView {
+/*extension ImageListView {
 
-	fileprivate init(images: [RoumingImage]) {
+	fileprivate init(interactor: Binding<ImageInteractor>, images: [RoumingImage]) {
+		_interactor = interactor
 		interactor.images = images
 	}
 
@@ -61,6 +53,6 @@ struct ImageListView_Previews: PreviewProvider {
 							   RoumingImage(name: "Tajemstvi uspechu podle Burese", commentsCount: 245, likes: 1000, dislikes: 140, isLastSeen: true),
 							   RoumingImage(name: "Tajemstvi uspechu podle Burese", commentsCount: 245, likes: 1000, dislikes: 140)])
 
-		ImageListView()
+		ImageListView(images: [])
 	}
-}
+}*/

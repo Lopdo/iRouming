@@ -11,33 +11,39 @@ import Firebase
 
 struct ImageGridView: View {
 
-	@ObservedObject var imageList = ImageList()
+	@StateObject var interactor: ImageInteractor
 
 	@State private var isDone = false
 
 	var body: some View {
 		Group {
-			if imageList.isLoading {
+			if interactor.isLoading && interactor.images.isEmpty{
 				LoadingView()
 					.frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
 			} else {
-				ScrollView {
-					let columns = [GridItem(spacing: 3), GridItem(spacing: 3), GridItem(spacing: 3)]
-					LazyVGrid(columns: columns, spacing: 3) {
-						ForEach(imageList.images) { image in
-							ImageGridCell(image: image)
+				List(interactor.imageTriplets) { triplet in
+					HStack(spacing: 3) {
+						ImageGridCell(image: triplet.i1)
+						if triplet.i2 == nil {
+							ImageGridEmptyCell()
+						} else {
+							ImageGridCell(image: triplet.i2!)
 						}
-					}.padding(.top, 8)
-						.refreshable {
-							await imageList.getImages()
+						if triplet.i3 == nil {
+							ImageGridEmptyCell()
+						} else {
+							ImageGridCell(image: triplet.i3!)
 						}
+					}
+					.listRowSeparator(.hidden)
+					.listRowInsets(EdgeInsets(top: 3, leading: 0, bottom: 0, trailing: 0))
+					.listRowBackground(Color.background)
 				}
+				.listStyle(.plain)
 				.background(Color.background)
-			}
-		}
-		.task {
-			if imageList.images.isEmpty && !imageList.isLoading {
-				await imageList.getImages()
+				.refreshable {
+					await interactor.getImages()
+				}
 			}
 		}
 		.onAppear {
@@ -50,7 +56,7 @@ struct ImageGridView: View {
 
 }
 
-extension ImageGridView {
+/*extension ImageGridView {
 
 	fileprivate init(images: [RoumingImage]) {
 		imageList.images = images
@@ -72,4 +78,4 @@ struct ImageGridView_Previews: PreviewProvider {
 							   RoumingImage(name: "Tajemstvi uspechu podle Burese", commentsCount: 245, likes: 1000, dislikes: 140),
 							   RoumingImage(name: "Tajemstvi uspechu podle Burese", commentsCount: 245, likes: 1000, dislikes: 140)])
 	}
-}
+}*/

@@ -44,6 +44,7 @@ struct ImageGridFooterView: View {
 							.font(.system(size: 11, weight: .bold))
 					}
 				})
+				.buttonStyle(.borderless)
 			}
 
 		}

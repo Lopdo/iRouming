@@ -10,6 +10,7 @@ import SwiftUI
 
 struct ImageTabWrapView: View {
 
+	@StateObject var interactor = ImageInteractor()
 	@State var showingDetail = false
 	@State var listSelected: Bool = true
 
@@ -18,9 +19,9 @@ struct ImageTabWrapView: View {
 			ImageTabView(listSelected: $listSelected)
 
 			if listSelected {
-				ImageListView()
+				ImageListView(interactor: interactor)
 			} else {
-				ImageGridView()
+				ImageGridView(interactor: interactor)
 			}
 		}
 		.navigationBarItems(trailing:

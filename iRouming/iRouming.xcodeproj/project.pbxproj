@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		F40271B227103D42000A2A0F /* View+Print.swift in Sources */ = {isa = PBXBuildFile; fileRef = F40271B127103D42000A2A0F /* View+Print.swift */; };
 		F40271B42711B924000A2A0F /* RegistrationStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = F40271B32711B924000A2A0F /* RegistrationStatus.swift */; };
+		F40271B62714BEA9000A2A0F /* RoumingImageTriplet.swift in Sources */ = {isa = PBXBuildFile; fileRef = F40271B52714BEA9000A2A0F /* RoumingImageTriplet.swift */; };
+		F40271B82714C381000A2A0F /* ImageGridEmptyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F40271B72714C381000A2A0F /* ImageGridEmptyCell.swift */; };
 		F40A2DAC25D9ADB600A4D1AA /* ZoomableScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F40A2DAB25D9ADB600A4D1AA /* ZoomableScrollView.swift */; };
 		F4206D3B22C7654000F37DD3 /* ImageListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4206D3A22C7654000F37DD3 /* ImageListCell.swift */; };
 		F43ED83B25B47AE4000BD044 /* PostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F43ED83A25B47AE4000BD044 /* PostView.swift */; };
@@ -87,13 +89,15 @@
 		F4FDAC0522BCD1EF002879CA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F4FDAC0422BCD1EF002879CA /* Preview Assets.xcassets */; };
 		F4FDAC0822BCD1EF002879CA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F4FDAC0622BCD1EF002879CA /* LaunchScreen.storyboard */; };
 		F4FDAC1622BCDCCF002879CA /* RoumingImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FDAC1522BCDCCF002879CA /* RoumingImage.swift */; };
-		F4FDAC1C22BCF983002879CA /* ImageList.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FDAC1B22BCF983002879CA /* ImageList.swift */; };
+		F4FDAC1C22BCF983002879CA /* ImageInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FDAC1B22BCF983002879CA /* ImageInteractor.swift */; };
 		F4FDAC1E22BD06AF002879CA /* ImageListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FDAC1D22BD06AF002879CA /* ImageListView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		F40271B127103D42000A2A0F /* View+Print.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Print.swift"; sourceTree = "<group>"; };
 		F40271B32711B924000A2A0F /* RegistrationStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationStatus.swift; sourceTree = "<group>"; };
+		F40271B52714BEA9000A2A0F /* RoumingImageTriplet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoumingImageTriplet.swift; sourceTree = "<group>"; };
+		F40271B72714C381000A2A0F /* ImageGridEmptyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageGridEmptyCell.swift; sourceTree = "<group>"; };
 		F40A2DAB25D9ADB600A4D1AA /* ZoomableScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoomableScrollView.swift; sourceTree = "<group>"; };
 		F4206D3A22C7654000F37DD3 /* ImageListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageListCell.swift; sourceTree = "<group>"; };
 		F43ED83A25B47AE4000BD044 /* PostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostView.swift; sourceTree = "<group>"; };
@@ -172,7 +176,7 @@
 		F4FDAC0922BCD1EF002879CA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F4FDAC1522BCDCCF002879CA /* RoumingImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoumingImage.swift; sourceTree = "<group>"; };
 		F4FDAC1922BCE056002879CA /* ImagesDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesDataManager.swift; sourceTree = "<group>"; };
-		F4FDAC1B22BCF983002879CA /* ImageList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageList.swift; sourceTree = "<group>"; };
+		F4FDAC1B22BCF983002879CA /* ImageInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageInteractor.swift; sourceTree = "<group>"; };
 		F4FDAC1D22BD06AF002879CA /* ImageListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageListView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -250,6 +254,7 @@
 			isa = PBXGroup;
 			children = (
 				F4FDAC1522BCDCCF002879CA /* RoumingImage.swift */,
+				F40271B52714BEA9000A2A0F /* RoumingImageTriplet.swift */,
 				F4FDAC1922BCE056002879CA /* ImagesDataManager.swift */,
 				F46F579A2514AEBE00DC3B28 /* ImageTab */,
 				F4A852BC22C77BAD0006C269 /* ImageDetail */,
@@ -310,6 +315,7 @@
 				F4962F8A251F667100EADE2D /* ImageGridView.swift */,
 				F4912DDF25271F0B00ECED5E /* ImageGridFooterView.swift */,
 				F4912DE22527215600ECED5E /* ImageGridCell.swift */,
+				F40271B72714C381000A2A0F /* ImageGridEmptyCell.swift */,
 			);
 			path = ImageGrid;
 			sourceTree = "<group>";
@@ -482,7 +488,7 @@
 			isa = PBXGroup;
 			children = (
 				F46A51BF22EAED6400DA5821 /* ImageListCellViews */,
-				F4FDAC1B22BCF983002879CA /* ImageList.swift */,
+				F4FDAC1B22BCF983002879CA /* ImageInteractor.swift */,
 				F4FDAC1D22BD06AF002879CA /* ImageListView.swift */,
 			);
 			path = ImageList;
@@ -580,6 +586,7 @@
 				F4FDAC1E22BD06AF002879CA /* ImageListView.swift in Sources */,
 				F49DC5B525C077410081D950 /* Comment.swift in Sources */,
 				F4C94DE722D8B84F0068F40E /* JokesListView.swift in Sources */,
+				F40271B82714C381000A2A0F /* ImageGridEmptyCell.swift in Sources */,
 				F49DC5C125C15A550081D950 /* Commentable.swift in Sources */,
 				F46F579C2514AEDF00DC3B28 /* ImageTabWrapView.swift in Sources */,
 				F46F57A42514D36300DC3B28 /* ImageDetailView.swift in Sources */,
@@ -636,9 +643,10 @@
 				F40271B42711B924000A2A0F /* RegistrationStatus.swift in Sources */,
 				F4FAF861254421020045DDF2 /* GifsDataManager.swift in Sources */,
 				F4C94DE322D8A9AE0068F40E /* Joke.swift in Sources */,
-				F4FDAC1C22BCF983002879CA /* ImageList.swift in Sources */,
+				F4FDAC1C22BCF983002879CA /* ImageInteractor.swift in Sources */,
 				F49D7049253B0AA500AA9FC6 /* Video.swift in Sources */,
 				F49DC5C525C1BE360081D950 /* AboutView.swift in Sources */,
+				F40271B62714BEA9000A2A0F /* RoumingImageTriplet.swift in Sources */,
 				F4C94DE122D8A9950068F40E /* JokesDataManager.swift in Sources */,
 				F43ED84125B480C5000BD044 /* ForumPostsView.swift in Sources */,
 				F4FDAC0022BCD1ED002879CA /* ContentView.swift in Sources */,

@@ -1,5 +1,5 @@
 //
-//  ImageList.swift
+//  ImageInteractor.swift
 //  iRouming
 //
 //  Created by Lope on 21/06/2019.
@@ -9,12 +9,19 @@
 import SwiftUI
 import Combine
 
-class ImageList: ObservableObject {
+@MainActor
+class ImageInteractor: ObservableObject {
 
 	private var dataManager = ImagesDataManager()
 
 	var images: [RoumingImage] = []
-
+	var imageTriplets: [RoumingImageTriplet] {
+		get {
+			return stride(from: 0, to: images.count, by: 3).map {
+				RoumingImageTriplet(from: Array(images[$0 ..< min($0 + 3, images.count)]))
+			}
+		}
+	}
 	@Published var isLoading = false
 
 	/*@Published var refreshing: Bool = false {
@@ -25,7 +32,14 @@ class ImageList: ObservableObject {
 		}
 	}*/
 
-	@MainActor
+	init() {
+		Task {
+			isLoading = true
+			images = await dataManager.loadImages()
+			isLoading = false
+		}
+	}
+
 	func getImages() async {
 		isLoading = true
 		images = await dataManager.loadImages()

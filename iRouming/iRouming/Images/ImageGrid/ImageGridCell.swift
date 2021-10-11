@@ -28,7 +28,6 @@ struct ImageGridCell: View {
 					.transition(.fade(duration: 0.5)) // Fade Transition with duration
 					.aspectRatio(contentMode: .fill)
 
-
 				if image.isNew {
 					NewItemView()
 						.padding(4)
@@ -56,6 +55,6 @@ struct ImageGridCell: View {
 struct ImageGridCell_Previews: PreviewProvider {
 	static var previews: some View {
 		ImageGridCell(image: RoumingImage(name: "Tajemstvi uspechu podle Burese, Tajemstvi uspechu podle Burese", commentsCount: 2, likes: 10, dislikes: 140))
-			.previewLayout(.fixed(width: 120, height: 120))
+			.previewLayout(.fixed(width: 120, height: 160))
 	}
 }
