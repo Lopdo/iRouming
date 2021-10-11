@@ -16,24 +16,19 @@ struct VideoListView: View {
 	
 	var body: some View {
 		Group {
-			if interactor.isLoading {
+			if interactor.isLoading && interactor.videos.isEmpty {
 				LoadingView()
 					.frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
 			} else {
-				ScrollView {
-					LazyVStack {
-						ForEach(0..<interactor.videos.count) { index in
-							VideoView(video: interactor.videos[index])
-								.padding(.bottom, 12)
-						}
-					}
+				List(interactor.videos) { video in
+					VideoView(video: video)
 				}
+				.listStyle(.plain)
 				.background(Color.background)
+				.refreshable {
+					await interactor.getVideos()
+				}
 			}
-		}
-		.onAppear {
-			Analytics.logEvent(AnalyticsEventScreenView,
-							   parameters: [AnalyticsParameterScreenName: "VideoList"])
 		}
 		.navigationBarTitle(Text("Videjník"), displayMode: .inline)
 		.navigationBarItems(trailing:
@@ -45,10 +40,9 @@ struct VideoListView: View {
 									AboutView()
 								}
 		)
-		.task {
-			if interactor.videos.isEmpty && !interactor.isLoading {
-				await interactor.getVideos()
-			}
+		.onAppear {
+			Analytics.logEvent(AnalyticsEventScreenView,
+							   parameters: [AnalyticsParameterScreenName: "VideoList"])
 		}
 	}
 

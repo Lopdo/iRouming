@@ -26,5 +26,6 @@ struct CommentsButton: View {
 			}
 		})
 		.frame(minWidth: 44, minHeight: 44)
+		.buttonStyle(.borderless)
 	}
 }

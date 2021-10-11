@@ -40,8 +40,12 @@ struct CommentView: View {
 
 				}
 			}
-		}.padding(16)
+		}
+		.padding(16)
 		.background(Color.backgroundCard)
+		.listRowSeparator(.hidden)
+		.listRowInsets(EdgeInsets(top: 6, leading: 0, bottom: 6, trailing: 0))
+		.listRowBackground(Color.background)
 	}
 
 	private func getStringFromDate() -> String {

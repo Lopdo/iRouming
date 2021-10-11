@@ -37,6 +37,9 @@ struct VideoView: View {
 		.sheet(isPresented: $showComments, content: { 
 			CommentsView(parent: video)
 		})
+		.listRowSeparator(.hidden)
+		.listRowInsets(EdgeInsets(top: 6, leading: 0, bottom: 6, trailing: 0))
+		.listRowBackground(Color.background)
 	}
 
 }

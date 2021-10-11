@@ -33,5 +33,6 @@ struct ShareButton: View {
 				.foregroundColor(color)
 		})
 		.frame(width: 44, height: 44, alignment: .center)
+		.buttonStyle(.borderless)
 	}
 }

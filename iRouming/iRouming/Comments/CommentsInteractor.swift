@@ -9,6 +9,7 @@
 import SwiftUI
 import Combine
 
+@MainActor
 class CommentsInteractor: ObservableObject {
 
 	private var dataManager = CommentsDataManager()
@@ -17,7 +18,6 @@ class CommentsInteractor: ObservableObject {
 
 	@Published var isLoading = false
 
-	@MainActor
 	func getComments(for objectId: Int) async {
 		isLoading = true
 

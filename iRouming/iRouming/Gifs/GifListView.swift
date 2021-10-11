@@ -16,19 +16,18 @@ struct GifListView: View {
 	
 	var body: some View {
 		Group {
-			if interactor.isLoading {
+			if interactor.isLoading && interactor.gifs.isEmpty {
 				LoadingView()
 					.frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
 			} else {
-				ScrollView {
-					LazyVStack {
-						ForEach(interactor.gifs) { gif in
-							GifView(gif: gif)
-								.padding(.bottom, 12)
-						}
-					}
+				List(interactor.gifs) { gif in
+					GifView(gif: gif)
 				}
+				.listStyle(.plain)
 				.background(Color.background)
+				.refreshable {
+					await interactor.getGifs()
+				}
 			}
 		}
 		.navigationBarTitle(Text("GIFník"), displayMode: .inline)
@@ -41,11 +40,6 @@ struct GifListView: View {
 									AboutView()
 								}
 		)
-		.task {
-			if interactor.gifs.isEmpty && !interactor.isLoading {
-				await interactor.getGifs()
-			}
-		}
 		.onAppear {
 			Analytics.logEvent(AnalyticsEventScreenView,
 							   parameters: [AnalyticsParameterScreenName: "GifList"])

@@ -16,7 +16,7 @@ struct JokesListView: View {
 	
 	var body: some View {
 		Group {
-			if interactor.isLoading && interactor.jokes.count == 0 {
+			if interactor.isLoading && interactor.jokes.isEmpty {
 				LoadingView()
 					.frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
 			} else {

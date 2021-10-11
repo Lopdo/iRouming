@@ -16,7 +16,7 @@ struct CommentsView: View {
 	
 	let parent: Commentable
 
-	@ObservedObject var interactor = CommentsInteractor()
+	@StateObject var interactor = CommentsInteractor()
 
 	var body: some View {
 		VStack(spacing: 0) {
@@ -56,25 +56,24 @@ struct CommentsView: View {
 							.shadow(radius: 2))
 			.zIndex(1)
 
-			if interactor.isLoading {
+			if interactor.isLoading && interactor.comments.count == 0 {
 				LoadingView()
 					.frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
 			} else {
-				ScrollView {
-					LazyVStack(spacing: 12) {
-						ForEach(interactor.comments) { comment in
-							CommentView(comment: comment)
-						}
-					}.padding(.top, 10)
+				List(interactor.comments) { comment in
+					CommentView(comment: comment)
+				}
+				.listStyle(.plain)
+				.background(Color.background)
+				.refreshable {
+					await interactor.getComments(for: parent.objectId)
 				}
 			}
 
 		}
 		.background(Color.background)
 		.task {
-			if interactor.comments.isEmpty && !interactor.isLoading {
-				await interactor.getComments(for: parent.objectId)
-			}
+			await interactor.getComments(for: parent.objectId)
 		}
 		.onAppear {
 			Analytics.logEvent(AnalyticsEventScreenView,

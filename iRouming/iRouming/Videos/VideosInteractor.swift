@@ -8,19 +8,25 @@
 
 import Foundation
 
+@MainActor
 class VideosInteractor: ObservableObject {
 
 	var videos: [Video] = []
 
 	@Published var isLoading = false
 
-
 	private var dataManager = VideosDataManager()
 
-	@MainActor
+	init() {
+		Task {
+			isLoading = true
+			await getVideos()
+			isLoading = false
+		}
+	}
+
 	func getVideos() async {
 		isLoading = true
-
 		videos = await dataManager.loadVideos()
 		isLoading = false
 	}
