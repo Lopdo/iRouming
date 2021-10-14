@@ -11,7 +11,7 @@ import Firebase
 
 struct ImageListView: View {
 
-	@StateObject var interactor: ImageInteractor
+	@ObservedObject var interactor: ImageInteractor
 
 	var body: some View {
 		Group {

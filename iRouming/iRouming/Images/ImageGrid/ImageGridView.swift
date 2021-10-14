@@ -11,7 +11,7 @@ import Firebase
 
 struct ImageGridView: View {
 
-	@StateObject var interactor: ImageInteractor
+	@ObservedObject var interactor: ImageInteractor
 
 	@State private var isDone = false
 
