@@ -10,15 +10,13 @@ import SwiftUI
 
 struct ForumPostsView: View {
 
-	var posts: [ForumPost]
-
-	@Binding var currentThread: ForumThread?
-
+	@ObservedObject var interactor: ForumInteractor
+	
     var body: some View {
 		VStack(spacing: 0) {
-			if currentThread != nil {
+			if interactor.currentThread != nil {
 				HStack {
-					Text(currentThread!.title)
+					Text(interactor.currentThread!.title)
 						.font(.system(size: 17, weight: .bold))
 						.foregroundColor(Color.textBlack)
 						.padding(EdgeInsets(top: 16, leading: 16, bottom: 11, trailing: 0))
@@ -26,7 +24,7 @@ struct ForumPostsView: View {
 					Spacer()
 
 					Button {
-						currentThread = nil
+						interactor.currentThread = nil
 					} label: {
 						Image("icn_thread_close")
 							.padding(12)
@@ -39,18 +37,25 @@ struct ForumPostsView: View {
 								.shadow(radius: 2))
 				.zIndex(1)
 			}
-			ScrollView {
-				LazyVStack(spacing: 12) {
-					ForEach(posts) { post in
-						PostView(hasTitle: currentThread == nil, post: post)
-					}
-				}.padding(.top, 10)
+
+			List(interactor.posts(for: interactor.currentThread?.id)) { post in
+				PostView(hasTitle: interactor.currentThread == nil, post: post)
+			}
+			.listStyle(.plain)
+			.background(Color.background)
+			.refreshable {
+				if interactor.currentThread == nil {
+					await interactor.getLatestPosts()
+				} else {
+					await interactor.getPosts(for: interactor.currentThread!.id)
+				}
 			}
 		}
 		.background(Color.background)
     }
 }
 
+/*
 #if DEBUG
 struct ForumPostsView_Previews: PreviewProvider {
     static var previews: some View {
@@ -65,11 +70,12 @@ struct ForumPostsView_Previews: PreviewProvider {
 }
 
 fileprivate struct ForumPostsViewPreviewsContainer : View {
-	var posts: [ForumPost]
-	@State var currentThread: ForumThread?
+
+	@ObservedObject var interactor: ForumInteractor
 
 	var body: some View {
 		ForumPostsView(posts: posts, currentThread: $currentThread)
 	}
 }
 #endif
+*/

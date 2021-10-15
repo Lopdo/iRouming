@@ -13,7 +13,7 @@ struct ForumView: View {
 
 	@State var threadsVisible: Bool = false
 	@State var showingDetail = false
-	@ObservedObject var interactor = ForumInteractor()
+	@StateObject var interactor = ForumInteractor()
 
 	var body: some View {
 		GeometryReader { metrics in
@@ -22,11 +22,12 @@ struct ForumView: View {
 
 				NavigationView {
 					Group {
-						if interactor.isLoadingPosts || interactor.isLoadingThreads {
+						if (interactor.isLoadingPosts && interactor.posts(for: interactor.currentThread?.id).count == 0)
+						|| (interactor.isLoadingThreads && interactor.threads.count == 0) {
 							LoadingView()
 								.frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
 						} else {
-							ForumPostsView(posts: interactor.postsForCurrentThread(), currentThread: $interactor.currentThread)
+							ForumPostsView(interactor: interactor)
 						}
 					}
 					.navigationBarTitle(Text("Fórum"), displayMode: .inline)
