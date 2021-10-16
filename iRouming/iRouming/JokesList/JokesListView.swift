@@ -11,25 +11,25 @@ import Firebase
 
 struct JokesListView: View {
 
-	@StateObject var interactor = JokesInteractor()
+	@StateObject var viewModel = ViewModel()
 	@State var showingDetail = false
 	
 	var body: some View {
 		Group {
-			if interactor.isLoading && interactor.jokes.isEmpty {
+			if viewModel.isLoading && viewModel.jokes.isEmpty {
 				LoadingView()
 					.frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
 			} else {
-				List(interactor.jokes) { joke in
+				List(viewModel.jokes) { joke in
 					JokeView(joke: joke)
-					if interactor.jokes.last?.id == joke.id {
+					if viewModel.jokes.last?.id == joke.id {
 						LoadingView()
 							.frame(height: 80, alignment: .center)
 							.frame(maxWidth: .infinity)
 							.onAppear {
-								if !interactor.isLoading {
+								if !viewModel.isLoading {
 									Task {
-										await interactor.loadNextPage()
+										await viewModel.loadNextPage()
 									}
 								}
 							}
@@ -38,7 +38,7 @@ struct JokesListView: View {
 				.listStyle(.plain)
 				.background(Color.background)
 				.refreshable {
-					await interactor.getJokes()
+					await viewModel.getJokes()
 				}
 			}
 		}
@@ -63,8 +63,8 @@ struct JokesListView: View {
 extension JokesListView {
 
 	fileprivate init(jokes: [Joke]) {
-		interactor.jokes = jokes
-		interactor.isLoading = false
+		viewModel.jokes = jokes
+		viewModel.isLoading = false
 	}
 
 }

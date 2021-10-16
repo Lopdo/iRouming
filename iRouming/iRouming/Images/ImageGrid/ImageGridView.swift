@@ -11,17 +11,17 @@ import Firebase
 
 struct ImageGridView: View {
 
-	@ObservedObject var interactor: ImageInteractor
+	@ObservedObject var viewModel: ImagesView.ViewModel
 
 	@State private var isDone = false
 
 	var body: some View {
 		Group {
-			if interactor.isLoading && interactor.images.isEmpty{
+			if viewModel.isLoading && viewModel.images.isEmpty{
 				LoadingView()
 					.frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
 			} else {
-				List(interactor.imageTriplets) { triplet in
+				List(viewModel.imageTriplets) { triplet in
 					HStack(spacing: 3) {
 						ImageGridCell(image: triplet.i1)
 						if triplet.i2 == nil {
@@ -42,7 +42,7 @@ struct ImageGridView: View {
 				.listStyle(.plain)
 				.background(Color.background)
 				.refreshable {
-					await interactor.getImages()
+					await viewModel.getImages()
 				}
 			}
 		}

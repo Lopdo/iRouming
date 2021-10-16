@@ -11,22 +11,22 @@ import Firebase
 
 struct GifListView: View {
 
-	@StateObject var interactor = GifsInteractor()
+	@StateObject var viewModel = ViewModel()
 	@State var showingDetail = false
 	
 	var body: some View {
 		Group {
-			if interactor.isLoading && interactor.gifs.isEmpty {
+			if viewModel.isLoading && viewModel.gifs.isEmpty {
 				LoadingView()
 					.frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
 			} else {
-				List(interactor.gifs) { gif in
+				List(viewModel.gifs) { gif in
 					GifView(gif: gif)
 				}
 				.listStyle(.plain)
 				.background(Color.background)
 				.refreshable {
-					await interactor.getGifs()
+					await viewModel.getGifs()
 				}
 			}
 		}

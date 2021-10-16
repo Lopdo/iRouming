@@ -16,7 +16,7 @@ struct CommentsView: View {
 	
 	let parent: Commentable
 
-	@StateObject var interactor = CommentsInteractor()
+	@StateObject private var viewModel = ViewModel()
 
 	var body: some View {
 		VStack(spacing: 0) {
@@ -57,24 +57,24 @@ struct CommentsView: View {
 							.shadow(radius: 2))
 			.zIndex(1)
 
-			if interactor.isLoading && interactor.comments.count == 0 {
+			if viewModel.isLoading && viewModel.comments.count == 0 {
 				LoadingView()
 					.frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
 			} else {
-				List(interactor.comments) { comment in
+				List(viewModel.comments) { comment in
 					CommentView(comment: comment)
 				}
 				.listStyle(.plain)
 				.background(Color.background)
 				.refreshable {
-					await interactor.getComments(for: parent.objectId)
+					await viewModel.getComments(for: parent.objectId)
 				}
 			}
 
 		}
 		.background(Color.background)
 		.task {
-			await interactor.getComments(for: parent.objectId)
+			await viewModel.getComments(for: parent.objectId)
 		}
 		.onAppear {
 			Analytics.logEvent(AnalyticsEventScreenView,
@@ -90,7 +90,7 @@ extension CommentsView {
 
 	fileprivate init(comments: [Comment], parent: Commentable) {
 		self.parent = parent
-		interactor.comments = comments
+		viewModel.comments = comments
 	}
 
 }

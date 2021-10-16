@@ -10,13 +10,13 @@ import SwiftUI
 
 struct ForumPostsView: View {
 
-	@ObservedObject var interactor: ForumInteractor
-	
+	@ObservedObject var viewModel: ForumView.ViewModel
+
     var body: some View {
 		VStack(spacing: 0) {
-			if interactor.currentThread != nil {
+			if viewModel.currentThread != nil {
 				HStack {
-					Text(interactor.currentThread!.title)
+					Text(viewModel.currentThread!.title)
 						.font(.system(size: 17, weight: .bold))
 						.foregroundColor(Color.textBlack)
 						.padding(EdgeInsets(top: 16, leading: 16, bottom: 11, trailing: 0))
@@ -24,7 +24,7 @@ struct ForumPostsView: View {
 					Spacer()
 
 					Button {
-						interactor.currentThread = nil
+						viewModel.currentThread = nil
 					} label: {
 						Image("icn_thread_close")
 							.padding(12)
@@ -38,16 +38,16 @@ struct ForumPostsView: View {
 				.zIndex(1)
 			}
 
-			List(interactor.posts(for: interactor.currentThread?.id)) { post in
-				PostView(hasTitle: interactor.currentThread == nil, post: post)
+			List(viewModel.posts(for: viewModel.currentThread?.id)) { post in
+				PostView(hasTitle: viewModel.currentThread == nil, post: post)
 			}
 			.listStyle(.plain)
 			.background(Color.background)
 			.refreshable {
-				if interactor.currentThread == nil {
-					await interactor.getLatestPosts()
+				if viewModel.currentThread == nil {
+					await viewModel.getLatestPosts()
 				} else {
-					await interactor.getPosts(for: interactor.currentThread!.id)
+					await viewModel.getPosts(for: viewModel.currentThread!.id)
 				}
 			}
 		}

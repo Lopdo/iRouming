@@ -11,21 +11,21 @@ import Firebase
 
 struct ImageListView: View {
 
-	@ObservedObject var interactor: ImageInteractor
+	@ObservedObject var viewModel: ImagesView.ViewModel
 
 	var body: some View {
 		Group {
-			if interactor.isLoading && interactor.images.isEmpty {
+			if viewModel.isLoading && viewModel.images.isEmpty {
 				LoadingView()
 					.frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
 			} else {
-				List(interactor.images) { image in
+				List(viewModel.images) { image in
 					ImageListCell(image: image)
 				}
 				.listStyle(.plain)
 				.background(Color.background)
 				.refreshable {
-					await interactor.getImages()
+					await viewModel.getImages()
 				}
 			}
 		}

@@ -26,7 +26,7 @@
 		F46BED942542EECD000C977C /* YouTubeVideoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46BED932542EECD000C977C /* YouTubeVideoView.swift */; };
 		F46F57912513FAA700DC3B28 /* AppearanceUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46F57902513FAA700DC3B28 /* AppearanceUtil.swift */; };
 		F46F57952514AB1D00DC3B28 /* Color+AssetCatalog.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46F57942514AB1D00DC3B28 /* Color+AssetCatalog.swift */; };
-		F46F579C2514AEDF00DC3B28 /* ImageTabWrapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46F579B2514AEDF00DC3B28 /* ImageTabWrapView.swift */; };
+		F46F579C2514AEDF00DC3B28 /* ImagesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46F579B2514AEDF00DC3B28 /* ImagesView.swift */; };
 		F46F57A02514B24E00DC3B28 /* ImageTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46F579F2514B24E00DC3B28 /* ImageTabView.swift */; };
 		F46F57A42514D36300DC3B28 /* ImageDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46F57A32514D36300DC3B28 /* ImageDetailView.swift */; };
 		F46F57A72514E0F800DC3B28 /* ImageDetailFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46F57A62514E0F800DC3B28 /* ImageDetailFooterView.swift */; };
@@ -51,7 +51,7 @@
 		F49D7046253B098500AA9FC6 /* VideosDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49D7045253B098500AA9FC6 /* VideosDataManager.swift */; };
 		F49D7049253B0AA500AA9FC6 /* Video.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49D7048253B0AA500AA9FC6 /* Video.swift */; };
 		F49D704C253B0E1F00AA9FC6 /* VideoListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49D704B253B0E1F00AA9FC6 /* VideoListView.swift */; };
-		F49D704F253B0E4700AA9FC6 /* VideosInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49D704E253B0E4700AA9FC6 /* VideosInteractor.swift */; };
+		F49D704F253B0E4700AA9FC6 /* VideoListView+ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49D704E253B0E4700AA9FC6 /* VideoListView+ViewModel.swift */; };
 		F49D7054253B111F00AA9FC6 /* VideoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49D7053253B111F00AA9FC6 /* VideoView.swift */; };
 		F49D7057253B186500AA9FC6 /* VideoFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49D7056253B186500AA9FC6 /* VideoFooterView.swift */; };
 		F49D705A253B18FD00AA9FC6 /* RatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49D7059253B18FD00AA9FC6 /* RatingView.swift */; };
@@ -59,7 +59,7 @@
 		F49D7060253B209C00AA9FC6 /* ShareButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49D705F253B209C00AA9FC6 /* ShareButton.swift */; };
 		F49DC5B125C077390081D950 /* CommentsDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49DC5B025C077390081D950 /* CommentsDataManager.swift */; };
 		F49DC5B525C077410081D950 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49DC5B425C077410081D950 /* Comment.swift */; };
-		F49DC5B825C07A0C0081D950 /* CommentsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49DC5B725C07A0C0081D950 /* CommentsInteractor.swift */; };
+		F49DC5B825C07A0C0081D950 /* CommentsView+ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49DC5B725C07A0C0081D950 /* CommentsView+ViewModel.swift */; };
 		F49DC5BB25C1556C0081D950 /* CommentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49DC5BA25C1556C0081D950 /* CommentsView.swift */; };
 		F49DC5BE25C155CD0081D950 /* CommentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49DC5BD25C155CD0081D950 /* CommentView.swift */; };
 		F49DC5C125C15A550081D950 /* Commentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49DC5C025C15A550081D950 /* Commentable.swift */; };
@@ -69,17 +69,17 @@
 		F4C7BE6825115D0500F75D4F /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = F4C7BE6725115D0500F75D4F /* SDWebImageSwiftUI */; };
 		F4C94DE122D8A9950068F40E /* JokesDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C94DE022D8A9950068F40E /* JokesDataManager.swift */; };
 		F4C94DE322D8A9AE0068F40E /* Joke.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C94DE222D8A9AE0068F40E /* Joke.swift */; };
-		F4C94DE522D8B0AD0068F40E /* JokesInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C94DE422D8B0AD0068F40E /* JokesInteractor.swift */; };
+		F4C94DE522D8B0AD0068F40E /* JokesListView+ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C94DE422D8B0AD0068F40E /* JokesListView+ViewModel.swift */; };
 		F4C94DE722D8B84F0068F40E /* JokesListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C94DE622D8B84F0068F40E /* JokesListView.swift */; };
 		F4C94DE922D8B8AA0068F40E /* JokeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C94DE822D8B8A90068F40E /* JokeView.swift */; };
 		F4C94E0C22D9D3440068F40E /* ForumDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C94E0B22D9D3440068F40E /* ForumDataManager.swift */; };
 		F4C94E0E22D9D3790068F40E /* ForumPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C94E0D22D9D3790068F40E /* ForumPost.swift */; };
-		F4C94E1022D9DEB30068F40E /* ForumInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C94E0F22D9DEB30068F40E /* ForumInteractor.swift */; };
+		F4C94E1022D9DEB30068F40E /* ForumView+ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C94E0F22D9DEB30068F40E /* ForumView+ViewModel.swift */; };
 		F4C94E1222D9E08C0068F40E /* ForumThread.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C94E1122D9E08C0068F40E /* ForumThread.swift */; };
 		F4C94E1422D9EA4A0068F40E /* ForumView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C94E1322D9EA4A0068F40E /* ForumView.swift */; };
 		F4FAF85D25441E5A0045DDF2 /* Gif.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FAF85C25441E5A0045DDF2 /* Gif.swift */; };
 		F4FAF861254421020045DDF2 /* GifsDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FAF860254421020045DDF2 /* GifsDataManager.swift */; };
-		F4FAF8642544215D0045DDF2 /* GifsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FAF8632544215D0045DDF2 /* GifsInteractor.swift */; };
+		F4FAF8642544215D0045DDF2 /* GifsListView+ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FAF8632544215D0045DDF2 /* GifsListView+ViewModel.swift */; };
 		F4FAF8672544232A0045DDF2 /* GifView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FAF8662544232A0045DDF2 /* GifView.swift */; };
 		F4FAF86A25442FA90045DDF2 /* GifListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FAF86925442FA90045DDF2 /* GifListView.swift */; };
 		F4FDABFC22BCD1ED002879CA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FDABFB22BCD1ED002879CA /* AppDelegate.swift */; };
@@ -89,7 +89,7 @@
 		F4FDAC0522BCD1EF002879CA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F4FDAC0422BCD1EF002879CA /* Preview Assets.xcassets */; };
 		F4FDAC0822BCD1EF002879CA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F4FDAC0622BCD1EF002879CA /* LaunchScreen.storyboard */; };
 		F4FDAC1622BCDCCF002879CA /* RoumingImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FDAC1522BCDCCF002879CA /* RoumingImage.swift */; };
-		F4FDAC1C22BCF983002879CA /* ImageInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FDAC1B22BCF983002879CA /* ImageInteractor.swift */; };
+		F4FDAC1C22BCF983002879CA /* ImagesView+ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FDAC1B22BCF983002879CA /* ImagesView+ViewModel.swift */; };
 		F4FDAC1E22BD06AF002879CA /* ImageListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FDAC1D22BD06AF002879CA /* ImageListView.swift */; };
 /* End PBXBuildFile section */
 
@@ -115,7 +115,7 @@
 		F46BED932542EECD000C977C /* YouTubeVideoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YouTubeVideoView.swift; sourceTree = "<group>"; };
 		F46F57902513FAA700DC3B28 /* AppearanceUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppearanceUtil.swift; sourceTree = "<group>"; };
 		F46F57942514AB1D00DC3B28 /* Color+AssetCatalog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+AssetCatalog.swift"; sourceTree = "<group>"; };
-		F46F579B2514AEDF00DC3B28 /* ImageTabWrapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageTabWrapView.swift; sourceTree = "<group>"; };
+		F46F579B2514AEDF00DC3B28 /* ImagesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesView.swift; sourceTree = "<group>"; };
 		F46F579F2514B24E00DC3B28 /* ImageTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageTabView.swift; sourceTree = "<group>"; };
 		F46F57A32514D36300DC3B28 /* ImageDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDetailView.swift; sourceTree = "<group>"; };
 		F46F57A62514E0F800DC3B28 /* ImageDetailFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDetailFooterView.swift; sourceTree = "<group>"; };
@@ -136,7 +136,7 @@
 		F49D7045253B098500AA9FC6 /* VideosDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideosDataManager.swift; sourceTree = "<group>"; };
 		F49D7048253B0AA500AA9FC6 /* Video.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Video.swift; sourceTree = "<group>"; };
 		F49D704B253B0E1F00AA9FC6 /* VideoListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoListView.swift; sourceTree = "<group>"; };
-		F49D704E253B0E4700AA9FC6 /* VideosInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideosInteractor.swift; sourceTree = "<group>"; };
+		F49D704E253B0E4700AA9FC6 /* VideoListView+ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "VideoListView+ViewModel.swift"; sourceTree = "<group>"; };
 		F49D7053253B111F00AA9FC6 /* VideoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoView.swift; sourceTree = "<group>"; };
 		F49D7056253B186500AA9FC6 /* VideoFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoFooterView.swift; sourceTree = "<group>"; };
 		F49D7059253B18FD00AA9FC6 /* RatingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingView.swift; sourceTree = "<group>"; };
@@ -144,7 +144,7 @@
 		F49D705F253B209C00AA9FC6 /* ShareButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareButton.swift; sourceTree = "<group>"; };
 		F49DC5B025C077390081D950 /* CommentsDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsDataManager.swift; sourceTree = "<group>"; };
 		F49DC5B425C077410081D950 /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
-		F49DC5B725C07A0C0081D950 /* CommentsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsInteractor.swift; sourceTree = "<group>"; };
+		F49DC5B725C07A0C0081D950 /* CommentsView+ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CommentsView+ViewModel.swift"; sourceTree = "<group>"; };
 		F49DC5BA25C1556C0081D950 /* CommentsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsView.swift; sourceTree = "<group>"; };
 		F49DC5BD25C155CD0081D950 /* CommentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentView.swift; sourceTree = "<group>"; };
 		F49DC5C025C15A550081D950 /* Commentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Commentable.swift; sourceTree = "<group>"; };
@@ -153,17 +153,17 @@
 		F4B749EC250272DC0063CDA9 /* ImageListCellFooterRatingLoggedInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageListCellFooterRatingLoggedInView.swift; sourceTree = "<group>"; };
 		F4C94DE022D8A9950068F40E /* JokesDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JokesDataManager.swift; sourceTree = "<group>"; };
 		F4C94DE222D8A9AE0068F40E /* Joke.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Joke.swift; sourceTree = "<group>"; };
-		F4C94DE422D8B0AD0068F40E /* JokesInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JokesInteractor.swift; sourceTree = "<group>"; };
+		F4C94DE422D8B0AD0068F40E /* JokesListView+ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "JokesListView+ViewModel.swift"; sourceTree = "<group>"; };
 		F4C94DE622D8B84F0068F40E /* JokesListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JokesListView.swift; sourceTree = "<group>"; };
 		F4C94DE822D8B8A90068F40E /* JokeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JokeView.swift; sourceTree = "<group>"; };
 		F4C94E0B22D9D3440068F40E /* ForumDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForumDataManager.swift; sourceTree = "<group>"; };
 		F4C94E0D22D9D3790068F40E /* ForumPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForumPost.swift; sourceTree = "<group>"; };
-		F4C94E0F22D9DEB30068F40E /* ForumInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForumInteractor.swift; sourceTree = "<group>"; };
+		F4C94E0F22D9DEB30068F40E /* ForumView+ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ForumView+ViewModel.swift"; sourceTree = "<group>"; };
 		F4C94E1122D9E08C0068F40E /* ForumThread.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForumThread.swift; sourceTree = "<group>"; };
 		F4C94E1322D9EA4A0068F40E /* ForumView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForumView.swift; sourceTree = "<group>"; };
 		F4FAF85C25441E5A0045DDF2 /* Gif.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gif.swift; sourceTree = "<group>"; };
 		F4FAF860254421020045DDF2 /* GifsDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GifsDataManager.swift; sourceTree = "<group>"; };
-		F4FAF8632544215D0045DDF2 /* GifsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GifsInteractor.swift; sourceTree = "<group>"; };
+		F4FAF8632544215D0045DDF2 /* GifsListView+ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GifsListView+ViewModel.swift"; sourceTree = "<group>"; };
 		F4FAF8662544232A0045DDF2 /* GifView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GifView.swift; sourceTree = "<group>"; };
 		F4FAF86925442FA90045DDF2 /* GifListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GifListView.swift; sourceTree = "<group>"; };
 		F4FDABF822BCD1ED002879CA /* iRouming.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iRouming.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -176,7 +176,7 @@
 		F4FDAC0922BCD1EF002879CA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F4FDAC1522BCDCCF002879CA /* RoumingImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoumingImage.swift; sourceTree = "<group>"; };
 		F4FDAC1922BCE056002879CA /* ImagesDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesDataManager.swift; sourceTree = "<group>"; };
-		F4FDAC1B22BCF983002879CA /* ImageInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageInteractor.swift; sourceTree = "<group>"; };
+		F4FDAC1B22BCF983002879CA /* ImagesView+ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ImagesView+ViewModel.swift"; sourceTree = "<group>"; };
 		F4FDAC1D22BD06AF002879CA /* ImageListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageListView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -256,6 +256,8 @@
 				F4FDAC1522BCDCCF002879CA /* RoumingImage.swift */,
 				F40271B52714BEA9000A2A0F /* RoumingImageTriplet.swift */,
 				F4FDAC1922BCE056002879CA /* ImagesDataManager.swift */,
+				F46F579B2514AEDF00DC3B28 /* ImagesView.swift */,
+				F4FDAC1B22BCF983002879CA /* ImagesView+ViewModel.swift */,
 				F46F579A2514AEBE00DC3B28 /* ImageTab */,
 				F4A852BC22C77BAD0006C269 /* ImageDetail */,
 				F4FDAC1422BCDCBB002879CA /* ImageList */,
@@ -267,7 +269,6 @@
 		F46F579A2514AEBE00DC3B28 /* ImageTab */ = {
 			isa = PBXGroup;
 			children = (
-				F46F579B2514AEDF00DC3B28 /* ImageTabWrapView.swift */,
 				F46F579F2514B24E00DC3B28 /* ImageTabView.swift */,
 			);
 			path = ImageTab;
@@ -324,7 +325,7 @@
 			isa = PBXGroup;
 			children = (
 				F49D7045253B098500AA9FC6 /* VideosDataManager.swift */,
-				F49D704E253B0E4700AA9FC6 /* VideosInteractor.swift */,
+				F49D704E253B0E4700AA9FC6 /* VideoListView+ViewModel.swift */,
 				F49D7048253B0AA500AA9FC6 /* Video.swift */,
 				F49D704B253B0E1F00AA9FC6 /* VideoListView.swift */,
 				F49D7053253B111F00AA9FC6 /* VideoView.swift */,
@@ -339,7 +340,7 @@
 			children = (
 				F49DC5B025C077390081D950 /* CommentsDataManager.swift */,
 				F49DC5B425C077410081D950 /* Comment.swift */,
-				F49DC5B725C07A0C0081D950 /* CommentsInteractor.swift */,
+				F49DC5B725C07A0C0081D950 /* CommentsView+ViewModel.swift */,
 				F49DC5BA25C1556C0081D950 /* CommentsView.swift */,
 				F49DC5BD25C155CD0081D950 /* CommentView.swift */,
 				F49DC5C025C15A550081D950 /* Commentable.swift */,
@@ -380,7 +381,7 @@
 			children = (
 				F4C94DE022D8A9950068F40E /* JokesDataManager.swift */,
 				F4C94DE222D8A9AE0068F40E /* Joke.swift */,
-				F4C94DE422D8B0AD0068F40E /* JokesInteractor.swift */,
+				F4C94DE422D8B0AD0068F40E /* JokesListView+ViewModel.swift */,
 				F4C94DE622D8B84F0068F40E /* JokesListView.swift */,
 				F4C94DE822D8B8A90068F40E /* JokeView.swift */,
 			);
@@ -395,7 +396,7 @@
 				F4C94E0B22D9D3440068F40E /* ForumDataManager.swift */,
 				F4C94E0D22D9D3790068F40E /* ForumPost.swift */,
 				F4C94E1122D9E08C0068F40E /* ForumThread.swift */,
-				F4C94E0F22D9DEB30068F40E /* ForumInteractor.swift */,
+				F4C94E0F22D9DEB30068F40E /* ForumView+ViewModel.swift */,
 				F4C94E1322D9EA4A0068F40E /* ForumView.swift */,
 			);
 			path = Forum;
@@ -422,7 +423,7 @@
 			children = (
 				F4FAF85C25441E5A0045DDF2 /* Gif.swift */,
 				F4FAF860254421020045DDF2 /* GifsDataManager.swift */,
-				F4FAF8632544215D0045DDF2 /* GifsInteractor.swift */,
+				F4FAF8632544215D0045DDF2 /* GifsListView+ViewModel.swift */,
 				F4FAF8662544232A0045DDF2 /* GifView.swift */,
 				F4FAF86925442FA90045DDF2 /* GifListView.swift */,
 				F489568F254AAC4100196BE9 /* GifOverlayView.swift */,
@@ -488,7 +489,6 @@
 			isa = PBXGroup;
 			children = (
 				F46A51BF22EAED6400DA5821 /* ImageListCellViews */,
-				F4FDAC1B22BCF983002879CA /* ImageInteractor.swift */,
 				F4FDAC1D22BD06AF002879CA /* ImageListView.swift */,
 			);
 			path = ImageList;
@@ -588,7 +588,7 @@
 				F4C94DE722D8B84F0068F40E /* JokesListView.swift in Sources */,
 				F40271B82714C381000A2A0F /* ImageGridEmptyCell.swift in Sources */,
 				F49DC5C125C15A550081D950 /* Commentable.swift in Sources */,
-				F46F579C2514AEDF00DC3B28 /* ImageTabWrapView.swift in Sources */,
+				F46F579C2514AEDF00DC3B28 /* ImagesView.swift in Sources */,
 				F46F57A42514D36300DC3B28 /* ImageDetailView.swift in Sources */,
 				F4FDAC1622BCDCCF002879CA /* RoumingImage.swift in Sources */,
 				F4895690254AAC4100196BE9 /* GifOverlayView.swift in Sources */,
@@ -598,7 +598,7 @@
 				F49D705D253B1F7800AA9FC6 /* CommentsButton.swift in Sources */,
 				F46F57A02514B24E00DC3B28 /* ImageTabView.swift in Sources */,
 				F444764C25B18BB8005C7946 /* ForumThreadView.swift in Sources */,
-				F49D704F253B0E4700AA9FC6 /* VideosInteractor.swift in Sources */,
+				F49D704F253B0E4700AA9FC6 /* VideoListView+ViewModel.swift in Sources */,
 				F444E445253994BD00CB8571 /* DateView.swift in Sources */,
 				F49D7046253B098500AA9FC6 /* VideosDataManager.swift in Sources */,
 				F49DC5BE25C155CD0081D950 /* CommentView.swift in Sources */,
@@ -610,7 +610,7 @@
 				F46BED8D2542E9F3000C977C /* YTPlayerView.m in Sources */,
 				F40271B227103D42000A2A0F /* View+Print.swift in Sources */,
 				F444764F25B18D39005C7946 /* ForumThreadPostsCountView.swift in Sources */,
-				F4FAF8642544215D0045DDF2 /* GifsInteractor.swift in Sources */,
+				F4FAF8642544215D0045DDF2 /* GifsListView+ViewModel.swift in Sources */,
 				F48ED5B925D7F1EB001EE8E8 /* RoamingToastStyle.swift in Sources */,
 				F4C94E0C22D9D3440068F40E /* ForumDataManager.swift in Sources */,
 				F489569D254AB87A00196BE9 /* NewItemDisplayable.swift in Sources */,
@@ -619,7 +619,7 @@
 				F49D704C253B0E1F00AA9FC6 /* VideoListView.swift in Sources */,
 				F4912DE025271F0B00ECED5E /* ImageGridFooterView.swift in Sources */,
 				F46A51C522EB11B600DA5821 /* ImageListCellFooterView.swift in Sources */,
-				F4C94DE522D8B0AD0068F40E /* JokesInteractor.swift in Sources */,
+				F4C94DE522D8B0AD0068F40E /* JokesListView+ViewModel.swift in Sources */,
 				F46F57A72514E0F800DC3B28 /* ImageDetailFooterView.swift in Sources */,
 				F49D705A253B18FD00AA9FC6 /* RatingView.swift in Sources */,
 				F49D7060253B209C00AA9FC6 /* ShareButton.swift in Sources */,
@@ -627,14 +627,14 @@
 				F4FAF85D25441E5A0045DDF2 /* Gif.swift in Sources */,
 				F4C94E1222D9E08C0068F40E /* ForumThread.swift in Sources */,
 				F4912DE32527215600ECED5E /* ImageGridCell.swift in Sources */,
-				F49DC5B825C07A0C0081D950 /* CommentsInteractor.swift in Sources */,
+				F49DC5B825C07A0C0081D950 /* CommentsView+ViewModel.swift in Sources */,
 				F4B749EB2502727F0063CDA9 /* ImageListCellFooterRatingView.swift in Sources */,
 				F4FDABFC22BCD1ED002879CA /* AppDelegate.swift in Sources */,
 				F46A51C322EAF12100DA5821 /* NewItemView.swift in Sources */,
 				F4895698254AB31200196BE9 /* ImagesDataManager.swift in Sources */,
 				F49DC5BB25C1556C0081D950 /* CommentsView.swift in Sources */,
 				F4C94E0E22D9D3790068F40E /* ForumPost.swift in Sources */,
-				F4C94E1022D9DEB30068F40E /* ForumInteractor.swift in Sources */,
+				F4C94E1022D9DEB30068F40E /* ForumView+ViewModel.swift in Sources */,
 				F43ED83E25B47CBA000BD044 /* RegistrationStatusView.swift in Sources */,
 				F48ED5A525D7C96B001EE8E8 /* LoadingView.swift in Sources */,
 				F4FDABFE22BCD1ED002879CA /* SceneDelegate.swift in Sources */,
@@ -643,7 +643,7 @@
 				F40271B42711B924000A2A0F /* RegistrationStatus.swift in Sources */,
 				F4FAF861254421020045DDF2 /* GifsDataManager.swift in Sources */,
 				F4C94DE322D8A9AE0068F40E /* Joke.swift in Sources */,
-				F4FDAC1C22BCF983002879CA /* ImageInteractor.swift in Sources */,
+				F4FDAC1C22BCF983002879CA /* ImagesView+ViewModel.swift in Sources */,
 				F49D7049253B0AA500AA9FC6 /* Video.swift in Sources */,
 				F49DC5C525C1BE360081D950 /* AboutView.swift in Sources */,
 				F40271B62714BEA9000A2A0F /* RoumingImageTriplet.swift in Sources */,

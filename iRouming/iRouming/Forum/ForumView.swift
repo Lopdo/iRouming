@@ -11,23 +11,23 @@ import Firebase
 
 struct ForumView: View {
 
-	@State var threadsVisible: Bool = false
-	@State var showingDetail = false
-	@StateObject var interactor = ForumInteractor()
+	@State private var threadsVisible: Bool = false
+	@State private var showingDetail = false
+	@StateObject private var viewModel = ViewModel()
 
 	var body: some View {
 		GeometryReader { metrics in
 			ZStack {
-				ForumThreadsListView(threads: interactor.threads, currentThread: $interactor.currentThread, threadsVisible: $threadsVisible)
+				ForumThreadsListView(threads: viewModel.threads, currentThread: $viewModel.currentThread, threadsVisible: $threadsVisible)
 
 				NavigationView {
 					Group {
-						if (interactor.isLoadingPosts && interactor.posts(for: interactor.currentThread?.id).count == 0)
-						|| (interactor.isLoadingThreads && interactor.threads.count == 0) {
+						if (viewModel.isLoadingPosts && viewModel.posts(for: viewModel.currentThread?.id).count == 0)
+						|| (viewModel.isLoadingThreads && viewModel.threads.count == 0) {
 							LoadingView()
 								.frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
 						} else {
-							ForumPostsView(interactor: interactor)
+							ForumPostsView(viewModel: viewModel)
 						}
 					}
 					.navigationBarTitle(Text("Fórum"), displayMode: .inline)
@@ -45,7 +45,7 @@ struct ForumView: View {
 						}
 					}, label: {
 						Image(threadsVisible ? "icn_navbar_close" : "icn_hamburger_menu")
-					}).disabled(interactor.isLoadingPosts),
+					}).disabled(viewModel.isLoadingPosts),
 						trailing:
 							Button(action: {
 								self.showingDetail.toggle()
@@ -63,9 +63,9 @@ struct ForumView: View {
 		}
 		.navigationBarTitle(Text("Fórum"))
 		.task {
-			if interactor.postsForCurrentThread().isEmpty && !interactor.isLoadingPosts {
-				async let posts: () = interactor.getLatestPosts()
-				async let threads: () = interactor.getThreads()
+			if viewModel.postsForCurrentThread().isEmpty && !viewModel.isLoadingPosts {
+				async let posts: () = viewModel.getLatestPosts()
+				async let threads: () = viewModel.getThreads()
 				_ = await (posts, threads)
 			}
 		}

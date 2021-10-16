@@ -1,5 +1,5 @@
 //
-//  ImageTabWrapView.swift
+//  ImagesView.swift
 //  iRouming
 //
 //  Created by Lope on 18/09/2020.
@@ -8,9 +8,9 @@
 
 import SwiftUI
 
-struct ImageTabWrapView: View {
+struct ImagesView: View {
 
-	@StateObject var interactor = ImageInteractor()
+	@StateObject var viewModel = ViewModel()
 	@State var showingDetail = false
 	@State var listSelected: Bool = true
 
@@ -19,9 +19,9 @@ struct ImageTabWrapView: View {
 			ImageTabView(listSelected: $listSelected)
 
 			if listSelected {
-				ImageListView(interactor: interactor)
+				ImageListView(viewModel: viewModel)
 			} else {
-				ImageGridView(interactor: interactor)
+				ImageGridView(viewModel: viewModel)
 			}
 		}
 		.navigationBarItems(trailing:

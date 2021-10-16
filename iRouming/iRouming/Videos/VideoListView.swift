@@ -11,22 +11,22 @@ import Firebase
 
 struct VideoListView: View {
 
-	@StateObject var interactor = VideosInteractor()
+	@StateObject var viewModel = ViewModel()
 	@State var showingDetail = false
 	
 	var body: some View {
 		Group {
-			if interactor.isLoading && interactor.videos.isEmpty {
+			if viewModel.isLoading && viewModel.videos.isEmpty {
 				LoadingView()
 					.frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
 			} else {
-				List(interactor.videos) { video in
+				List(viewModel.videos) { video in
 					VideoView(video: video)
 				}
 				.listStyle(.plain)
 				.background(Color.background)
 				.refreshable {
-					await interactor.getVideos()
+					await viewModel.getVideos()
 				}
 			}
 		}
@@ -51,7 +51,7 @@ struct VideoListView: View {
 extension VideoListView {
 
 	fileprivate init(videos: [Video]) {
-		interactor.videos = videos
+		viewModel.videos = videos
 	}
 
 }
