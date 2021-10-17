@@ -796,6 +796,7 @@
 				CODE_SIGN_ENTITLEMENTS = iRouming/iRouming.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2.2;
 				DEVELOPMENT_ASSET_PATHS = "iRouming/Preview\\ Content";
 				DEVELOPMENT_TEAM = 54F29SU2PQ;
 				ENABLE_PREVIEWS = YES;
@@ -809,6 +810,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 2.2;
 				PRODUCT_BUNDLE_IDENTIFIER = lb.iphone.iRouming;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -827,6 +829,7 @@
 				CODE_SIGN_ENTITLEMENTS = iRouming/iRouming.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2.2;
 				DEVELOPMENT_ASSET_PATHS = "iRouming/Preview\\ Content";
 				DEVELOPMENT_TEAM = 54F29SU2PQ;
 				ENABLE_PREVIEWS = YES;
@@ -840,6 +843,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 2.2;
 				PRODUCT_BUNDLE_IDENTIFIER = lb.iphone.iRouming;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
